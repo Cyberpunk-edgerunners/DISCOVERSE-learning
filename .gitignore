@@ -241,3 +241,26 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# ============ 机器人仿真特定文件 ============
+*.mjb
+*.ply
+*.splat
+outputs/
+recordings/
+test_output/
+debug/
+scratch/
+*.test.py
+
+# 大型资源（用 Git LFS 管理）
+*.stl
+assets/textures/**/*.png
+assets/textures/**/*.jpg
+
+# CI/CD 产物
+.pytest_cache/
+htmlcov/
+.coverage
+test-reports/
+allure-results/
