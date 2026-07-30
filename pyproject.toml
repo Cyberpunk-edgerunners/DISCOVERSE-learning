@@ -249,4 +249,35 @@ testpaths = ["tests"]
 python_files = "test_*.py"
 python_classes = "Test*"
 python_functions = "test_*"
-addopts = "--verbose --tb=short" 
+
+markers = [
+    "unit: 纯函数/配置层单测，无 MuJoCo 依赖，秒级",
+    "integration: 需要加载 MJCF 或跑仿真步进",
+    "slow: 单用例 >10s，CI 主线跳过",
+    "determinism: 确定性/可复现性专项",
+]
+
+# --strict-markers: marker 拼写错误直接报错，而非静默生成新 marker 吞掉用例筛选
+# --tb=short:       traceback 只留一行源码，参数化批量失败时不刷屏
+# -ra:              结尾汇总所有非通过用例（含 skip/xfail 的原因），不让缺失隐形
+addopts = "--strict-markers --tb=short -ra"
+
+# MuJoCo 仿真最常见的失败模式是死循环而非抛异常。
+# 无超时则 CI 会挂到平台上限才被杀；有超时则变成一条明确的失败。
+timeout = 60
+
+# 覆盖率作用域：只统计正在测试的模块。
+# 不要写 --cov=discoverse —— policies/ 下 237 个策略学习文件会把
+# 分母稀释到 2-3%，数字失去指导意义。
+[tool.coverage.run]
+source = ["discoverse/universal_manipulation"]
+omit = ["*/__pycache__/*", "*/tests/*"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = false
+exclude_lines = [
+    "pragma: no cover",
+    "if __name__ == .__main__.:",
+    "raise NotImplementedError",
+]

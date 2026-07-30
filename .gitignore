@@ -264,3 +264,11 @@ htmlcov/
 .coverage
 test-reports/
 allure-results/
+coverage.xml
+**/__pycache__/
+
+# MuJoCo 模型导出产物（mj_saveLastXML 等 API 的默认输出）
+mjmodel.xml
+
+# 简历等
+source-notes/*.pdf
