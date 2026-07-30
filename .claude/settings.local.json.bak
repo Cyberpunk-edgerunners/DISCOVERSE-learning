@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd /home/ubuntu22/.claude/plans && grep -n \"PR #3\\\\|上游\\\\|PR 至少\\\\|merged PR\\\\|已合并\\\\|被上游合并\\\\|maintainer\" discoverse-source-notes-3-pdf-discovers-glimmering-lemur.md)",
+      "Read(//home/ubuntu22/.claude/plans/**)",
+      "Bash(gh auth *)"
+    ]
+  }
+}

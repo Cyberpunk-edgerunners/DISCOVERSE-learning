@@ -1,0 +1,113 @@
+# 忽略大文件和生成文件
+*.pyc
+__pycache__/
+*.so
+*.egg-info/
+.eggs/
+build/
+dist/
+*.egg
+
+# 忽略数据集和模型权重
+datasets/
+data/
+*.zarr
+*.h5
+*.hdf5
+*.pth
+*.pt
+*.ckpt
+*.safetensors
+checkpoints/
+logs/
+wandb/
+outputs/
+
+# 忽略视频和图像数据
+*.mp4
+*.avi
+*.mov
+*.png
+*.jpg
+*.jpeg
+*.gif
+videos/
+images/
+renders/
+
+# 忽略大型模型文件（但保留MJCF和URDF）
+models/meshes/**/*.stl
+models/meshes/**/*.obj
+models/meshes/**/*.dae
+!models/meshes/**/*.xml
+
+# 忽略 3D Gaussian Splatting 大文件
+*.ply
+*.splat
+3dgs_data/
+gaussian_models/
+
+# 忽略 Git 子模块内容（已在 .gitmodules 追踪）
+submodules/ComfyUI/
+submodules/lerobot/
+submodules/MuJoCo-LiDAR/
+submodules/urdf2mjcf/
+submodules/XML-Editor/
+
+# 忽略策略训练生成的大文件
+policies/*/logs/
+policies/*/checkpoints/
+policies/*/wandb/
+policies/*/outputs/
+policies/*/data/
+
+# 忽略临时文件和缓存
+.cache/
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+*.log
+*.tmp
+*.swp
+.DS_Store
+
+# 忽略 IDE 配置（可选）
+.vscode/
+.idea/
+*.iml
+
+# 忽略 Docker 构建产物
+*.tar
+*.tar.gz
+docker-compose.override.yml
+
+# 忽略环境变量文件
+.env
+.env.local
+*.secret
+
+# 忽略 DVC 跟踪的数据文件（仅保留 .dvc 元数据）
+*.dvc
+!*.dvc
+
+# 忽略测试覆盖率详细数据
+.coverage.*
+coverage.xml
+
+# 忽略大型文档和 PDF
+*.pdf
+docs/_build/
+
+# 保留重要的配置和文档
+!README.md
+!CLAUDE.md
+!.claudeignore
+!pyproject.toml
+!setup.py
+!requirements.txt
+!docker-compose.yml
+!.github/
+!discoverse/configs/
+!discoverse/doc/
+!source-notes/*.md
