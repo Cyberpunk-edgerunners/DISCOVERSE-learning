@@ -181,7 +181,7 @@ class SceneRandomizer:
                         break
                     
                     # 检查与已放置物体的碰撞
-                    radius = obj_config.get('min_distance', 0.05)
+                    radius = self._get_collision_radius(obj_config)
                     if self._check_collision_2d(new_pos[:2], radius, placed_objects):
                         continue  # 有碰撞，重新尝试
                     
@@ -239,7 +239,25 @@ class SceneRandomizer:
         world_pos[2] = current_z
 
         return world_pos[:3]
-    
+
+    def _get_collision_radius(self, obj_config: Dict[str, Any]) -> float:
+        """取物体的碰撞避让半径。
+
+        兼容两种键名：
+          collision_radius —— 任务 YAML 实际使用（12 处，全部生效）
+          min_distance     —— templates/randomization.yaml 使用（6 处）
+
+        为什么两个都认：模板从未被任何任务 extends（唯一引用是它自己
+        第 137 行的注释示例），但它是给人照抄的文档。只认新键名的话，
+        照模板抄的人会掉进同一个坑；只认旧键名就是现在这个缺陷本身。
+
+        优先级给 collision_radius —— 它是实际被加载的那一个。
+        """
+        return obj_config.get(
+            'collision_radius',
+            obj_config.get('min_distance', 0.05)
+        )
+
     def _check_collision_2d(self, pos_2d: np.ndarray, radius: float, 
                            placed_objects: List[Tuple[str, float, float, float]]) -> bool:
         """

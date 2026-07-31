@@ -13,7 +13,7 @@ randomization:
         euler_range: [0.0, 0.0, 0.1]  # 欧拉角随机范围 [roll, pitch, yaw] (弧度)
         # 或者使用完全随机旋转
         # random_rotation: true
-      min_distance: 0.03  # 最小距离（米）
+      collision_radius: 0.03  # 最小距离（米）
       description: "物体位置和姿态随机化"
   
   # 相机随机化模板
@@ -73,7 +73,7 @@ randomization_presets:
       - name: "${object_name}"
         position:
           offset_range: [0.02, 0.02, 0.0]  # ±2cm
-        min_distance: 0.02
+        collision_radius: 0.02
     settings:
       max_attempts: 50
       description: "轻度随机化 - 小范围位置偏移"
@@ -86,7 +86,7 @@ randomization_presets:
           offset_range: [0.05, 0.05, 0.0]  # ±5cm
         orientation:
           euler_range: [0.0, 0.0, 0.05]  # ±0.05弧度 yaw
-        min_distance: 0.03
+        collision_radius: 0.03
     cameras:
       "${camera_name}":
         position_offset: [0.02, 0.02, 0.02]
@@ -103,7 +103,7 @@ randomization_presets:
           offset_range: [0.08, 0.08, 0.0]  # ±8cm
         orientation:
           euler_range: [0.1, 0.1, 0.1]  # ±0.1弧度
-        min_distance: 0.04
+        collision_radius: 0.04
     cameras:
       "${camera_name}":
         position_offset: [0.05, 0.05, 0.05]
@@ -120,7 +120,7 @@ randomization_presets:
           offset_range: [0.12, 0.12, 0.0]  # ±12cm
         orientation:
           random_rotation: true  # 完全随机旋转
-        min_distance: 0.05
+        collision_radius: 0.05
     cameras:
       "${camera_name}":
         position_offset: [0.08, 0.08, 0.08]
