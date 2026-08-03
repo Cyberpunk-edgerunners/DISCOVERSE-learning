@@ -50,7 +50,14 @@ class UniversalTaskBase:
         self.mj_model = mj_model
         self.mj_data = mj_data
     
-        self.randomizer = SceneRandomizer(self.mj_model, self.mj_data)
+        # 从配置里取随机种子。三层都可能缺失或为 None：
+        #   randomization 段可能不存在；settings 可能不存在；seed 可能是 null。
+        # None 是合法值 —— default_rng(None) 表示从系统熵源取种，
+        # 即保持"YAML 不写 seed 就每次随机"的原有语义。
+        _rand_cfg = self.task_config.randomization or {}
+        _seed = (_rand_cfg.get('settings') or {}).get('seed')
+        self.randomizer = SceneRandomizer(self.mj_model, self.mj_data, seed=_seed)
+
         if self.task_config.randomization is not None and self.task_config.validate_randomization_config():
             self.randomization_config = self.task_config.randomization
         else:

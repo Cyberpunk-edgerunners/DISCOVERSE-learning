@@ -17,7 +17,8 @@ from discoverse.utils import get_random_texture, get_site_tmat
 class SceneRandomizer:
     """场景随机化器"""
     
-    def __init__(self, mj_model: mujoco.MjModel, mj_data: mujoco.MjData):
+    def __init__(self, mj_model: mujoco.MjModel, mj_data: mujoco.MjData,
+                 seed: Optional[int] = None):
         """
         初始化场景随机化器
         
@@ -27,6 +28,11 @@ class SceneRandomizer:
         """
         self.mj_model = mj_model
         self.mj_data = mj_data
+        # 随机数生成器实例。用 Generator 而非 np.random.seed()：
+        #   全局随机流是进程级共享的，第三方库调一次就会推进它，
+        #   且 pytest-xdist 并行下会互相污染。实例是隔离的。
+        # seed=None -> 从操作系统熵源取种，即保持"不指定就随机"的原有行为。
+        self.rng = np.random.default_rng(seed)
         self.viewer = None
         self.renderer = None
 
@@ -227,8 +233,8 @@ class SceneRandomizer:
         x_range = obj_config['x_range']
         y_range = obj_config['y_range']
         
-        local_x = np.random.uniform(x_range[0], x_range[1])
-        local_y = np.random.uniform(y_range[0], y_range[1])
+        local_x = self.rng.uniform(x_range[0], x_range[1])
+        local_y = self.rng.uniform(y_range[0], y_range[1])
                 
         local_pos = np.array([local_x, local_y, 0.0, 1.0])
         
@@ -314,12 +320,12 @@ class SceneRandomizer:
                 offset_range = camera_config['position_offset']
                 if isinstance(offset_range, (list, tuple)) and len(offset_range) == 3:
                     offset = np.array([
-                        2 * (np.random.random() - 0.5) * offset_range[0],
-                        2 * (np.random.random() - 0.5) * offset_range[1],
-                        2 * (np.random.random() - 0.5) * offset_range[2]
+                        2 * (self.rng.random() - 0.5) * offset_range[0],
+                        2 * (self.rng.random() - 0.5) * offset_range[1],
+                        2 * (self.rng.random() - 0.5) * offset_range[2]
                     ])
                 elif isinstance(offset_range, (int, float)):
-                    offset = 2 * (np.random.random(3) - 0.5) * offset_range
+                    offset = 2 * (self.rng.random(3) - 0.5) * offset_range
                 else:
                     offset = np.zeros(3)
                 
@@ -337,12 +343,12 @@ class SceneRandomizer:
                 # 应用随机偏移
                 if isinstance(euler_range, (list, tuple)) and len(euler_range) == 3:
                     euler_offset = np.array([
-                        2 * (np.random.random() - 0.5) * euler_range[0],
-                        2 * (np.random.random() - 0.5) * euler_range[1],
-                        2 * (np.random.random() - 0.5) * euler_range[2]
+                        2 * (self.rng.random() - 0.5) * euler_range[0],
+                        2 * (self.rng.random() - 0.5) * euler_range[1],
+                        2 * (self.rng.random() - 0.5) * euler_range[2]
                     ])
                 elif isinstance(euler_range, (int, float)):
-                    euler_offset = 2 * (np.random.random(3) - 0.5) * euler_range
+                    euler_offset = 2 * (self.rng.random(3) - 0.5) * euler_range
                 else:
                     euler_offset = np.zeros(3)
                 
@@ -365,7 +371,7 @@ class SceneRandomizer:
             随机四元数 (w, x, y, z)
         """
         # 使用均匀分布生成随机四元数
-        u1, u2, u3 = np.random.random(3)
+        u1, u2, u3 = self.rng.random(3)
         
         sqrt1_u1 = np.sqrt(1 - u1)
         sqrt_u1 = np.sqrt(u1)
@@ -393,23 +399,23 @@ class SceneRandomizer:
             if lighting_config.get('individual_colors', False):
                 # 为每个光源单独设置颜色
                 for i in range(self.mj_model.nlight):
-                    self.mj_model.light_ambient[i, :] = np.random.random(3) * 0.1
-                    self.mj_model.light_diffuse[i, :] = np.random.random(3)
-                    self.mj_model.light_specular[i, :] = np.random.random(3) * 0.3
+                    self.mj_model.light_ambient[i, :] = self.rng.random(3) * 0.1
+                    self.mj_model.light_diffuse[i, :] = self.rng.random(3)
+                    self.mj_model.light_specular[i, :] = self.rng.random(3) * 0.3
             else:
                 # 所有光源使用相同的随机化
-                self.mj_model.light_ambient[:] = np.random.random(size=self.mj_model.light_ambient.shape) * 0.1
-                self.mj_model.light_diffuse[:] = np.random.random(size=self.mj_model.light_diffuse.shape)
-                self.mj_model.light_specular[:] = np.random.random(size=self.mj_model.light_specular.shape) * 0.3
+                self.mj_model.light_ambient[:] = self.rng.random(size=self.mj_model.light_ambient.shape) * 0.1
+                self.mj_model.light_diffuse[:] = self.rng.random(size=self.mj_model.light_diffuse.shape)
+                self.mj_model.light_specular[:] = self.rng.random(size=self.mj_model.light_specular.shape) * 0.3
         
         # 随机化光源激活状态
         if lighting_config.get('random_active', False):
             active_prob = lighting_config.get('active_probability', 0.5)
-            self.mj_model.light_active[:] = np.int32(np.random.rand(self.mj_model.nlight) > (1 - active_prob)).tolist()
+            self.mj_model.light_active[:] = np.int32(self.rng.random(self.mj_model.nlight) > (1 - active_prob)).tolist()
             
             # 确保至少有一个光源是激活的
             if np.sum(self.mj_model.light_active) == 0:
-                self.mj_model.light_active[np.random.randint(self.mj_model.nlight)] = 1
+                self.mj_model.light_active[self.rng.integers(self.mj_model.nlight)] = 1
         
         # 随机化光源位置
         if 'position_offset' in lighting_config:
@@ -422,11 +428,11 @@ class SceneRandomizer:
                 
                 self.mj_model.light_pos[:, :2] = (
                     self.mj_model.light_pos0[:, :2] + 
-                    np.random.normal(scale=xy_scale, size=self.mj_model.light_pos[:, :2].shape)
+                    self.rng.normal(scale=xy_scale, size=self.mj_model.light_pos[:, :2].shape)
                 )
                 self.mj_model.light_pos[:, 2] = (
                     self.mj_model.light_pos0[:, 2] + 
-                    np.random.normal(scale=z_scale, size=self.mj_model.light_pos[:, 2].shape)
+                    self.rng.normal(scale=z_scale, size=self.mj_model.light_pos[:, 2].shape)
                 )
             else:
                 print(f"unsupported position_offset format: {pos_config}")
@@ -434,7 +440,7 @@ class SceneRandomizer:
         # 随机化光源方向
         if lighting_config.get('random_direction', False):
             # 生成随机方向向量
-            self.mj_model.light_dir[:] = np.random.random(size=self.mj_model.light_dir.shape) - 0.5
+            self.mj_model.light_dir[:] = self.rng.random(size=self.mj_model.light_dir.shape) - 0.5
             self.mj_model.light_dir[:, 2] *= 2.0  # Z方向偏向向下
             
             # 归一化方向向量
@@ -455,7 +461,7 @@ class SceneRandomizer:
                 min_intensity, max_intensity = 0.5, 1.0
             
             # 为每个颜色通道应用强度缩放
-            intensity_scale = np.random.uniform(min_intensity, max_intensity, size=(self.mj_model.nlight, 1))
+            intensity_scale = self.rng.uniform(min_intensity, max_intensity, size=(self.mj_model.nlight, 1))
             
             self.mj_model.light_ambient[:] *= intensity_scale
             self.mj_model.light_diffuse[:] *= intensity_scale
@@ -485,10 +491,10 @@ class SceneRandomizer:
         
         # 生成随机高度变化量
         if isinstance(height_range, list) and len(height_range) == 2:
-            change_height = np.random.uniform(float(height_range[0]), float(height_range[1]))
+            change_height = self.rng.uniform(float(height_range[0]), float(height_range[1]))
         else:
             print(f"⚠️ 无效的高度范围配置: {height_range}, 使用默认0-10cm")
-            change_height = np.random.uniform(0, 0.1)  # 默认0-10cm
+            change_height = self.rng.uniform(0, 0.1)  # 默认0-10cm
 
         self.mj_model.body(table_name).pos[:] = self.table_pos0.copy()
         self.mj_model.body(table_name).pos[2] = self.table_pos0[2] - change_height
