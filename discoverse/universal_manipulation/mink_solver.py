@@ -73,6 +73,9 @@ class MinkIKSolver:
             home_qpos = self.mj_model.key(0).qpos.copy()
             self.configuration.update(home_qpos)
             self.posture_task.set_target_from_configuration(self.configuration)
+            # 记住默认姿态目标：solve_ik 不传 reference_qpos 时要恢复到它，
+            # 否则上一次调用传入的 reference 会残留下来污染后续求解。
+            self._default_posture_qpos = home_qpos
         else:
             raise ValueError("MuJoCo model does not contain keyframes. Cannot set home posture.")
     
@@ -116,14 +119,25 @@ class MinkIKSolver:
         target_SE3 = mink.SE3.from_matrix(T_target)
         self.end_effector_task.set_target(target_SE3)
         
-        # 如果提供了参考位置，更新姿态任务
+        # # 如果提供了参考位置，更新姿态任务
+        # if reference_qpos is not None:
+        #     temp_config = mink.Configuration(self.mj_model)
+        #     temp_config.update(reference_qpos)
+        #     self.posture_task.set_target_from_configuration(temp_config)
+
+        # ————————修复补充上缺少的调用
+        # 姿态任务目标：每次调用都显式设定，不沿用上一次。
+        # 缺陷 U：原代码只有 if 分支，导致传过一次 reference_qpos 之后，
+        # 后续【不传】的调用会继续用它 —— 相同输入得到不同输出。
+        temp_config = mink.Configuration(self.mj_model)
         if reference_qpos is not None:
-            temp_config = mink.Configuration(self.mj_model)
             temp_config.update(reference_qpos)
-            self.posture_task.set_target_from_configuration(temp_config)
+        else:
+            temp_config.update(self._default_posture_qpos)
+        self.posture_task.set_target_from_configuration(temp_config)
         
-        # 迭代求解
-        dt = 1e-3
+        # 迭代求解   26.08.05 修改迭代
+        # dt = 1e-3
         converged = False
         iteration = 0
         errors = []
@@ -133,13 +147,13 @@ class MinkIKSolver:
             velocity = mink.solve_ik(
                 self.configuration, 
                 self.tasks, 
-                dt, 
+                self.dt, 
                 self.solver_type, 
                 self.damping
             )
             
             # 积分更新配置
-            self.configuration.integrate_inplace(velocity, dt)
+            self.configuration.integrate_inplace(velocity, self.dt)
             
             # 检查收敛
             error = self.end_effector_task.compute_error(self.configuration)

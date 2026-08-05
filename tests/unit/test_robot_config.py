@@ -24,6 +24,28 @@ QPOS_DIM_MISMATCH = {
     "rm65":   (12, 14),
 }
 
+# 缺陷 H 的根因（Day 4 实测，逐个 MJCF 遍历 jnt_type 得出）。
+# 原 checkpoint 猜测「iiwa14 差 6 最可疑，可能有 FREE 关节占 7 个 qpos」——
+# 实测【没有任何 FREE 关节】，4 个模型全是 HINGE + SLIDE。
+# 真相是夹爪建模复杂度超出配置作者的假设。
+QPOS_DIM_ROOT_CAUSE = {
+    "arx_x5": "6 臂 HINGE + 2 夹爪 SLIDE(finger_joint1/2)=8；YAML 按 7 计",
+    "piper": "6 臂 HINGE + 2 夹爪 SLIDE(finger_joint1/2)=8；YAML 按 7 计",
+    "rm65": "6 臂 HINGE + 夹爪 6 HINGE + 2 SLIDE=14；YAML 按 12 计",
+    "iiwa14": (
+        "7 臂 HINGE + 夹爪 8 HINGE=15。夹爪是 Robotiq 式平行连杆机构，"
+        "left/right 各 4 个 driver/coupler/spring_link/follower 关节，"
+        "由约束耦合成 1 个物理自由度但各占 1 个 qpos。"
+        "YAML 按『2 根手指』计数得 9，差 6"
+    ),
+}
+
+# ⚠️ 待决策：qpos_dim 的语义未定义 —— 指模型 nq（15），
+# 还是可控自由度（7 臂 + 1 夹爪 = 8）？
+# iiwa14 那 8 根连杆是被约束绑定的从动关节，算 1 个还是 8 个取决于定义。
+# 在语义有共识之前不改数字 —— 否则只是把一个错误换成另一个错误。
+
+
 
 @pytest.fixture(scope="session")
 def load_robot(robot_config_dir):
@@ -98,6 +120,9 @@ def test_ctrl_dim_matches_mjcf_nu(load_robot, mj_model_factory, repo_root, robot
 
     这一维度维护得好（9/9 通过），因为写错会立刻炸：
     data.ctrl[:] = 长度不符的数组 -> ValueError。
+    根因见 QPOS_DIM_ROOT_CAUSE：全部是夹爪建模复杂度超出配置假设，
+    与 checkpoint 原先猜测的「FREE 关节」无关（实测 4 个模型零个 FREE）。
+
     """
     xml = repo_root / "models" / "mjcf" / "manipulator" / f"robot_{robot_name}.xml"
     model = mj_model_factory(xml)
@@ -123,7 +148,11 @@ def test_qpos_dim_matches_mjcf_nq(load_robot, mj_model_factory, repo_root, robot
     """
     if robot_name in QPOS_DIM_MISMATCH:
         declared, actual = QPOS_DIM_MISMATCH[robot_name]
-        pytest.xfail(f"缺陷 H：{robot_name} 声明 qpos_dim={declared}，MJCF nq={actual}")
+        pytest.xfail(
+            f"缺陷 H：{robot_name} 声明 qpos_dim={declared}，MJCF nq={actual}。"
+            f"根因（Day 4 实测）：{QPOS_DIM_ROOT_CAUSE[robot_name]}"
+        )
+
 
     xml = repo_root / "models" / "mjcf" / "manipulator" / f"robot_{robot_name}.xml"
     model = mj_model_factory(xml)
