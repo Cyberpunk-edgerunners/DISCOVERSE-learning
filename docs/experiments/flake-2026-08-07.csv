@@ -1,0 +1,2251 @@
+task,robot,rep,bucket,state,dist,outcome,duration_s
+cover_cup,airbot_play,1,BUCKET3_超时/未记录,,,failed,60.12
+cover_cup,airbot_play,2,BUCKET2_判据失败,17/17,0.0342,passed,51.826
+cover_cup,airbot_play,3,BUCKET2_判据失败,17/17,0.1231,passed,50.765
+cover_cup,airbot_play,4,BUCKET1_早期IK失败,5/17,,passed,36.046
+cover_cup,airbot_play,5,BUCKET1_早期IK失败,0/17,,passed,4.209
+cover_cup,airbot_play,6,BUCKET1_早期IK失败,0/17,,passed,4.457
+cover_cup,airbot_play,7,BUCKET2_判据失败,17/17,0.0085,passed,57.092
+cover_cup,airbot_play,8,BUCKET1_早期IK失败,10/17,,passed,52.406
+cover_cup,airbot_play,9,BUCKET3_超时/未记录,,,failed,60.05
+cover_cup,airbot_play,10,BUCKET2_判据失败,17/17,0.036,passed,39.531
+cover_cup,airbot_play,11,BUCKET3_超时/未记录,,,failed,60.117
+cover_cup,airbot_play,12,BUCKET2_判据失败,17/17,0.1089,passed,58.592
+cover_cup,airbot_play,13,BUCKET1_早期IK失败,0/17,,passed,4.099
+cover_cup,airbot_play,14,BUCKET3_超时/未记录,,,failed,60.123
+cover_cup,airbot_play,15,BUCKET2_判据失败,17/17,0.2497,passed,56.992
+cover_cup,airbot_play,16,BUCKET2_判据失败,17/17,0.0323,passed,40.751
+cover_cup,airbot_play,17,BUCKET3_超时/未记录,,,failed,60.188
+cover_cup,airbot_play,18,BUCKET3_超时/未记录,,,failed,60.213
+cover_cup,airbot_play,19,BUCKET3_超时/未记录,,,failed,60.255
+cover_cup,airbot_play,20,BUCKET1_早期IK失败,0/17,,passed,4.192
+cover_cup,airbot_play,21,BUCKET3_超时/未记录,,,failed,60.121
+cover_cup,airbot_play,22,BUCKET2_判据失败,17/17,0.0366,passed,48.444
+cover_cup,airbot_play,23,BUCKET2_判据失败,17/17,0.0378,passed,57.53
+cover_cup,airbot_play,24,BUCKET3_超时/未记录,,,failed,60.136
+cover_cup,airbot_play,25,BUCKET2_判据失败,17/17,0.1098,passed,48.497
+cover_cup,airbot_play,26,BUCKET3_超时/未记录,,,failed,60.206
+cover_cup,airbot_play,27,BUCKET2_判据失败,17/17,0.0574,passed,57.019
+cover_cup,airbot_play,28,BUCKET2_判据失败,17/17,0.0087,passed,47.551
+cover_cup,airbot_play,29,BUCKET1_早期IK失败,0/17,,passed,3.929
+cover_cup,airbot_play,30,BUCKET3_超时/未记录,,,failed,60.1
+cover_cup,airbot_play,31,BUCKET1_早期IK失败,10/17,,passed,52.969
+cover_cup,airbot_play,32,BUCKET2_判据失败,17/17,0.022,passed,55.884
+cover_cup,airbot_play,33,BUCKET3_超时/未记录,,,failed,60.082
+cover_cup,airbot_play,34,BUCKET2_判据失败,17/17,0.0184,passed,41.085
+cover_cup,airbot_play,35,BUCKET1_早期IK失败,0/17,,passed,2.096
+cover_cup,airbot_play,36,BUCKET2_判据失败,17/17,0.0326,passed,47.074
+cover_cup,airbot_play,37,BUCKET1_早期IK失败,4/17,,passed,13.932
+cover_cup,airbot_play,38,BUCKET1_早期IK失败,10/17,,passed,23.216
+cover_cup,airbot_play,39,BUCKET1_早期IK失败,0/17,,passed,2.103
+cover_cup,airbot_play,40,BUCKET2_判据失败,17/17,0.1079,passed,39.171
+cover_cup,airbot_play,41,BUCKET1_早期IK失败,0/17,,passed,2.099
+cover_cup,airbot_play,42,BUCKET2_判据失败,17/17,0.0175,passed,49.296
+cover_cup,airbot_play,43,BUCKET2_判据失败,17/17,0.0343,passed,47.128
+cover_cup,airbot_play,44,BUCKET2_判据失败,17/17,0.0103,passed,25.606
+cover_cup,airbot_play,45,BUCKET2_判据失败,17/17,0.0595,passed,49.683
+cover_cup,airbot_play,46,BUCKET2_判据失败,17/17,0.0585,passed,46.185
+cover_cup,airbot_play,47,BUCKET2_判据失败,17/17,0.0215,passed,22.992
+cover_cup,airbot_play,48,BUCKET2_判据失败,17/17,0.0182,passed,42.566
+cover_cup,airbot_play,49,BUCKET2_判据失败,17/17,0.0511,passed,35.696
+cover_cup,airbot_play,50,BUCKET2_判据失败,17/17,0.0346,passed,45.832
+cover_cup,arx_l5,1,BUCKET4_配置崩溃,,,failed,2.21
+cover_cup,arx_l5,2,BUCKET4_配置崩溃,,,failed,2.22
+cover_cup,arx_l5,3,BUCKET4_配置崩溃,,,failed,2.236
+cover_cup,arx_l5,4,BUCKET4_配置崩溃,,,failed,2.256
+cover_cup,arx_l5,5,BUCKET4_配置崩溃,,,failed,2.238
+cover_cup,arx_l5,6,BUCKET4_配置崩溃,,,failed,2.207
+cover_cup,arx_l5,7,BUCKET4_配置崩溃,,,failed,2.237
+cover_cup,arx_l5,8,BUCKET4_配置崩溃,,,failed,2.254
+cover_cup,arx_l5,9,BUCKET4_配置崩溃,,,failed,2.215
+cover_cup,arx_l5,10,BUCKET4_配置崩溃,,,failed,2.223
+cover_cup,arx_l5,11,BUCKET4_配置崩溃,,,failed,2.276
+cover_cup,arx_l5,12,BUCKET4_配置崩溃,,,failed,2.258
+cover_cup,arx_l5,13,BUCKET4_配置崩溃,,,failed,2.19
+cover_cup,arx_l5,14,BUCKET4_配置崩溃,,,failed,2.175
+cover_cup,arx_l5,15,BUCKET4_配置崩溃,,,failed,2.24
+cover_cup,arx_l5,16,BUCKET4_配置崩溃,,,failed,2.272
+cover_cup,arx_l5,17,BUCKET4_配置崩溃,,,failed,2.222
+cover_cup,arx_l5,18,BUCKET4_配置崩溃,,,failed,2.191
+cover_cup,arx_l5,19,BUCKET4_配置崩溃,,,failed,2.257
+cover_cup,arx_l5,20,BUCKET4_配置崩溃,,,failed,2.229
+cover_cup,arx_l5,21,BUCKET4_配置崩溃,,,failed,4.74
+cover_cup,arx_l5,22,BUCKET4_配置崩溃,,,failed,5.362
+cover_cup,arx_l5,23,BUCKET4_配置崩溃,,,failed,5.19
+cover_cup,arx_l5,24,BUCKET4_配置崩溃,,,failed,5.218
+cover_cup,arx_l5,25,BUCKET4_配置崩溃,,,failed,5.308
+cover_cup,arx_l5,26,BUCKET4_配置崩溃,,,failed,5.207
+cover_cup,arx_l5,27,BUCKET4_配置崩溃,,,failed,4.981
+cover_cup,arx_l5,28,BUCKET4_配置崩溃,,,failed,5.216
+cover_cup,arx_l5,29,BUCKET4_配置崩溃,,,failed,5.295
+cover_cup,arx_l5,30,BUCKET4_配置崩溃,,,failed,4.984
+cover_cup,arx_l5,31,BUCKET4_配置崩溃,,,failed,5.178
+cover_cup,arx_l5,32,BUCKET4_配置崩溃,,,failed,4.67
+cover_cup,arx_l5,33,BUCKET4_配置崩溃,,,failed,4.712
+cover_cup,arx_l5,34,BUCKET4_配置崩溃,,,failed,4.628
+cover_cup,arx_l5,35,BUCKET4_配置崩溃,,,failed,5.261
+cover_cup,arx_l5,36,BUCKET4_配置崩溃,,,failed,5.093
+cover_cup,arx_l5,37,BUCKET4_配置崩溃,,,failed,4.877
+cover_cup,arx_l5,38,BUCKET4_配置崩溃,,,failed,5.048
+cover_cup,arx_l5,39,BUCKET4_配置崩溃,,,failed,5.313
+cover_cup,arx_l5,40,BUCKET4_配置崩溃,,,failed,5.289
+cover_cup,arx_l5,41,BUCKET4_配置崩溃,,,failed,5.296
+cover_cup,arx_l5,42,BUCKET4_配置崩溃,,,failed,4.981
+cover_cup,arx_l5,43,BUCKET4_配置崩溃,,,failed,4.816
+cover_cup,arx_l5,44,BUCKET4_配置崩溃,,,failed,5.259
+cover_cup,arx_l5,45,BUCKET4_配置崩溃,,,failed,5.241
+cover_cup,arx_l5,46,BUCKET4_配置崩溃,,,failed,5.046
+cover_cup,arx_l5,47,BUCKET4_配置崩溃,,,failed,5.154
+cover_cup,arx_l5,48,BUCKET4_配置崩溃,,,failed,5.212
+cover_cup,arx_l5,49,BUCKET4_配置崩溃,,,failed,5.249
+cover_cup,arx_l5,50,BUCKET4_配置崩溃,,,failed,5.455
+cover_cup,arx_x5,1,BUCKET4_配置崩溃,,,failed,5.485
+cover_cup,arx_x5,2,BUCKET4_配置崩溃,,,failed,4.673
+cover_cup,arx_x5,3,BUCKET4_配置崩溃,,,failed,4.949
+cover_cup,arx_x5,4,BUCKET4_配置崩溃,,,failed,5.256
+cover_cup,arx_x5,5,BUCKET4_配置崩溃,,,failed,5.112
+cover_cup,arx_x5,6,BUCKET4_配置崩溃,,,failed,5.083
+cover_cup,arx_x5,7,BUCKET4_配置崩溃,,,failed,5.111
+cover_cup,arx_x5,8,BUCKET4_配置崩溃,,,failed,5.044
+cover_cup,arx_x5,9,BUCKET4_配置崩溃,,,failed,4.806
+cover_cup,arx_x5,10,BUCKET4_配置崩溃,,,failed,4.468
+cover_cup,arx_x5,11,BUCKET4_配置崩溃,,,failed,4.605
+cover_cup,arx_x5,12,BUCKET4_配置崩溃,,,failed,5.019
+cover_cup,arx_x5,13,BUCKET4_配置崩溃,,,failed,5.516
+cover_cup,arx_x5,14,BUCKET4_配置崩溃,,,failed,5.101
+cover_cup,arx_x5,15,BUCKET4_配置崩溃,,,failed,5.402
+cover_cup,arx_x5,16,BUCKET4_配置崩溃,,,failed,5.204
+cover_cup,arx_x5,17,BUCKET4_配置崩溃,,,failed,5.108
+cover_cup,arx_x5,18,BUCKET4_配置崩溃,,,failed,5.412
+cover_cup,arx_x5,19,BUCKET4_配置崩溃,,,failed,5.245
+cover_cup,arx_x5,20,BUCKET4_配置崩溃,,,failed,5.278
+cover_cup,arx_x5,21,BUCKET4_配置崩溃,,,failed,5.102
+cover_cup,arx_x5,22,BUCKET4_配置崩溃,,,failed,4.728
+cover_cup,arx_x5,23,BUCKET4_配置崩溃,,,failed,4.693
+cover_cup,arx_x5,24,BUCKET4_配置崩溃,,,failed,4.968
+cover_cup,arx_x5,25,BUCKET4_配置崩溃,,,failed,4.91
+cover_cup,arx_x5,26,BUCKET4_配置崩溃,,,failed,5.255
+cover_cup,arx_x5,27,BUCKET4_配置崩溃,,,failed,5.417
+cover_cup,arx_x5,28,BUCKET4_配置崩溃,,,failed,5.005
+cover_cup,arx_x5,29,BUCKET4_配置崩溃,,,failed,5.264
+cover_cup,arx_x5,30,BUCKET4_配置崩溃,,,failed,5.439
+cover_cup,arx_x5,31,BUCKET4_配置崩溃,,,failed,5.376
+cover_cup,arx_x5,32,BUCKET4_配置崩溃,,,failed,5.114
+cover_cup,arx_x5,33,BUCKET4_配置崩溃,,,failed,5.002
+cover_cup,arx_x5,34,BUCKET4_配置崩溃,,,failed,5.4
+cover_cup,arx_x5,35,BUCKET4_配置崩溃,,,failed,5.414
+cover_cup,arx_x5,36,BUCKET4_配置崩溃,,,failed,5.23
+cover_cup,arx_x5,37,BUCKET4_配置崩溃,,,failed,5.66
+cover_cup,arx_x5,38,BUCKET4_配置崩溃,,,failed,5.545
+cover_cup,arx_x5,39,BUCKET4_配置崩溃,,,failed,5.4
+cover_cup,arx_x5,40,BUCKET4_配置崩溃,,,failed,5.393
+cover_cup,arx_x5,41,BUCKET4_配置崩溃,,,failed,4.876
+cover_cup,arx_x5,42,BUCKET4_配置崩溃,,,failed,5.463
+cover_cup,arx_x5,43,BUCKET4_配置崩溃,,,failed,5.103
+cover_cup,arx_x5,44,BUCKET4_配置崩溃,,,failed,5.239
+cover_cup,arx_x5,45,BUCKET4_配置崩溃,,,failed,5.407
+cover_cup,arx_x5,46,BUCKET4_配置崩溃,,,failed,5.243
+cover_cup,arx_x5,47,BUCKET4_配置崩溃,,,failed,5.149
+cover_cup,arx_x5,48,BUCKET4_配置崩溃,,,failed,5.101
+cover_cup,arx_x5,49,BUCKET4_配置崩溃,,,failed,5.528
+cover_cup,arx_x5,50,BUCKET4_配置崩溃,,,failed,5.074
+cover_cup,iiwa14,1,BUCKET4_配置崩溃,,,failed,5.367
+cover_cup,iiwa14,2,BUCKET4_配置崩溃,,,failed,4.845
+cover_cup,iiwa14,3,BUCKET4_配置崩溃,,,failed,4.832
+cover_cup,iiwa14,4,BUCKET4_配置崩溃,,,failed,5.138
+cover_cup,iiwa14,5,BUCKET4_配置崩溃,,,failed,5.211
+cover_cup,iiwa14,6,BUCKET4_配置崩溃,,,failed,5.149
+cover_cup,iiwa14,7,BUCKET4_配置崩溃,,,failed,5.138
+cover_cup,iiwa14,8,BUCKET4_配置崩溃,,,failed,5.178
+cover_cup,iiwa14,9,BUCKET4_配置崩溃,,,failed,5.123
+cover_cup,iiwa14,10,BUCKET4_配置崩溃,,,failed,5.188
+cover_cup,iiwa14,11,BUCKET4_配置崩溃,,,failed,4.988
+cover_cup,iiwa14,12,BUCKET4_配置崩溃,,,failed,4.592
+cover_cup,iiwa14,13,BUCKET4_配置崩溃,,,failed,4.535
+cover_cup,iiwa14,14,BUCKET4_配置崩溃,,,failed,4.786
+cover_cup,iiwa14,15,BUCKET4_配置崩溃,,,failed,5.139
+cover_cup,iiwa14,16,BUCKET4_配置崩溃,,,failed,5.178
+cover_cup,iiwa14,17,BUCKET4_配置崩溃,,,failed,5.397
+cover_cup,iiwa14,18,BUCKET4_配置崩溃,,,failed,5.207
+cover_cup,iiwa14,19,BUCKET4_配置崩溃,,,failed,5.028
+cover_cup,iiwa14,20,BUCKET4_配置崩溃,,,failed,5.452
+cover_cup,iiwa14,21,BUCKET4_配置崩溃,,,failed,5.086
+cover_cup,iiwa14,22,BUCKET4_配置崩溃,,,failed,4.872
+cover_cup,iiwa14,23,BUCKET4_配置崩溃,,,failed,4.711
+cover_cup,iiwa14,24,BUCKET4_配置崩溃,,,failed,5.088
+cover_cup,iiwa14,25,BUCKET4_配置崩溃,,,failed,5.317
+cover_cup,iiwa14,26,BUCKET4_配置崩溃,,,failed,4.955
+cover_cup,iiwa14,27,BUCKET4_配置崩溃,,,failed,4.826
+cover_cup,iiwa14,28,BUCKET4_配置崩溃,,,failed,5.19
+cover_cup,iiwa14,29,BUCKET4_配置崩溃,,,failed,4.915
+cover_cup,iiwa14,30,BUCKET4_配置崩溃,,,failed,4.584
+cover_cup,iiwa14,31,BUCKET4_配置崩溃,,,failed,4.589
+cover_cup,iiwa14,32,BUCKET4_配置崩溃,,,failed,5.136
+cover_cup,iiwa14,33,BUCKET4_配置崩溃,,,failed,5.366
+cover_cup,iiwa14,34,BUCKET4_配置崩溃,,,failed,5.292
+cover_cup,iiwa14,35,BUCKET4_配置崩溃,,,failed,5.182
+cover_cup,iiwa14,36,BUCKET4_配置崩溃,,,failed,5.185
+cover_cup,iiwa14,37,BUCKET4_配置崩溃,,,failed,5.156
+cover_cup,iiwa14,38,BUCKET4_配置崩溃,,,failed,5.162
+cover_cup,iiwa14,39,BUCKET4_配置崩溃,,,failed,5.34
+cover_cup,iiwa14,40,BUCKET4_配置崩溃,,,failed,5.12
+cover_cup,iiwa14,41,BUCKET4_配置崩溃,,,failed,5.538
+cover_cup,iiwa14,42,BUCKET4_配置崩溃,,,failed,4.699
+cover_cup,iiwa14,43,BUCKET4_配置崩溃,,,failed,4.322
+cover_cup,iiwa14,44,BUCKET4_配置崩溃,,,failed,5.003
+cover_cup,iiwa14,45,BUCKET4_配置崩溃,,,failed,5.234
+cover_cup,iiwa14,46,BUCKET4_配置崩溃,,,failed,5.144
+cover_cup,iiwa14,47,BUCKET4_配置崩溃,,,failed,4.953
+cover_cup,iiwa14,48,BUCKET4_配置崩溃,,,failed,4.927
+cover_cup,iiwa14,49,BUCKET4_配置崩溃,,,failed,4.963
+cover_cup,iiwa14,50,BUCKET4_配置崩溃,,,failed,4.644
+cover_cup,panda,1,BUCKET1_早期IK失败,0/17,,passed,4.728
+cover_cup,panda,2,BUCKET1_早期IK失败,0/17,,passed,5.204
+cover_cup,panda,3,BUCKET1_早期IK失败,0/17,,passed,4.67
+cover_cup,panda,4,BUCKET1_早期IK失败,0/17,,passed,4.665
+cover_cup,panda,5,BUCKET4_配置崩溃,,,failed,5.159
+cover_cup,panda,6,BUCKET4_配置崩溃,,,failed,5.478
+cover_cup,panda,7,BUCKET4_配置崩溃,,,failed,5.415
+cover_cup,panda,8,BUCKET4_配置崩溃,,,failed,5.111
+cover_cup,panda,9,BUCKET4_配置崩溃,,,failed,4.975
+cover_cup,panda,10,BUCKET1_早期IK失败,0/17,,passed,4.771
+cover_cup,panda,11,BUCKET4_配置崩溃,,,failed,4.77
+cover_cup,panda,12,BUCKET4_配置崩溃,,,failed,5.391
+cover_cup,panda,13,BUCKET4_配置崩溃,,,failed,5.415
+cover_cup,panda,14,BUCKET1_早期IK失败,0/17,,passed,4.881
+cover_cup,panda,15,BUCKET4_配置崩溃,,,failed,5.279
+cover_cup,panda,16,BUCKET1_早期IK失败,0/17,,passed,5.084
+cover_cup,panda,17,BUCKET1_早期IK失败,0/17,,passed,4.953
+cover_cup,panda,18,BUCKET1_早期IK失败,0/17,,passed,5.274
+cover_cup,panda,19,BUCKET1_早期IK失败,0/17,,passed,5.122
+cover_cup,panda,20,BUCKET1_早期IK失败,0/17,,passed,5.139
+cover_cup,panda,21,BUCKET4_配置崩溃,,,failed,5.031
+cover_cup,panda,22,BUCKET1_早期IK失败,0/17,,passed,4.636
+cover_cup,panda,23,BUCKET4_配置崩溃,,,failed,4.714
+cover_cup,panda,24,BUCKET1_早期IK失败,0/17,,passed,4.726
+cover_cup,panda,25,BUCKET4_配置崩溃,,,failed,5.157
+cover_cup,panda,26,BUCKET4_配置崩溃,,,failed,5.033
+cover_cup,panda,27,BUCKET1_早期IK失败,0/17,,passed,4.695
+cover_cup,panda,28,BUCKET1_早期IK失败,0/17,,passed,4.868
+cover_cup,panda,29,BUCKET4_配置崩溃,,,failed,5.652
+cover_cup,panda,30,BUCKET4_配置崩溃,,,failed,5.32
+cover_cup,panda,31,BUCKET4_配置崩溃,,,failed,5.491
+cover_cup,panda,32,BUCKET1_早期IK失败,0/17,,passed,4.906
+cover_cup,panda,33,BUCKET4_配置崩溃,,,failed,5.077
+cover_cup,panda,34,BUCKET4_配置崩溃,,,failed,5.505
+cover_cup,panda,35,BUCKET1_早期IK失败,0/17,,passed,5.107
+cover_cup,panda,36,BUCKET4_配置崩溃,,,failed,5.393
+cover_cup,panda,37,BUCKET1_早期IK失败,0/17,,passed,5.125
+cover_cup,panda,38,BUCKET4_配置崩溃,,,failed,5.518
+cover_cup,panda,39,BUCKET1_早期IK失败,0/17,,passed,5.235
+cover_cup,panda,40,BUCKET4_配置崩溃,,,failed,5.227
+cover_cup,panda,41,BUCKET4_配置崩溃,,,failed,5.205
+cover_cup,panda,42,BUCKET4_配置崩溃,,,failed,4.566
+cover_cup,panda,43,BUCKET1_早期IK失败,0/17,,passed,4.79
+cover_cup,panda,44,BUCKET1_早期IK失败,0/17,,passed,5.004
+cover_cup,panda,45,BUCKET1_早期IK失败,0/17,,passed,4.659
+cover_cup,panda,46,BUCKET4_配置崩溃,,,failed,5.02
+cover_cup,panda,47,BUCKET1_早期IK失败,0/17,,passed,4.967
+cover_cup,panda,48,BUCKET1_早期IK失败,0/17,,passed,5.155
+cover_cup,panda,49,BUCKET4_配置崩溃,,,failed,5.154
+cover_cup,panda,50,BUCKET4_配置崩溃,,,failed,4.752
+cover_cup,piper,1,BUCKET4_配置崩溃,,,failed,5.033
+cover_cup,piper,2,BUCKET4_配置崩溃,,,failed,5.026
+cover_cup,piper,3,BUCKET4_配置崩溃,,,failed,5.395
+cover_cup,piper,4,BUCKET4_配置崩溃,,,failed,5.439
+cover_cup,piper,5,BUCKET4_配置崩溃,,,failed,5.439
+cover_cup,piper,6,BUCKET4_配置崩溃,,,failed,5.219
+cover_cup,piper,7,BUCKET4_配置崩溃,,,failed,5.103
+cover_cup,piper,8,BUCKET4_配置崩溃,,,failed,5.248
+cover_cup,piper,9,BUCKET4_配置崩溃,,,failed,5.102
+cover_cup,piper,10,BUCKET4_配置崩溃,,,failed,5.275
+cover_cup,piper,11,BUCKET4_配置崩溃,,,failed,5.336
+cover_cup,piper,12,BUCKET4_配置崩溃,,,failed,4.899
+cover_cup,piper,13,BUCKET4_配置崩溃,,,failed,4.648
+cover_cup,piper,14,BUCKET4_配置崩溃,,,failed,5.301
+cover_cup,piper,15,BUCKET4_配置崩溃,,,failed,5.062
+cover_cup,piper,16,BUCKET4_配置崩溃,,,failed,5.275
+cover_cup,piper,17,BUCKET4_配置崩溃,,,failed,5.833
+cover_cup,piper,18,BUCKET4_配置崩溃,,,failed,5.714
+cover_cup,piper,19,BUCKET4_配置崩溃,,,failed,5.855
+cover_cup,piper,20,BUCKET4_配置崩溃,,,failed,5.52
+cover_cup,piper,21,BUCKET4_配置崩溃,,,failed,5.9
+cover_cup,piper,22,BUCKET4_配置崩溃,,,failed,4.9
+cover_cup,piper,23,BUCKET4_配置崩溃,,,failed,5.151
+cover_cup,piper,24,BUCKET4_配置崩溃,,,failed,5.161
+cover_cup,piper,25,BUCKET4_配置崩溃,,,failed,5.083
+cover_cup,piper,26,BUCKET4_配置崩溃,,,failed,5.431
+cover_cup,piper,27,BUCKET4_配置崩溃,,,failed,5.499
+cover_cup,piper,28,BUCKET4_配置崩溃,,,failed,5.643
+cover_cup,piper,29,BUCKET4_配置崩溃,,,failed,5.543
+cover_cup,piper,30,BUCKET4_配置崩溃,,,failed,5.322
+cover_cup,piper,31,BUCKET4_配置崩溃,,,failed,4.995
+cover_cup,piper,32,BUCKET4_配置崩溃,,,failed,5.3
+cover_cup,piper,33,BUCKET4_配置崩溃,,,failed,5.158
+cover_cup,piper,34,BUCKET4_配置崩溃,,,failed,5.353
+cover_cup,piper,35,BUCKET4_配置崩溃,,,failed,5.416
+cover_cup,piper,36,BUCKET4_配置崩溃,,,failed,5.458
+cover_cup,piper,37,BUCKET4_配置崩溃,,,failed,5.366
+cover_cup,piper,38,BUCKET4_配置崩溃,,,failed,5.547
+cover_cup,piper,39,BUCKET4_配置崩溃,,,failed,5.392
+cover_cup,piper,40,BUCKET4_配置崩溃,,,failed,5.499
+cover_cup,piper,41,BUCKET4_配置崩溃,,,failed,5.865
+cover_cup,piper,42,BUCKET4_配置崩溃,,,failed,5.445
+cover_cup,piper,43,BUCKET4_配置崩溃,,,failed,5.773
+cover_cup,piper,44,BUCKET4_配置崩溃,,,failed,5.6
+cover_cup,piper,45,BUCKET4_配置崩溃,,,failed,5.324
+cover_cup,piper,46,BUCKET4_配置崩溃,,,failed,5.048
+cover_cup,piper,47,BUCKET4_配置崩溃,,,failed,5.058
+cover_cup,piper,48,BUCKET4_配置崩溃,,,failed,5.142
+cover_cup,piper,49,BUCKET4_配置崩溃,,,failed,5.321
+cover_cup,piper,50,BUCKET4_配置崩溃,,,failed,5.455
+cover_cup,rm65,1,BUCKET4_配置崩溃,,,failed,4.753
+cover_cup,rm65,2,BUCKET4_配置崩溃,,,failed,4.721
+cover_cup,rm65,3,BUCKET4_配置崩溃,,,failed,5.267
+cover_cup,rm65,4,BUCKET4_配置崩溃,,,failed,5.181
+cover_cup,rm65,5,BUCKET4_配置崩溃,,,failed,5.153
+cover_cup,rm65,6,BUCKET4_配置崩溃,,,failed,5.224
+cover_cup,rm65,7,BUCKET1_早期IK失败,0/17,,passed,4.863
+cover_cup,rm65,8,BUCKET1_早期IK失败,0/17,,passed,5.12
+cover_cup,rm65,9,BUCKET4_配置崩溃,,,failed,5.474
+cover_cup,rm65,10,BUCKET1_早期IK失败,0/17,,passed,5.093
+cover_cup,rm65,11,BUCKET4_配置崩溃,,,failed,4.777
+cover_cup,rm65,12,BUCKET1_早期IK失败,0/17,,passed,4.792
+cover_cup,rm65,13,BUCKET4_配置崩溃,,,failed,5.087
+cover_cup,rm65,14,BUCKET4_配置崩溃,,,failed,4.847
+cover_cup,rm65,15,BUCKET1_早期IK失败,0/17,,passed,4.94
+cover_cup,rm65,16,BUCKET4_配置崩溃,,,failed,5.228
+cover_cup,rm65,17,BUCKET4_配置崩溃,,,failed,5.22
+cover_cup,rm65,18,BUCKET4_配置崩溃,,,failed,5.053
+cover_cup,rm65,19,BUCKET4_配置崩溃,,,failed,4.531
+cover_cup,rm65,20,BUCKET4_配置崩溃,,,failed,4.699
+cover_cup,rm65,21,BUCKET1_早期IK失败,0/17,,passed,4.728
+cover_cup,rm65,22,BUCKET1_早期IK失败,0/17,,passed,5.349
+cover_cup,rm65,23,BUCKET4_配置崩溃,,,failed,5.474
+cover_cup,rm65,24,BUCKET1_早期IK失败,0/17,,passed,5.25
+cover_cup,rm65,25,BUCKET4_配置崩溃,,,failed,5.522
+cover_cup,rm65,26,BUCKET4_配置崩溃,,,failed,5.354
+cover_cup,rm65,27,BUCKET1_早期IK失败,0/17,,passed,5.044
+cover_cup,rm65,28,BUCKET4_配置崩溃,,,failed,5.252
+cover_cup,rm65,29,BUCKET4_配置崩溃,,,failed,5.26
+cover_cup,rm65,30,BUCKET4_配置崩溃,,,failed,5.179
+cover_cup,rm65,31,BUCKET1_早期IK失败,0/17,,passed,4.498
+cover_cup,rm65,32,BUCKET1_早期IK失败,0/17,,passed,4.558
+cover_cup,rm65,33,BUCKET1_早期IK失败,0/17,,passed,5.138
+cover_cup,rm65,34,BUCKET4_配置崩溃,,,failed,5.15
+cover_cup,rm65,35,BUCKET4_配置崩溃,,,failed,5.04
+cover_cup,rm65,36,BUCKET4_配置崩溃,,,failed,4.831
+cover_cup,rm65,37,BUCKET1_早期IK失败,0/17,,passed,4.856
+cover_cup,rm65,38,BUCKET1_早期IK失败,0/17,,passed,4.777
+cover_cup,rm65,39,BUCKET4_配置崩溃,,,failed,5.249
+cover_cup,rm65,40,BUCKET4_配置崩溃,,,failed,5.09
+cover_cup,rm65,41,BUCKET1_早期IK失败,0/17,,passed,4.925
+cover_cup,rm65,42,BUCKET4_配置崩溃,,,failed,4.784
+cover_cup,rm65,43,BUCKET4_配置崩溃,,,failed,5.146
+cover_cup,rm65,44,BUCKET1_早期IK失败,0/17,,passed,4.949
+cover_cup,rm65,45,BUCKET1_早期IK失败,0/17,,passed,5.044
+cover_cup,rm65,46,BUCKET4_配置崩溃,,,failed,5.221
+cover_cup,rm65,47,BUCKET1_早期IK失败,0/17,,passed,4.818
+cover_cup,rm65,48,BUCKET4_配置崩溃,,,failed,5.172
+cover_cup,rm65,49,BUCKET1_早期IK失败,0/17,,passed,4.875
+cover_cup,rm65,50,BUCKET4_配置崩溃,,,failed,5.246
+cover_cup,ur5e,1,BUCKET4_配置崩溃,,,failed,4.865
+cover_cup,ur5e,2,BUCKET4_配置崩溃,,,failed,5.307
+cover_cup,ur5e,3,BUCKET4_配置崩溃,,,failed,5.371
+cover_cup,ur5e,4,BUCKET4_配置崩溃,,,failed,5.155
+cover_cup,ur5e,5,BUCKET4_配置崩溃,,,failed,5.227
+cover_cup,ur5e,6,BUCKET1_早期IK失败,0/17,,passed,5.047
+cover_cup,ur5e,7,BUCKET4_配置崩溃,,,failed,5.074
+cover_cup,ur5e,8,BUCKET4_配置崩溃,,,failed,5.457
+cover_cup,ur5e,9,BUCKET4_配置崩溃,,,failed,5.32
+cover_cup,ur5e,10,BUCKET4_配置崩溃,,,failed,5.227
+cover_cup,ur5e,11,BUCKET4_配置崩溃,,,failed,5.173
+cover_cup,ur5e,12,BUCKET4_配置崩溃,,,failed,4.888
+cover_cup,ur5e,13,BUCKET4_配置崩溃,,,failed,4.878
+cover_cup,ur5e,14,BUCKET4_配置崩溃,,,failed,5.067
+cover_cup,ur5e,15,BUCKET4_配置崩溃,,,failed,5.272
+cover_cup,ur5e,16,BUCKET4_配置崩溃,,,failed,5.051
+cover_cup,ur5e,17,BUCKET4_配置崩溃,,,failed,5.13
+cover_cup,ur5e,18,BUCKET4_配置崩溃,,,failed,5.264
+cover_cup,ur5e,19,BUCKET4_配置崩溃,,,failed,5.136
+cover_cup,ur5e,20,BUCKET4_配置崩溃,,,failed,5.134
+cover_cup,ur5e,21,BUCKET4_配置崩溃,,,failed,4.876
+cover_cup,ur5e,22,BUCKET4_配置崩溃,,,failed,4.576
+cover_cup,ur5e,23,BUCKET4_配置崩溃,,,failed,4.654
+cover_cup,ur5e,24,BUCKET4_配置崩溃,,,failed,5.091
+cover_cup,ur5e,25,BUCKET4_配置崩溃,,,failed,5.236
+cover_cup,ur5e,26,BUCKET4_配置崩溃,,,failed,5.131
+cover_cup,ur5e,27,BUCKET4_配置崩溃,,,failed,5.331
+cover_cup,ur5e,28,BUCKET4_配置崩溃,,,failed,5.248
+cover_cup,ur5e,29,BUCKET4_配置崩溃,,,failed,5.229
+cover_cup,ur5e,30,BUCKET4_配置崩溃,,,failed,5.333
+cover_cup,ur5e,31,BUCKET4_配置崩溃,,,failed,5.321
+cover_cup,ur5e,32,BUCKET4_配置崩溃,,,failed,4.692
+cover_cup,ur5e,33,BUCKET4_配置崩溃,,,failed,4.625
+cover_cup,ur5e,34,BUCKET4_配置崩溃,,,failed,5.025
+cover_cup,ur5e,35,BUCKET4_配置崩溃,,,failed,5.294
+cover_cup,ur5e,36,BUCKET4_配置崩溃,,,failed,5.028
+cover_cup,ur5e,37,BUCKET1_早期IK失败,0/17,,passed,4.833
+cover_cup,ur5e,38,BUCKET4_配置崩溃,,,failed,5.243
+cover_cup,ur5e,39,BUCKET4_配置崩溃,,,failed,4.818
+cover_cup,ur5e,40,BUCKET4_配置崩溃,,,failed,4.705
+cover_cup,ur5e,41,BUCKET4_配置崩溃,,,failed,4.606
+cover_cup,ur5e,42,BUCKET4_配置崩溃,,,failed,5.081
+cover_cup,ur5e,43,BUCKET4_配置崩溃,,,failed,5.171
+cover_cup,ur5e,44,BUCKET4_配置崩溃,,,failed,5.276
+cover_cup,ur5e,45,BUCKET4_配置崩溃,,,failed,5.249
+cover_cup,ur5e,46,BUCKET4_配置崩溃,,,failed,5.145
+cover_cup,ur5e,47,BUCKET4_配置崩溃,,,failed,5.309
+cover_cup,ur5e,48,BUCKET4_配置崩溃,,,failed,5.474
+cover_cup,ur5e,49,BUCKET4_配置崩溃,,,failed,5.045
+cover_cup,ur5e,50,BUCKET4_配置崩溃,,,failed,5.034
+cover_cup,xarm7,1,BUCKET4_配置崩溃,,,failed,5.107
+cover_cup,xarm7,2,BUCKET4_配置崩溃,,,failed,4.63
+cover_cup,xarm7,3,BUCKET4_配置崩溃,,,failed,4.57
+cover_cup,xarm7,4,BUCKET4_配置崩溃,,,failed,5.105
+cover_cup,xarm7,5,BUCKET4_配置崩溃,,,failed,5.145
+cover_cup,xarm7,6,BUCKET4_配置崩溃,,,failed,5.212
+cover_cup,xarm7,7,BUCKET4_配置崩溃,,,failed,5.014
+cover_cup,xarm7,8,BUCKET4_配置崩溃,,,failed,4.727
+cover_cup,xarm7,9,BUCKET4_配置崩溃,,,failed,4.931
+cover_cup,xarm7,10,BUCKET4_配置崩溃,,,failed,4.976
+cover_cup,xarm7,11,BUCKET4_配置崩溃,,,failed,4.796
+cover_cup,xarm7,12,BUCKET4_配置崩溃,,,failed,5.384
+cover_cup,xarm7,13,BUCKET4_配置崩溃,,,failed,4.553
+cover_cup,xarm7,14,BUCKET4_配置崩溃,,,failed,5.084
+cover_cup,xarm7,15,BUCKET4_配置崩溃,,,failed,5.002
+cover_cup,xarm7,16,BUCKET4_配置崩溃,,,failed,5.081
+cover_cup,xarm7,17,BUCKET4_配置崩溃,,,failed,5.132
+cover_cup,xarm7,18,BUCKET4_配置崩溃,,,failed,5.088
+cover_cup,xarm7,19,BUCKET4_配置崩溃,,,failed,5.251
+cover_cup,xarm7,20,BUCKET4_配置崩溃,,,failed,4.94
+cover_cup,xarm7,21,BUCKET4_配置崩溃,,,failed,4.743
+cover_cup,xarm7,22,BUCKET4_配置崩溃,,,failed,5.316
+cover_cup,xarm7,23,BUCKET4_配置崩溃,,,failed,5.081
+cover_cup,xarm7,24,BUCKET4_配置崩溃,,,failed,5.262
+cover_cup,xarm7,25,BUCKET4_配置崩溃,,,failed,5.281
+cover_cup,xarm7,26,BUCKET4_配置崩溃,,,failed,5.08
+cover_cup,xarm7,27,BUCKET4_配置崩溃,,,failed,5.235
+cover_cup,xarm7,28,BUCKET4_配置崩溃,,,failed,5.168
+cover_cup,xarm7,29,BUCKET4_配置崩溃,,,failed,5.053
+cover_cup,xarm7,30,BUCKET4_配置崩溃,,,failed,5.336
+cover_cup,xarm7,31,BUCKET4_配置崩溃,,,failed,4.897
+cover_cup,xarm7,32,BUCKET4_配置崩溃,,,failed,4.901
+cover_cup,xarm7,33,BUCKET4_配置崩溃,,,failed,4.797
+cover_cup,xarm7,34,BUCKET4_配置崩溃,,,failed,5.02
+cover_cup,xarm7,35,BUCKET4_配置崩溃,,,failed,4.803
+cover_cup,xarm7,36,BUCKET4_配置崩溃,,,failed,5.019
+cover_cup,xarm7,37,BUCKET4_配置崩溃,,,failed,4.98
+cover_cup,xarm7,38,BUCKET4_配置崩溃,,,failed,5.064
+cover_cup,xarm7,39,BUCKET4_配置崩溃,,,failed,5.381
+cover_cup,xarm7,40,BUCKET4_配置崩溃,,,failed,5.317
+cover_cup,xarm7,41,BUCKET4_配置崩溃,,,failed,5.271
+cover_cup,xarm7,42,BUCKET4_配置崩溃,,,failed,4.872
+cover_cup,xarm7,43,BUCKET4_配置崩溃,,,failed,5.039
+cover_cup,xarm7,44,BUCKET4_配置崩溃,,,failed,5.238
+cover_cup,xarm7,45,BUCKET4_配置崩溃,,,failed,5.287
+cover_cup,xarm7,46,BUCKET4_配置崩溃,,,failed,5.145
+cover_cup,xarm7,47,BUCKET4_配置崩溃,,,failed,5.171
+cover_cup,xarm7,48,BUCKET4_配置崩溃,,,failed,5.409
+cover_cup,xarm7,49,BUCKET4_配置崩溃,,,failed,5.269
+cover_cup,xarm7,50,BUCKET4_配置崩溃,,,failed,5.205
+place_block,airbot_play,1,BUCKET1_早期IK失败,1/10,,passed,4.818
+place_block,airbot_play,2,SUCCESS,完成状态: 10/10,0.0014,passed,4.532
+place_block,airbot_play,3,SUCCESS,完成状态: 10/10,0.0055,passed,4.631
+place_block,airbot_play,4,BUCKET2_判据失败,10/10,0.2361,passed,4.747
+place_block,airbot_play,5,SUCCESS,完成状态: 10/10,0.0064,passed,4.54
+place_block,airbot_play,6,BUCKET2_判据失败,10/10,0.3003,passed,4.845
+place_block,airbot_play,7,SUCCESS,完成状态: 10/10,0.0056,passed,4.603
+place_block,airbot_play,8,BUCKET1_早期IK失败,0/10,,passed,4.466
+place_block,airbot_play,9,SUCCESS,完成状态: 10/10,0.0109,passed,4.901
+place_block,airbot_play,10,SUCCESS,完成状态: 10/10,0.0054,passed,4.406
+place_block,airbot_play,11,SUCCESS,完成状态: 10/10,0.0077,passed,4.037
+place_block,airbot_play,12,SUCCESS,完成状态: 10/10,0.0041,passed,3.792
+place_block,airbot_play,13,SUCCESS,完成状态: 10/10,0.0019,passed,4.642
+place_block,airbot_play,14,SUCCESS,完成状态: 10/10,0.0096,passed,5.031
+place_block,airbot_play,15,SUCCESS,完成状态: 10/10,0.0106,passed,5.204
+place_block,airbot_play,16,BUCKET1_早期IK失败,1/10,,passed,5.044
+place_block,airbot_play,17,BUCKET2_判据失败,10/10,0.2569,passed,5.417
+place_block,airbot_play,18,SUCCESS,完成状态: 10/10,0.0093,passed,5.219
+place_block,airbot_play,19,BUCKET2_判据失败,10/10,0.2355,passed,5.035
+place_block,airbot_play,20,BUCKET2_判据失败,10/10,0.1818,passed,5.225
+place_block,airbot_play,21,SUCCESS,完成状态: 10/10,0.004,passed,5.228
+place_block,airbot_play,22,SUCCESS,完成状态: 10/10,0.0047,passed,5.271
+place_block,airbot_play,23,BUCKET2_判据失败,10/10,0.2846,passed,4.483
+place_block,airbot_play,24,BUCKET2_判据失败,10/10,0.2842,passed,4.544
+place_block,airbot_play,25,BUCKET2_判据失败,10/10,0.3306,passed,5.114
+place_block,airbot_play,26,SUCCESS,完成状态: 10/10,0.0235,passed,5.034
+place_block,airbot_play,27,SUCCESS,完成状态: 10/10,0.0119,passed,5.122
+place_block,airbot_play,28,BUCKET2_判据失败,10/10,0.265,passed,5.0
+place_block,airbot_play,29,SUCCESS,完成状态: 10/10,0.0124,passed,4.751
+place_block,airbot_play,30,BUCKET1_早期IK失败,1/10,,passed,4.705
+place_block,airbot_play,31,BUCKET1_早期IK失败,1/10,,passed,4.85
+place_block,airbot_play,32,SUCCESS,完成状态: 10/10,0.0164,passed,4.77
+place_block,airbot_play,33,SUCCESS,完成状态: 10/10,0.0232,passed,4.683
+place_block,airbot_play,34,BUCKET2_判据失败,10/10,0.2225,passed,4.544
+place_block,airbot_play,35,SUCCESS,完成状态: 10/10,0.0205,passed,4.412
+place_block,airbot_play,36,SUCCESS,完成状态: 10/10,0.0289,passed,4.853
+place_block,airbot_play,37,SUCCESS,完成状态: 10/10,0.012,passed,4.722
+place_block,airbot_play,38,SUCCESS,完成状态: 10/10,0.0028,passed,4.471
+place_block,airbot_play,39,BUCKET2_判据失败,10/10,0.2843,passed,4.54
+place_block,airbot_play,40,BUCKET2_判据失败,10/10,0.3035,passed,4.497
+place_block,airbot_play,41,SUCCESS,完成状态: 10/10,0.0009,passed,4.359
+place_block,airbot_play,42,BUCKET2_判据失败,10/10,0.1809,passed,5.055
+place_block,airbot_play,43,SUCCESS,完成状态: 10/10,0.0109,passed,5.231
+place_block,airbot_play,44,BUCKET2_判据失败,10/10,0.1993,passed,5.082
+place_block,airbot_play,45,BUCKET1_早期IK失败,1/10,,passed,5.233
+place_block,airbot_play,46,SUCCESS,完成状态: 10/10,0.0147,passed,5.076
+place_block,airbot_play,47,BUCKET2_判据失败,10/10,0.1747,passed,5.228
+place_block,airbot_play,48,SUCCESS,完成状态: 10/10,0.0045,passed,5.106
+place_block,airbot_play,49,SUCCESS,完成状态: 10/10,0.0152,passed,5.01
+place_block,airbot_play,50,SUCCESS,完成状态: 10/10,0.0075,passed,5.158
+place_block,arx_l5,1,BUCKET2_判据失败,10/10,0.1768,passed,5.084
+place_block,arx_l5,2,BUCKET2_判据失败,10/10,0.2004,passed,4.565
+place_block,arx_l5,3,BUCKET2_判据失败,10/10,0.2017,passed,4.496
+place_block,arx_l5,4,BUCKET2_判据失败,10/10,0.3707,passed,4.913
+place_block,arx_l5,5,BUCKET2_判据失败,10/10,0.2664,passed,4.883
+place_block,arx_l5,6,BUCKET2_判据失败,10/10,0.2108,passed,4.993
+place_block,arx_l5,7,BUCKET2_判据失败,10/10,0.2002,passed,4.979
+place_block,arx_l5,8,BUCKET2_判据失败,10/10,0.1557,passed,4.512
+place_block,arx_l5,9,BUCKET2_判据失败,10/10,0.2385,passed,4.54
+place_block,arx_l5,10,BUCKET2_判据失败,10/10,0.3345,passed,4.862
+place_block,arx_l5,11,BUCKET2_判据失败,10/10,0.2261,passed,4.627
+place_block,arx_l5,12,BUCKET2_判据失败,10/10,0.2904,passed,4.581
+place_block,arx_l5,13,BUCKET2_判据失败,10/10,0.3325,passed,4.515
+place_block,arx_l5,14,SUCCESS,完成状态: 10/10,0.0049,passed,4.448
+place_block,arx_l5,15,BUCKET2_判据失败,10/10,0.182,passed,5.051
+place_block,arx_l5,16,BUCKET2_判据失败,10/10,0.2636,passed,4.935
+place_block,arx_l5,17,BUCKET2_判据失败,10/10,0.3711,passed,4.912
+place_block,arx_l5,18,BUCKET2_判据失败,10/10,0.1862,passed,4.964
+place_block,arx_l5,19,BUCKET2_判据失败,10/10,0.2532,passed,4.848
+place_block,arx_l5,20,BUCKET2_判据失败,10/10,0.1894,passed,4.371
+place_block,arx_l5,21,BUCKET2_判据失败,10/10,0.1853,passed,4.824
+place_block,arx_l5,22,BUCKET2_判据失败,10/10,0.2128,passed,4.985
+place_block,arx_l5,23,BUCKET2_判据失败,10/10,0.2222,passed,4.887
+place_block,arx_l5,24,BUCKET2_判据失败,10/10,0.1719,passed,4.186
+place_block,arx_l5,25,BUCKET2_判据失败,10/10,0.1978,passed,4.16
+place_block,arx_l5,26,BUCKET2_判据失败,10/10,0.3208,passed,4.653
+place_block,arx_l5,27,BUCKET2_判据失败,10/10,0.175,passed,4.514
+place_block,arx_l5,28,BUCKET2_判据失败,10/10,0.3258,passed,4.768
+place_block,arx_l5,29,SUCCESS,完成状态: 10/10,0.0059,passed,4.798
+place_block,arx_l5,30,BUCKET2_判据失败,10/10,0.2147,passed,4.533
+place_block,arx_l5,31,BUCKET2_判据失败,10/10,0.1689,passed,4.301
+place_block,arx_l5,32,BUCKET2_判据失败,10/10,0.1922,passed,4.225
+place_block,arx_l5,33,BUCKET2_判据失败,10/10,0.1332,passed,4.028
+place_block,arx_l5,34,SUCCESS,完成状态: 10/10,0.0122,passed,3.951
+place_block,arx_l5,35,BUCKET2_判据失败,10/10,0.2858,passed,4.524
+place_block,arx_l5,36,BUCKET2_判据失败,10/10,0.2262,passed,5.101
+place_block,arx_l5,37,SUCCESS,完成状态: 10/10,0.0216,passed,4.941
+place_block,arx_l5,38,BUCKET2_判据失败,10/10,0.2279,passed,5.322
+place_block,arx_l5,39,BUCKET2_判据失败,10/10,0.193,passed,5.041
+place_block,arx_l5,40,BUCKET2_判据失败,10/10,0.1816,passed,5.2
+place_block,arx_l5,41,BUCKET2_判据失败,10/10,0.195,passed,5.304
+place_block,arx_l5,42,BUCKET2_判据失败,10/10,0.2344,passed,5.246
+place_block,arx_l5,43,SUCCESS,完成状态: 10/10,0.0065,passed,5.291
+place_block,arx_l5,44,BUCKET2_判据失败,10/10,0.2063,passed,5.205
+place_block,arx_l5,45,BUCKET2_判据失败,10/10,0.2607,passed,4.6
+place_block,arx_l5,46,SUCCESS,完成状态: 10/10,0.0265,passed,4.398
+place_block,arx_l5,47,BUCKET2_判据失败,10/10,0.2427,passed,4.925
+place_block,arx_l5,48,BUCKET2_判据失败,10/10,0.2093,passed,5.06
+place_block,arx_l5,49,BUCKET2_判据失败,10/10,0.2243,passed,4.929
+place_block,arx_l5,50,BUCKET2_判据失败,10/10,0.1707,passed,4.742
+place_block,arx_x5,1,SUCCESS,完成状态: 10/10,0.005,passed,5.024
+place_block,arx_x5,2,SUCCESS,完成状态: 10/10,0.0042,passed,4.987
+place_block,arx_x5,3,SUCCESS,完成状态: 10/10,0.0271,passed,5.055
+place_block,arx_x5,4,SUCCESS,完成状态: 10/10,0.0092,passed,5.075
+place_block,arx_x5,5,SUCCESS,完成状态: 10/10,0.0063,passed,4.972
+place_block,arx_x5,6,SUCCESS,完成状态: 10/10,0.0037,passed,4.27
+place_block,arx_x5,7,SUCCESS,完成状态: 10/10,0.005,passed,4.197
+place_block,arx_x5,8,SUCCESS,完成状态: 10/10,0.0083,passed,5.034
+place_block,arx_x5,9,SUCCESS,完成状态: 10/10,0.0028,passed,4.803
+place_block,arx_x5,10,SUCCESS,完成状态: 10/10,0.0045,passed,4.886
+place_block,arx_x5,11,SUCCESS,完成状态: 10/10,0.0288,passed,4.973
+place_block,arx_x5,12,SUCCESS,完成状态: 10/10,0.0059,passed,4.942
+place_block,arx_x5,13,SUCCESS,完成状态: 10/10,0.0066,passed,4.947
+place_block,arx_x5,14,SUCCESS,完成状态: 10/10,0.0287,passed,5.108
+place_block,arx_x5,15,SUCCESS,完成状态: 10/10,0.0288,passed,4.871
+place_block,arx_x5,16,SUCCESS,完成状态: 10/10,0.0136,passed,4.772
+place_block,arx_x5,17,SUCCESS,完成状态: 10/10,0.0152,passed,4.698
+place_block,arx_x5,18,SUCCESS,完成状态: 10/10,0.0054,passed,4.785
+place_block,arx_x5,19,SUCCESS,完成状态: 10/10,0.0042,passed,4.296
+place_block,arx_x5,20,SUCCESS,完成状态: 10/10,0.0029,passed,4.614
+place_block,arx_x5,21,SUCCESS,完成状态: 10/10,0.0049,passed,4.676
+place_block,arx_x5,22,SUCCESS,完成状态: 10/10,0.0127,passed,4.777
+place_block,arx_x5,23,SUCCESS,完成状态: 10/10,0.0039,passed,4.777
+place_block,arx_x5,24,SUCCESS,完成状态: 10/10,0.0058,passed,4.864
+place_block,arx_x5,25,SUCCESS,完成状态: 10/10,0.0262,passed,4.667
+place_block,arx_x5,26,SUCCESS,完成状态: 10/10,0.0064,passed,4.759
+place_block,arx_x5,27,SUCCESS,完成状态: 10/10,0.0072,passed,4.268
+place_block,arx_x5,28,SUCCESS,完成状态: 10/10,0.0019,passed,4.465
+place_block,arx_x5,29,SUCCESS,完成状态: 10/10,0.0084,passed,4.785
+place_block,arx_x5,30,SUCCESS,完成状态: 10/10,0.0025,passed,4.604
+place_block,arx_x5,31,SUCCESS,完成状态: 10/10,0.0093,passed,4.593
+place_block,arx_x5,32,SUCCESS,完成状态: 10/10,0.0043,passed,4.59
+place_block,arx_x5,33,SUCCESS,完成状态: 10/10,0.0268,passed,4.66
+place_block,arx_x5,34,SUCCESS,完成状态: 10/10,0.0274,passed,4.786
+place_block,arx_x5,35,SUCCESS,完成状态: 10/10,0.0091,passed,4.495
+place_block,arx_x5,36,SUCCESS,完成状态: 10/10,0.0035,passed,4.786
+place_block,arx_x5,37,SUCCESS,完成状态: 10/10,0.0032,passed,4.609
+place_block,arx_x5,38,SUCCESS,完成状态: 10/10,0.0292,passed,4.472
+place_block,arx_x5,39,SUCCESS,完成状态: 10/10,0.0066,passed,4.658
+place_block,arx_x5,40,SUCCESS,完成状态: 10/10,0.008,passed,4.645
+place_block,arx_x5,41,SUCCESS,完成状态: 10/10,0.004,passed,4.388
+place_block,arx_x5,42,SUCCESS,完成状态: 10/10,0.0084,passed,4.475
+place_block,arx_x5,43,SUCCESS,完成状态: 10/10,0.006,passed,4.708
+place_block,arx_x5,44,SUCCESS,完成状态: 10/10,0.0047,passed,4.49
+place_block,arx_x5,45,SUCCESS,完成状态: 10/10,0.0027,passed,4.516
+place_block,arx_x5,46,SUCCESS,完成状态: 10/10,0.0291,passed,4.454
+place_block,arx_x5,47,SUCCESS,完成状态: 10/10,0.0056,passed,4.573
+place_block,arx_x5,48,SUCCESS,完成状态: 10/10,0.0075,passed,4.82
+place_block,arx_x5,49,SUCCESS,完成状态: 10/10,0.0277,passed,4.916
+place_block,arx_x5,50,SUCCESS,完成状态: 10/10,0.0097,passed,4.868
+place_block,iiwa14,1,BUCKET2_判据失败,10/10,0.4127,passed,4.474
+place_block,iiwa14,2,BUCKET2_判据失败,10/10,0.2014,passed,4.486
+place_block,iiwa14,3,BUCKET2_判据失败,10/10,0.3178,passed,4.037
+place_block,iiwa14,4,BUCKET2_判据失败,10/10,0.3236,passed,4.144
+place_block,iiwa14,5,BUCKET2_判据失败,10/10,0.392,passed,4.405
+place_block,iiwa14,6,BUCKET2_判据失败,10/10,0.2827,passed,4.8
+place_block,iiwa14,7,BUCKET2_判据失败,10/10,0.2062,passed,4.778
+place_block,iiwa14,8,SUCCESS,完成状态: 10/10,0.0098,passed,4.377
+place_block,iiwa14,9,BUCKET2_判据失败,10/10,0.1624,passed,4.569
+place_block,iiwa14,10,BUCKET2_判据失败,10/10,0.1918,passed,4.625
+place_block,iiwa14,11,SUCCESS,完成状态: 10/10,0.0049,passed,4.622
+place_block,iiwa14,12,BUCKET2_判据失败,10/10,0.2957,passed,4.536
+place_block,iiwa14,13,BUCKET2_判据失败,10/10,0.262,passed,4.637
+place_block,iiwa14,14,BUCKET2_判据失败,10/10,0.2562,passed,4.485
+place_block,iiwa14,15,SUCCESS,完成状态: 10/10,0.0036,passed,4.562
+place_block,iiwa14,16,BUCKET2_判据失败,10/10,0.2047,passed,4.958
+place_block,iiwa14,17,BUCKET2_判据失败,10/10,0.235,passed,4.291
+place_block,iiwa14,18,BUCKET2_判据失败,10/10,0.4238,passed,4.512
+place_block,iiwa14,19,BUCKET2_判据失败,10/10,0.2488,passed,4.765
+place_block,iiwa14,20,SUCCESS,完成状态: 10/10,0.0049,passed,4.707
+place_block,iiwa14,21,BUCKET2_判据失败,10/10,0.2413,passed,4.744
+place_block,iiwa14,22,BUCKET2_判据失败,10/10,0.1856,passed,4.722
+place_block,iiwa14,23,BUCKET2_判据失败,10/10,0.2102,passed,4.639
+place_block,iiwa14,24,SUCCESS,完成状态: 10/10,0.006,passed,4.943
+place_block,iiwa14,25,SUCCESS,完成状态: 10/10,0.0073,passed,4.728
+place_block,iiwa14,26,BUCKET2_判据失败,10/10,0.2736,passed,4.555
+place_block,iiwa14,27,BUCKET2_判据失败,10/10,0.2545,passed,4.774
+place_block,iiwa14,28,BUCKET2_判据失败,10/10,0.2196,passed,4.533
+place_block,iiwa14,29,BUCKET2_判据失败,10/10,0.251,passed,4.556
+place_block,iiwa14,30,BUCKET2_判据失败,10/10,0.6641,passed,4.024
+place_block,iiwa14,31,BUCKET2_判据失败,10/10,0.3905,passed,4.811
+place_block,iiwa14,32,BUCKET2_判据失败,10/10,0.4963,passed,4.684
+place_block,iiwa14,33,BUCKET2_判据失败,10/10,0.3978,passed,4.547
+place_block,iiwa14,34,SUCCESS,完成状态: 10/10,0.0088,passed,4.387
+place_block,iiwa14,35,BUCKET2_判据失败,10/10,0.3148,passed,4.568
+place_block,iiwa14,36,SUCCESS,完成状态: 10/10,0.0118,passed,4.523
+place_block,iiwa14,37,BUCKET2_判据失败,10/10,0.2828,passed,4.285
+place_block,iiwa14,38,BUCKET2_判据失败,10/10,0.3234,passed,4.313
+place_block,iiwa14,39,BUCKET2_判据失败,10/10,0.3521,passed,4.126
+place_block,iiwa14,40,SUCCESS,完成状态: 10/10,0.0058,passed,4.684
+place_block,iiwa14,41,SUCCESS,完成状态: 10/10,0.0068,passed,4.72
+place_block,iiwa14,42,BUCKET2_判据失败,10/10,0.2066,passed,4.836
+place_block,iiwa14,43,BUCKET2_判据失败,10/10,0.3464,passed,4.778
+place_block,iiwa14,44,BUCKET2_判据失败,10/10,0.1729,passed,4.874
+place_block,iiwa14,45,BUCKET2_判据失败,10/10,0.1797,passed,4.725
+place_block,iiwa14,46,BUCKET2_判据失败,10/10,0.3005,passed,4.689
+place_block,iiwa14,47,BUCKET2_判据失败,10/10,0.2258,passed,4.826
+place_block,iiwa14,48,BUCKET2_判据失败,10/10,0.3885,passed,4.449
+place_block,iiwa14,49,BUCKET2_判据失败,10/10,0.2569,passed,4.752
+place_block,iiwa14,50,BUCKET2_判据失败,10/10,0.2279,passed,4.806
+place_block,panda,1,SUCCESS,完成状态: 10/10,0.0051,passed,4.664
+place_block,panda,2,BUCKET1_早期IK失败,0/10,,passed,4.696
+place_block,panda,3,SUCCESS,完成状态: 10/10,0.0015,passed,4.636
+place_block,panda,4,SUCCESS,完成状态: 10/10,0.0055,passed,4.677
+place_block,panda,5,SUCCESS,完成状态: 10/10,0.0012,passed,5.039
+place_block,panda,6,SUCCESS,完成状态: 10/10,0.0053,passed,4.714
+place_block,panda,7,BUCKET1_早期IK失败,5/10,,passed,4.838
+place_block,panda,8,SUCCESS,完成状态: 10/10,0.0036,passed,4.965
+place_block,panda,9,SUCCESS,完成状态: 10/10,0.0048,passed,5.098
+place_block,panda,10,SUCCESS,完成状态: 10/10,0.0046,passed,4.988
+place_block,panda,11,SUCCESS,完成状态: 10/10,0.0019,passed,5.021
+place_block,panda,12,SUCCESS,完成状态: 10/10,0.0031,passed,5.027
+place_block,panda,13,BUCKET1_早期IK失败,0/10,,passed,4.545
+place_block,panda,14,SUCCESS,完成状态: 10/10,0.0043,passed,4.209
+place_block,panda,15,SUCCESS,完成状态: 10/10,0.0045,passed,4.789
+place_block,panda,16,SUCCESS,完成状态: 10/10,0.0004,passed,4.909
+place_block,panda,17,SUCCESS,完成状态: 10/10,0.0046,passed,5.048
+place_block,panda,18,SUCCESS,完成状态: 10/10,0.0028,passed,4.882
+place_block,panda,19,BUCKET1_早期IK失败,6/10,,passed,4.433
+place_block,panda,20,SUCCESS,完成状态: 10/10,0.0034,passed,4.542
+place_block,panda,21,SUCCESS,完成状态: 10/10,0.0031,passed,4.228
+place_block,panda,22,BUCKET1_早期IK失败,6/10,,passed,4.085
+place_block,panda,23,SUCCESS,完成状态: 10/10,0.0024,passed,4.377
+place_block,panda,24,SUCCESS,完成状态: 10/10,0.0057,passed,4.386
+place_block,panda,25,SUCCESS,完成状态: 10/10,0.0031,passed,4.395
+place_block,panda,26,SUCCESS,完成状态: 10/10,0.006,passed,4.596
+place_block,panda,27,SUCCESS,完成状态: 10/10,0.0044,passed,4.58
+place_block,panda,28,SUCCESS,完成状态: 10/10,0.0053,passed,4.729
+place_block,panda,29,SUCCESS,完成状态: 10/10,0.0031,passed,4.704
+place_block,panda,30,SUCCESS,完成状态: 10/10,0.0023,passed,4.082
+place_block,panda,31,BUCKET1_早期IK失败,6/10,,passed,4.359
+place_block,panda,32,SUCCESS,完成状态: 10/10,0.0036,passed,4.721
+place_block,panda,33,SUCCESS,完成状态: 10/10,0.006,passed,4.682
+place_block,panda,34,SUCCESS,完成状态: 10/10,0.0055,passed,4.703
+place_block,panda,35,SUCCESS,完成状态: 10/10,0.0051,passed,4.783
+place_block,panda,36,SUCCESS,完成状态: 10/10,0.0044,passed,4.5
+place_block,panda,37,SUCCESS,完成状态: 10/10,0.0067,passed,4.455
+place_block,panda,38,BUCKET1_早期IK失败,0/10,,passed,4.494
+place_block,panda,39,SUCCESS,完成状态: 10/10,0.0037,passed,4.688
+place_block,panda,40,SUCCESS,完成状态: 10/10,0.0014,passed,4.773
+place_block,panda,41,SUCCESS,完成状态: 10/10,0.006,passed,4.696
+place_block,panda,42,SUCCESS,完成状态: 10/10,0.0052,passed,4.743
+place_block,panda,43,SUCCESS,完成状态: 10/10,0.0058,passed,4.551
+place_block,panda,44,SUCCESS,完成状态: 10/10,0.0055,passed,4.215
+place_block,panda,45,SUCCESS,完成状态: 10/10,0.005,passed,4.622
+place_block,panda,46,BUCKET1_早期IK失败,6/10,,passed,4.369
+place_block,panda,47,SUCCESS,完成状态: 10/10,0.0034,passed,4.451
+place_block,panda,48,SUCCESS,完成状态: 10/10,0.0035,passed,4.58
+place_block,panda,49,SUCCESS,完成状态: 10/10,0.004,passed,4.802
+place_block,panda,50,SUCCESS,完成状态: 10/10,0.0233,passed,4.846
+place_block,piper,1,SUCCESS,完成状态: 10/10,0.0012,passed,4.83
+place_block,piper,2,SUCCESS,完成状态: 10/10,0.0088,passed,5.106
+place_block,piper,3,SUCCESS,完成状态: 10/10,0.0012,passed,4.94
+place_block,piper,4,SUCCESS,完成状态: 10/10,0.0027,passed,5.147
+place_block,piper,5,SUCCESS,完成状态: 10/10,0.0023,passed,4.91
+place_block,piper,6,SUCCESS,完成状态: 10/10,0.0077,passed,4.36
+place_block,piper,7,SUCCESS,完成状态: 10/10,0.0093,passed,4.475
+place_block,piper,8,SUCCESS,完成状态: 10/10,0.0246,passed,4.902
+place_block,piper,9,SUCCESS,完成状态: 10/10,0.001,passed,4.97
+place_block,piper,10,SUCCESS,完成状态: 10/10,0.0022,passed,5.025
+place_block,piper,11,SUCCESS,完成状态: 10/10,0.0212,passed,5.279
+place_block,piper,12,SUCCESS,完成状态: 10/10,0.0058,passed,4.973
+place_block,piper,13,SUCCESS,完成状态: 10/10,0.0227,passed,4.803
+place_block,piper,14,SUCCESS,完成状态: 10/10,0.0039,passed,5.141
+place_block,piper,15,SUCCESS,完成状态: 10/10,0.0052,passed,4.866
+place_block,piper,16,SUCCESS,完成状态: 10/10,0.0231,passed,5.063
+place_block,piper,17,SUCCESS,完成状态: 10/10,0.0044,passed,4.858
+place_block,piper,18,SUCCESS,完成状态: 10/10,0.0183,passed,4.8
+place_block,piper,19,SUCCESS,完成状态: 10/10,0.0007,passed,4.432
+place_block,piper,20,SUCCESS,完成状态: 10/10,0.0017,passed,4.769
+place_block,piper,21,SUCCESS,完成状态: 10/10,0.0004,passed,4.741
+place_block,piper,22,SUCCESS,完成状态: 10/10,0.0018,passed,4.618
+place_block,piper,23,SUCCESS,完成状态: 10/10,0.0018,passed,4.598
+place_block,piper,24,SUCCESS,完成状态: 10/10,0.0021,passed,4.881
+place_block,piper,25,SUCCESS,完成状态: 10/10,0.0061,passed,4.946
+place_block,piper,26,SUCCESS,完成状态: 10/10,0.002,passed,4.661
+place_block,piper,27,SUCCESS,完成状态: 10/10,0.001,passed,4.532
+place_block,piper,28,SUCCESS,完成状态: 10/10,0.004,passed,4.753
+place_block,piper,29,SUCCESS,完成状态: 10/10,0.0035,passed,4.919
+place_block,piper,30,SUCCESS,完成状态: 10/10,0.0014,passed,4.941
+place_block,piper,31,SUCCESS,完成状态: 10/10,0.0022,passed,4.165
+place_block,piper,32,SUCCESS,完成状态: 10/10,0.009,passed,4.901
+place_block,piper,33,SUCCESS,完成状态: 10/10,0.0007,passed,4.899
+place_block,piper,34,SUCCESS,完成状态: 10/10,0.0018,passed,4.81
+place_block,piper,35,SUCCESS,完成状态: 10/10,0.0031,passed,4.65
+place_block,piper,36,SUCCESS,完成状态: 10/10,0.0016,passed,4.891
+place_block,piper,37,SUCCESS,完成状态: 10/10,0.0034,passed,4.795
+place_block,piper,38,SUCCESS,完成状态: 10/10,0.0025,passed,4.783
+place_block,piper,39,SUCCESS,完成状态: 10/10,0.009,passed,4.682
+place_block,piper,40,SUCCESS,完成状态: 10/10,0.0098,passed,4.578
+place_block,piper,41,SUCCESS,完成状态: 10/10,0.0019,passed,4.76
+place_block,piper,42,SUCCESS,完成状态: 10/10,0.0048,passed,4.805
+place_block,piper,43,SUCCESS,完成状态: 10/10,0.0011,passed,4.844
+place_block,piper,44,SUCCESS,完成状态: 10/10,0.0018,passed,5.026
+place_block,piper,45,SUCCESS,完成状态: 10/10,0.0108,passed,4.741
+place_block,piper,46,SUCCESS,完成状态: 10/10,0.0053,passed,4.746
+place_block,piper,47,SUCCESS,完成状态: 10/10,0.0063,passed,4.91
+place_block,piper,48,SUCCESS,完成状态: 10/10,0.0005,passed,4.734
+place_block,piper,49,SUCCESS,完成状态: 10/10,0.0012,passed,4.804
+place_block,piper,50,SUCCESS,完成状态: 10/10,0.0029,passed,4.563
+place_block,rm65,1,SUCCESS,完成状态: 10/10,0.0047,passed,4.27
+place_block,rm65,2,SUCCESS,完成状态: 10/10,0.0126,passed,4.407
+place_block,rm65,3,BUCKET1_早期IK失败,6/10,,passed,4.592
+place_block,rm65,4,SUCCESS,完成状态: 10/10,0.0129,passed,4.82
+place_block,rm65,5,SUCCESS,完成状态: 10/10,0.0031,passed,4.418
+place_block,rm65,6,BUCKET1_早期IK失败,0/10,,passed,4.51
+place_block,rm65,7,SUCCESS,完成状态: 10/10,0.0124,passed,4.68
+place_block,rm65,8,SUCCESS,完成状态: 10/10,0.0139,passed,4.804
+place_block,rm65,9,SUCCESS,完成状态: 10/10,0.0004,passed,4.755
+place_block,rm65,10,SUCCESS,完成状态: 10/10,0.0081,passed,5.045
+place_block,rm65,11,SUCCESS,完成状态: 10/10,0.0107,passed,5.041
+place_block,rm65,12,SUCCESS,完成状态: 10/10,0.005,passed,4.961
+place_block,rm65,13,SUCCESS,完成状态: 10/10,0.0036,passed,4.608
+place_block,rm65,14,SUCCESS,完成状态: 10/10,0.0012,passed,4.607
+place_block,rm65,15,SUCCESS,完成状态: 10/10,0.0114,passed,4.444
+place_block,rm65,16,SUCCESS,完成状态: 10/10,0.0025,passed,4.512
+place_block,rm65,17,BUCKET1_早期IK失败,0/10,,passed,4.172
+place_block,rm65,18,SUCCESS,完成状态: 10/10,0.0009,passed,4.225
+place_block,rm65,19,SUCCESS,完成状态: 10/10,0.0009,passed,4.252
+place_block,rm65,20,BUCKET2_判据失败,10/10,0.1584,passed,4.642
+place_block,rm65,21,SUCCESS,完成状态: 10/10,0.0046,passed,4.305
+place_block,rm65,22,SUCCESS,完成状态: 10/10,0.0061,passed,4.498
+place_block,rm65,23,SUCCESS,完成状态: 10/10,0.012,passed,4.486
+place_block,rm65,24,BUCKET2_判据失败,10/10,0.2108,passed,4.601
+place_block,rm65,25,BUCKET2_判据失败,10/10,0.1592,passed,4.646
+place_block,rm65,26,SUCCESS,完成状态: 10/10,0.0057,passed,4.272
+place_block,rm65,27,SUCCESS,完成状态: 10/10,0.0172,passed,4.345
+place_block,rm65,28,SUCCESS,完成状态: 10/10,0.0142,passed,4.76
+place_block,rm65,29,BUCKET1_早期IK失败,6/10,,passed,4.409
+place_block,rm65,30,SUCCESS,完成状态: 10/10,0.0177,passed,4.501
+place_block,rm65,31,BUCKET1_早期IK失败,0/10,,passed,4.518
+place_block,rm65,32,SUCCESS,完成状态: 10/10,0.0053,passed,4.658
+place_block,rm65,33,SUCCESS,完成状态: 10/10,0.006,passed,4.488
+place_block,rm65,34,SUCCESS,完成状态: 10/10,0.0177,passed,4.755
+place_block,rm65,35,SUCCESS,完成状态: 10/10,0.007,passed,4.726
+place_block,rm65,36,SUCCESS,完成状态: 10/10,0.001,passed,4.828
+place_block,rm65,37,BUCKET1_早期IK失败,0/10,,passed,4.652
+place_block,rm65,38,BUCKET1_早期IK失败,0/10,,passed,4.511
+place_block,rm65,39,SUCCESS,完成状态: 10/10,0.0133,passed,4.727
+place_block,rm65,40,BUCKET1_早期IK失败,0/10,,passed,4.058
+place_block,rm65,41,SUCCESS,完成状态: 10/10,0.0007,passed,4.791
+place_block,rm65,42,BUCKET1_早期IK失败,0/10,,passed,4.234
+place_block,rm65,43,BUCKET1_早期IK失败,0/10,,passed,4.539
+place_block,rm65,44,SUCCESS,完成状态: 10/10,0.0227,passed,4.788
+place_block,rm65,45,SUCCESS,完成状态: 10/10,0.0087,passed,4.604
+place_block,rm65,46,SUCCESS,完成状态: 10/10,0.0028,passed,4.699
+place_block,rm65,47,SUCCESS,完成状态: 10/10,0.0024,passed,4.887
+place_block,rm65,48,SUCCESS,完成状态: 10/10,0.0011,passed,4.774
+place_block,rm65,49,BUCKET1_早期IK失败,0/10,,passed,4.577
+place_block,rm65,50,SUCCESS,完成状态: 10/10,0.0079,passed,4.786
+place_block,ur5e,1,SUCCESS,完成状态: 10/10,0.0031,passed,4.934
+place_block,ur5e,2,SUCCESS,完成状态: 10/10,0.005,passed,4.229
+place_block,ur5e,3,SUCCESS,完成状态: 10/10,0.0009,passed,4.148
+place_block,ur5e,4,SUCCESS,完成状态: 10/10,0.0052,passed,4.587
+place_block,ur5e,5,SUCCESS,完成状态: 10/10,0.0009,passed,4.75
+place_block,ur5e,6,BUCKET1_早期IK失败,1/10,,passed,5.2
+place_block,ur5e,7,BUCKET1_早期IK失败,7/10,,passed,4.696
+place_block,ur5e,8,SUCCESS,完成状态: 10/10,0.0037,passed,4.483
+place_block,ur5e,9,SUCCESS,完成状态: 10/10,0.0041,passed,4.374
+place_block,ur5e,10,SUCCESS,完成状态: 10/10,0.004,passed,4.621
+place_block,ur5e,11,SUCCESS,完成状态: 10/10,0.0041,passed,4.694
+place_block,ur5e,12,BUCKET1_早期IK失败,1/10,,passed,5.521
+place_block,ur5e,13,BUCKET1_早期IK失败,1/10,,passed,4.954
+place_block,ur5e,14,BUCKET1_早期IK失败,1/10,,passed,4.507
+place_block,ur5e,15,SUCCESS,完成状态: 10/10,0.0037,passed,4.567
+place_block,ur5e,16,BUCKET1_早期IK失败,1/10,,passed,4.942
+place_block,ur5e,17,SUCCESS,完成状态: 10/10,0.0026,passed,4.712
+place_block,ur5e,18,SUCCESS,完成状态: 10/10,0.0061,passed,4.422
+place_block,ur5e,19,BUCKET1_早期IK失败,1/10,,passed,5.232
+place_block,ur5e,20,BUCKET1_早期IK失败,7/10,,passed,6.131
+place_block,ur5e,21,BUCKET1_早期IK失败,0/10,,passed,5.798
+place_block,ur5e,22,SUCCESS,完成状态: 10/10,0.0045,passed,4.851
+place_block,ur5e,23,BUCKET1_早期IK失败,0/10,,passed,5.1
+place_block,ur5e,24,BUCKET1_早期IK失败,1/10,,passed,4.673
+place_block,ur5e,25,BUCKET1_早期IK失败,1/10,,passed,4.576
+place_block,ur5e,26,SUCCESS,完成状态: 10/10,0.0031,passed,4.931
+place_block,ur5e,27,BUCKET1_早期IK失败,6/10,,passed,5.218
+place_block,ur5e,28,SUCCESS,完成状态: 10/10,0.0082,passed,4.563
+place_block,ur5e,29,BUCKET1_早期IK失败,0/10,,passed,4.897
+place_block,ur5e,30,SUCCESS,完成状态: 10/10,0.0031,passed,4.79
+place_block,ur5e,31,BUCKET1_早期IK失败,0/10,,passed,5.227
+place_block,ur5e,32,SUCCESS,完成状态: 10/10,0.0042,passed,4.864
+place_block,ur5e,33,SUCCESS,完成状态: 10/10,0.0011,passed,4.864
+place_block,ur5e,34,BUCKET1_早期IK失败,1/10,,passed,5.269
+place_block,ur5e,35,SUCCESS,完成状态: 10/10,0.0036,passed,4.448
+place_block,ur5e,36,SUCCESS,完成状态: 10/10,0.0092,passed,4.399
+place_block,ur5e,37,SUCCESS,完成状态: 10/10,0.0015,passed,4.663
+place_block,ur5e,38,BUCKET1_早期IK失败,0/10,,passed,5.158
+place_block,ur5e,39,BUCKET1_早期IK失败,0/10,,passed,4.866
+place_block,ur5e,40,BUCKET1_早期IK失败,7/10,,passed,4.687
+place_block,ur5e,41,BUCKET1_早期IK失败,1/10,,passed,4.494
+place_block,ur5e,42,SUCCESS,完成状态: 10/10,0.0047,passed,4.943
+place_block,ur5e,43,SUCCESS,完成状态: 10/10,0.0018,passed,4.71
+place_block,ur5e,44,SUCCESS,完成状态: 10/10,0.0039,passed,4.697
+place_block,ur5e,45,SUCCESS,完成状态: 10/10,0.0026,passed,4.789
+place_block,ur5e,46,SUCCESS,完成状态: 10/10,0.0045,passed,4.646
+place_block,ur5e,47,SUCCESS,完成状态: 10/10,0.0038,passed,4.645
+place_block,ur5e,48,BUCKET1_早期IK失败,7/10,,passed,5.315
+place_block,ur5e,49,BUCKET1_早期IK失败,0/10,,passed,5.126
+place_block,ur5e,50,BUCKET1_早期IK失败,0/10,,passed,5.338
+place_block,xarm7,1,SUCCESS,完成状态: 10/10,0.0205,passed,4.587
+place_block,xarm7,2,SUCCESS,完成状态: 10/10,0.0074,passed,4.612
+place_block,xarm7,3,BUCKET2_判据失败,10/10,0.1258,passed,4.911
+place_block,xarm7,4,SUCCESS,完成状态: 10/10,0.0052,passed,4.559
+place_block,xarm7,5,SUCCESS,完成状态: 10/10,0.0029,passed,4.722
+place_block,xarm7,6,SUCCESS,完成状态: 10/10,0.0093,passed,4.594
+place_block,xarm7,7,SUCCESS,完成状态: 10/10,0.0265,passed,4.431
+place_block,xarm7,8,BUCKET2_判据失败,10/10,0.0779,passed,4.427
+place_block,xarm7,9,BUCKET2_判据失败,10/10,0.208,passed,4.298
+place_block,xarm7,10,BUCKET2_判据失败,10/10,0.1556,passed,4.215
+place_block,xarm7,11,BUCKET2_判据失败,10/10,0.0996,passed,4.182
+place_block,xarm7,12,SUCCESS,完成状态: 10/10,0.0227,passed,4.415
+place_block,xarm7,13,BUCKET2_判据失败,10/10,0.142,passed,4.368
+place_block,xarm7,14,BUCKET2_判据失败,10/10,0.1879,passed,4.7
+place_block,xarm7,15,BUCKET2_判据失败,10/10,0.1205,passed,4.638
+place_block,xarm7,16,BUCKET2_判据失败,10/10,0.1752,passed,4.537
+place_block,xarm7,17,BUCKET2_判据失败,10/10,0.164,passed,4.715
+place_block,xarm7,18,BUCKET2_判据失败,10/10,0.2024,passed,4.202
+place_block,xarm7,19,BUCKET2_判据失败,10/10,0.3584,passed,4.283
+place_block,xarm7,20,SUCCESS,完成状态: 10/10,0.0126,passed,4.76
+place_block,xarm7,21,BUCKET2_判据失败,10/10,0.1779,passed,4.655
+place_block,xarm7,22,BUCKET2_判据失败,10/10,0.079,passed,4.486
+place_block,xarm7,23,SUCCESS,完成状态: 10/10,0.0054,passed,4.711
+place_block,xarm7,24,BUCKET2_判据失败,10/10,0.1696,passed,4.641
+place_block,xarm7,25,SUCCESS,完成状态: 10/10,0.0237,passed,4.569
+place_block,xarm7,26,BUCKET2_判据失败,10/10,0.1334,passed,4.767
+place_block,xarm7,27,BUCKET2_判据失败,10/10,0.2102,passed,4.562
+place_block,xarm7,28,SUCCESS,完成状态: 10/10,0.0059,passed,4.756
+place_block,xarm7,29,SUCCESS,完成状态: 10/10,0.0075,passed,4.724
+place_block,xarm7,30,BUCKET2_判据失败,10/10,0.2702,passed,4.67
+place_block,xarm7,31,BUCKET2_判据失败,10/10,0.1457,passed,4.467
+place_block,xarm7,32,SUCCESS,完成状态: 10/10,0.0085,passed,4.219
+place_block,xarm7,33,BUCKET2_判据失败,10/10,0.1433,passed,4.643
+place_block,xarm7,34,BUCKET2_判据失败,10/10,0.1597,passed,4.658
+place_block,xarm7,35,SUCCESS,完成状态: 10/10,0.0265,passed,4.446
+place_block,xarm7,36,BUCKET2_判据失败,10/10,0.2402,passed,4.3
+place_block,xarm7,37,BUCKET2_判据失败,10/10,0.1536,passed,4.613
+place_block,xarm7,38,SUCCESS,完成状态: 10/10,0.0067,passed,4.841
+place_block,xarm7,39,BUCKET2_判据失败,10/10,0.2841,passed,4.636
+place_block,xarm7,40,BUCKET2_判据失败,10/10,0.1671,passed,4.864
+place_block,xarm7,41,SUCCESS,完成状态: 10/10,0.0059,passed,4.887
+place_block,xarm7,42,SUCCESS,完成状态: 10/10,0.0058,passed,4.774
+place_block,xarm7,43,SUCCESS,完成状态: 10/10,0.024,passed,4.618
+place_block,xarm7,44,SUCCESS,完成状态: 10/10,0.0056,passed,3.911
+place_block,xarm7,45,SUCCESS,完成状态: 10/10,0.0073,passed,4.277
+place_block,xarm7,46,BUCKET2_判据失败,10/10,0.2512,passed,4.561
+place_block,xarm7,47,BUCKET2_判据失败,10/10,0.3348,passed,4.781
+place_block,xarm7,48,BUCKET2_判据失败,10/10,0.1711,passed,4.479
+place_block,xarm7,49,BUCKET2_判据失败,10/10,0.1393,passed,4.513
+place_block,xarm7,50,BUCKET2_判据失败,10/10,0.2088,passed,4.697
+place_coffeecup,airbot_play,1,BUCKET2_判据失败,10/10,0.0839,passed,4.801
+place_coffeecup,airbot_play,2,BUCKET1_早期IK失败,0/10,,passed,5.386
+place_coffeecup,airbot_play,3,BUCKET2_判据失败,10/10,0.0438,passed,4.79
+place_coffeecup,airbot_play,4,BUCKET2_判据失败,10/10,0.0566,passed,4.696
+place_coffeecup,airbot_play,5,BUCKET2_判据失败,10/10,0.0748,passed,4.609
+place_coffeecup,airbot_play,6,BUCKET2_判据失败,10/10,0.0615,passed,4.326
+place_coffeecup,airbot_play,7,SUCCESS,完成状态: 10/10,0.0096,passed,4.68
+place_coffeecup,airbot_play,8,BUCKET2_判据失败,10/10,0.0247,passed,4.397
+place_coffeecup,airbot_play,9,SUCCESS,完成状态: 10/10,0.0142,passed,4.491
+place_coffeecup,airbot_play,10,BUCKET2_判据失败,10/10,0.1575,passed,4.845
+place_coffeecup,airbot_play,11,BUCKET2_判据失败,10/10,0.1737,passed,4.769
+place_coffeecup,airbot_play,12,BUCKET1_早期IK失败,0/10,,passed,4.509
+place_coffeecup,airbot_play,13,BUCKET1_早期IK失败,6/10,,passed,4.675
+place_coffeecup,airbot_play,14,BUCKET1_早期IK失败,6/10,,passed,4.875
+place_coffeecup,airbot_play,15,BUCKET2_判据失败,10/10,0.05,passed,4.911
+place_coffeecup,airbot_play,16,BUCKET2_判据失败,10/10,0.0642,passed,4.552
+place_coffeecup,airbot_play,17,BUCKET2_判据失败,10/10,0.0375,passed,4.907
+place_coffeecup,airbot_play,18,SUCCESS,完成状态: 10/10,0.0204,passed,4.656
+place_coffeecup,airbot_play,19,SUCCESS,完成状态: 10/10,0.027,passed,4.761
+place_coffeecup,airbot_play,20,BUCKET2_判据失败,10/10,0.0241,passed,4.254
+place_coffeecup,airbot_play,21,BUCKET2_判据失败,10/10,0.0361,passed,4.673
+place_coffeecup,airbot_play,22,BUCKET2_判据失败,10/10,0.031,passed,4.945
+place_coffeecup,airbot_play,23,BUCKET2_判据失败,10/10,0.0727,passed,4.979
+place_coffeecup,airbot_play,24,BUCKET1_早期IK失败,6/10,,passed,4.832
+place_coffeecup,airbot_play,25,SUCCESS,完成状态: 10/10,0.0207,passed,4.836
+place_coffeecup,airbot_play,26,BUCKET2_判据失败,10/10,0.0212,passed,4.943
+place_coffeecup,airbot_play,27,SUCCESS,完成状态: 10/10,0.0132,passed,4.946
+place_coffeecup,airbot_play,28,BUCKET2_判据失败,10/10,0.0655,passed,4.65
+place_coffeecup,airbot_play,29,SUCCESS,完成状态: 10/10,0.0282,passed,4.37
+place_coffeecup,airbot_play,30,BUCKET2_判据失败,10/10,0.0683,passed,4.943
+place_coffeecup,airbot_play,31,BUCKET2_判据失败,10/10,0.0758,passed,4.849
+place_coffeecup,airbot_play,32,SUCCESS,完成状态: 10/10,0.0087,passed,4.804
+place_coffeecup,airbot_play,33,SUCCESS,完成状态: 10/10,0.0144,passed,4.969
+place_coffeecup,airbot_play,34,SUCCESS,完成状态: 10/10,0.012,passed,5.053
+place_coffeecup,airbot_play,35,SUCCESS,完成状态: 10/10,0.0185,passed,4.777
+place_coffeecup,airbot_play,36,BUCKET2_判据失败,10/10,0.0774,passed,4.914
+place_coffeecup,airbot_play,37,BUCKET2_判据失败,10/10,0.1492,passed,4.64
+place_coffeecup,airbot_play,38,SUCCESS,完成状态: 10/10,0.0152,passed,4.675
+place_coffeecup,airbot_play,39,BUCKET2_判据失败,10/10,0.0676,passed,4.81
+place_coffeecup,airbot_play,40,BUCKET2_判据失败,10/10,0.0516,passed,4.696
+place_coffeecup,airbot_play,41,BUCKET2_判据失败,10/10,0.0416,passed,4.759
+place_coffeecup,airbot_play,42,BUCKET1_早期IK失败,0/10,,passed,4.393
+place_coffeecup,airbot_play,43,SUCCESS,完成状态: 10/10,0.0202,passed,4.839
+place_coffeecup,airbot_play,44,SUCCESS,完成状态: 10/10,0.017,passed,4.512
+place_coffeecup,airbot_play,45,SUCCESS,完成状态: 10/10,0.0193,passed,4.133
+place_coffeecup,airbot_play,46,BUCKET1_早期IK失败,0/10,,passed,4.064
+place_coffeecup,airbot_play,47,BUCKET1_早期IK失败,0/10,,passed,4.007
+place_coffeecup,airbot_play,48,SUCCESS,完成状态: 10/10,0.008,passed,4.589
+place_coffeecup,airbot_play,49,SUCCESS,完成状态: 10/10,0.021,passed,4.585
+place_coffeecup,airbot_play,50,BUCKET2_判据失败,10/10,0.0678,passed,4.586
+place_coffeecup,arx_l5,1,SUCCESS,完成状态: 10/10,0.0034,passed,4.711
+place_coffeecup,arx_l5,2,BUCKET2_判据失败,10/10,0.0749,passed,4.564
+place_coffeecup,arx_l5,3,BUCKET2_判据失败,10/10,0.0449,passed,4.393
+place_coffeecup,arx_l5,4,BUCKET2_判据失败,10/10,0.0505,passed,4.263
+place_coffeecup,arx_l5,5,BUCKET2_判据失败,10/10,0.0687,passed,4.857
+place_coffeecup,arx_l5,6,SUCCESS,完成状态: 10/10,0.023,passed,4.595
+place_coffeecup,arx_l5,7,BUCKET2_判据失败,10/10,0.023,passed,4.774
+place_coffeecup,arx_l5,8,SUCCESS,完成状态: 10/10,0.0146,passed,4.795
+place_coffeecup,arx_l5,9,BUCKET2_判据失败,10/10,0.0422,passed,4.453
+place_coffeecup,arx_l5,10,BUCKET2_判据失败,10/10,0.0421,passed,4.493
+place_coffeecup,arx_l5,11,BUCKET2_判据失败,10/10,0.0511,passed,4.807
+place_coffeecup,arx_l5,12,BUCKET2_判据失败,10/10,0.029,passed,4.672
+place_coffeecup,arx_l5,13,BUCKET2_判据失败,10/10,0.0958,passed,4.576
+place_coffeecup,arx_l5,14,BUCKET2_判据失败,10/10,0.0512,passed,4.646
+place_coffeecup,arx_l5,15,BUCKET2_判据失败,10/10,0.0387,passed,4.393
+place_coffeecup,arx_l5,16,BUCKET2_判据失败,10/10,0.0469,passed,4.467
+place_coffeecup,arx_l5,17,BUCKET2_判据失败,10/10,0.0412,passed,4.471
+place_coffeecup,arx_l5,18,SUCCESS,完成状态: 10/10,0.0116,passed,4.581
+place_coffeecup,arx_l5,19,BUCKET2_判据失败,10/10,0.0555,passed,4.745
+place_coffeecup,arx_l5,20,BUCKET2_判据失败,10/10,0.0571,passed,4.708
+place_coffeecup,arx_l5,21,BUCKET2_判据失败,10/10,0.0799,passed,4.659
+place_coffeecup,arx_l5,22,SUCCESS,完成状态: 10/10,0.0151,passed,4.515
+place_coffeecup,arx_l5,23,BUCKET2_判据失败,10/10,0.0186,passed,4.367
+place_coffeecup,arx_l5,24,SUCCESS,完成状态: 10/10,0.0149,passed,4.625
+place_coffeecup,arx_l5,25,BUCKET2_判据失败,10/10,0.0437,passed,4.918
+place_coffeecup,arx_l5,26,BUCKET2_判据失败,10/10,0.1312,passed,5.005
+place_coffeecup,arx_l5,27,SUCCESS,完成状态: 10/10,0.0198,passed,4.626
+place_coffeecup,arx_l5,28,BUCKET2_判据失败,10/10,0.041,passed,4.777
+place_coffeecup,arx_l5,29,BUCKET2_判据失败,10/10,0.069,passed,3.927
+place_coffeecup,arx_l5,30,BUCKET1_早期IK失败,0/10,,passed,5.028
+place_coffeecup,arx_l5,31,BUCKET2_判据失败,10/10,0.0383,passed,4.775
+place_coffeecup,arx_l5,32,SUCCESS,完成状态: 10/10,0.0099,passed,4.782
+place_coffeecup,arx_l5,33,SUCCESS,完成状态: 10/10,0.0179,passed,4.875
+place_coffeecup,arx_l5,34,SUCCESS,完成状态: 10/10,0.019,passed,4.598
+place_coffeecup,arx_l5,35,SUCCESS,完成状态: 10/10,0.0173,passed,4.836
+place_coffeecup,arx_l5,36,BUCKET2_判据失败,10/10,0.0392,passed,4.874
+place_coffeecup,arx_l5,37,BUCKET2_判据失败,10/10,0.0426,passed,4.768
+place_coffeecup,arx_l5,38,BUCKET2_判据失败,10/10,0.0528,passed,4.957
+place_coffeecup,arx_l5,39,BUCKET2_判据失败,10/10,0.0319,passed,4.924
+place_coffeecup,arx_l5,40,SUCCESS,完成状态: 10/10,0.0181,passed,5.418
+place_coffeecup,arx_l5,41,SUCCESS,完成状态: 10/10,0.0126,passed,5.0
+place_coffeecup,arx_l5,42,BUCKET2_判据失败,10/10,0.0529,passed,4.727
+place_coffeecup,arx_l5,43,BUCKET2_判据失败,10/10,0.0412,passed,4.971
+place_coffeecup,arx_l5,44,BUCKET2_判据失败,10/10,0.0738,passed,4.745
+place_coffeecup,arx_l5,45,SUCCESS,完成状态: 10/10,0.0192,passed,4.821
+place_coffeecup,arx_l5,46,BUCKET2_判据失败,10/10,0.0658,passed,4.848
+place_coffeecup,arx_l5,47,BUCKET2_判据失败,10/10,0.0548,passed,4.673
+place_coffeecup,arx_l5,48,SUCCESS,完成状态: 10/10,0.0152,passed,5.019
+place_coffeecup,arx_l5,49,BUCKET2_判据失败,10/10,0.037,passed,4.675
+place_coffeecup,arx_l5,50,SUCCESS,完成状态: 10/10,0.0297,passed,4.575
+place_coffeecup,arx_x5,1,BUCKET2_判据失败,10/10,0.0295,passed,5.057
+place_coffeecup,arx_x5,2,BUCKET2_判据失败,10/10,0.0276,passed,4.835
+place_coffeecup,arx_x5,3,BUCKET2_判据失败,10/10,0.039,passed,5.274
+place_coffeecup,arx_x5,4,BUCKET2_判据失败,10/10,0.0251,passed,4.297
+place_coffeecup,arx_x5,5,BUCKET2_判据失败,10/10,0.0302,passed,4.85
+place_coffeecup,arx_x5,6,BUCKET2_判据失败,10/10,0.0458,passed,5.03
+place_coffeecup,arx_x5,7,BUCKET2_判据失败,10/10,0.0591,passed,4.987
+place_coffeecup,arx_x5,8,BUCKET2_判据失败,10/10,0.0381,passed,4.997
+place_coffeecup,arx_x5,9,SUCCESS,完成状态: 10/10,0.0112,passed,4.799
+place_coffeecup,arx_x5,10,BUCKET2_判据失败,10/10,0.0386,passed,4.989
+place_coffeecup,arx_x5,11,BUCKET2_判据失败,10/10,0.0377,passed,4.739
+place_coffeecup,arx_x5,12,BUCKET2_判据失败,10/10,0.0384,passed,4.571
+place_coffeecup,arx_x5,13,BUCKET2_判据失败,10/10,0.0317,passed,4.463
+place_coffeecup,arx_x5,14,BUCKET2_判据失败,10/10,0.0083,passed,4.567
+place_coffeecup,arx_x5,15,BUCKET2_判据失败,10/10,0.0439,passed,4.729
+place_coffeecup,arx_x5,16,BUCKET2_判据失败,10/10,0.0462,passed,4.824
+place_coffeecup,arx_x5,17,BUCKET2_判据失败,10/10,0.0325,passed,4.949
+place_coffeecup,arx_x5,18,BUCKET2_判据失败,10/10,0.0355,passed,4.945
+place_coffeecup,arx_x5,19,SUCCESS,完成状态: 10/10,0.0195,passed,4.849
+place_coffeecup,arx_x5,20,BUCKET2_判据失败,10/10,0.015,passed,4.758
+place_coffeecup,arx_x5,21,BUCKET2_判据失败,10/10,0.0125,passed,4.966
+place_coffeecup,arx_x5,22,BUCKET2_判据失败,10/10,0.0278,passed,4.612
+place_coffeecup,arx_x5,23,BUCKET2_判据失败,10/10,0.0173,passed,4.643
+place_coffeecup,arx_x5,24,BUCKET2_判据失败,10/10,0.0375,passed,4.707
+place_coffeecup,arx_x5,25,BUCKET2_判据失败,10/10,0.0385,passed,4.799
+place_coffeecup,arx_x5,26,BUCKET2_判据失败,10/10,0.0204,passed,5.005
+place_coffeecup,arx_x5,27,SUCCESS,完成状态: 10/10,0.0109,passed,5.063
+place_coffeecup,arx_x5,28,SUCCESS,完成状态: 10/10,0.0218,passed,5.154
+place_coffeecup,arx_x5,29,BUCKET2_判据失败,10/10,0.0457,passed,5.063
+place_coffeecup,arx_x5,30,BUCKET2_判据失败,10/10,0.0094,passed,5.27
+place_coffeecup,arx_x5,31,BUCKET2_判据失败,10/10,0.0518,passed,4.537
+place_coffeecup,arx_x5,32,BUCKET2_判据失败,10/10,0.0377,passed,4.593
+place_coffeecup,arx_x5,33,BUCKET1_早期IK失败,0/10,,passed,5.765
+place_coffeecup,arx_x5,34,BUCKET2_判据失败,10/10,0.0385,passed,5.042
+place_coffeecup,arx_x5,35,BUCKET2_判据失败,10/10,0.0369,passed,5.326
+place_coffeecup,arx_x5,36,BUCKET2_判据失败,10/10,0.0168,passed,5.071
+place_coffeecup,arx_x5,37,BUCKET2_判据失败,10/10,0.0199,passed,5.304
+place_coffeecup,arx_x5,38,BUCKET2_判据失败,10/10,0.0355,passed,5.264
+place_coffeecup,arx_x5,39,BUCKET2_判据失败,10/10,0.0169,passed,4.84
+place_coffeecup,arx_x5,40,BUCKET2_判据失败,10/10,0.041,passed,4.804
+place_coffeecup,arx_x5,41,BUCKET2_判据失败,10/10,0.0303,passed,4.791
+place_coffeecup,arx_x5,42,SUCCESS,完成状态: 10/10,0.0158,passed,4.892
+place_coffeecup,arx_x5,43,SUCCESS,完成状态: 10/10,0.015,passed,4.683
+place_coffeecup,arx_x5,44,BUCKET2_判据失败,10/10,0.0277,passed,4.668
+place_coffeecup,arx_x5,45,SUCCESS,完成状态: 10/10,0.0274,passed,5.079
+place_coffeecup,arx_x5,46,BUCKET2_判据失败,10/10,0.0353,passed,5.083
+place_coffeecup,arx_x5,47,BUCKET2_判据失败,10/10,0.0395,passed,5.063
+place_coffeecup,arx_x5,48,BUCKET2_判据失败,10/10,0.0168,passed,5.178
+place_coffeecup,arx_x5,49,BUCKET2_判据失败,10/10,0.0262,passed,5.263
+place_coffeecup,arx_x5,50,BUCKET2_判据失败,10/10,0.0288,passed,5.047
+place_coffeecup,iiwa14,1,BUCKET2_判据失败,10/10,0.0716,passed,4.689
+place_coffeecup,iiwa14,2,BUCKET1_早期IK失败,0/10,,passed,6.188
+place_coffeecup,iiwa14,3,BUCKET1_早期IK失败,0/10,,passed,6.358
+place_coffeecup,iiwa14,4,SUCCESS,完成状态: 10/10,0.0143,passed,5.248
+place_coffeecup,iiwa14,5,BUCKET1_早期IK失败,0/10,,passed,5.46
+place_coffeecup,iiwa14,6,SUCCESS,完成状态: 10/10,0.0016,passed,3.931
+place_coffeecup,iiwa14,7,BUCKET2_判据失败,10/10,0.0035,passed,4.69
+place_coffeecup,iiwa14,8,BUCKET2_判据失败,10/10,0.0668,passed,4.999
+place_coffeecup,iiwa14,9,BUCKET2_判据失败,10/10,0.2518,passed,4.75
+place_coffeecup,iiwa14,10,SUCCESS,完成状态: 10/10,0.0116,passed,4.751
+place_coffeecup,iiwa14,11,BUCKET1_早期IK失败,0/10,,passed,6.026
+place_coffeecup,iiwa14,12,SUCCESS,完成状态: 10/10,0.0087,passed,5.067
+place_coffeecup,iiwa14,13,BUCKET2_判据失败,10/10,0.1819,passed,4.79
+place_coffeecup,iiwa14,14,BUCKET1_早期IK失败,0/10,,passed,6.069
+place_coffeecup,iiwa14,15,SUCCESS,完成状态: 10/10,0.006,passed,5.056
+place_coffeecup,iiwa14,16,BUCKET1_早期IK失败,7/10,,passed,5.56
+place_coffeecup,iiwa14,17,BUCKET1_早期IK失败,0/10,,passed,5.763
+place_coffeecup,iiwa14,18,BUCKET2_判据失败,10/10,0.2686,passed,4.144
+place_coffeecup,iiwa14,19,BUCKET2_判据失败,10/10,0.7499,passed,5.19
+place_coffeecup,iiwa14,20,BUCKET1_早期IK失败,0/10,,passed,6.46
+place_coffeecup,iiwa14,21,BUCKET1_早期IK失败,0/10,,passed,5.94
+place_coffeecup,iiwa14,22,BUCKET2_判据失败,10/10,0.1427,passed,4.915
+place_coffeecup,iiwa14,23,BUCKET2_判据失败,10/10,0.3154,passed,4.701
+place_coffeecup,iiwa14,24,BUCKET2_判据失败,10/10,0.2846,passed,4.922
+place_coffeecup,iiwa14,25,BUCKET1_早期IK失败,0/10,,passed,5.858
+place_coffeecup,iiwa14,26,SUCCESS,完成状态: 10/10,0.0141,passed,4.993
+place_coffeecup,iiwa14,27,BUCKET2_判据失败,10/10,0.3153,passed,4.662
+place_coffeecup,iiwa14,28,BUCKET2_判据失败,10/10,0.063,passed,4.745
+place_coffeecup,iiwa14,29,BUCKET2_判据失败,10/10,0.2523,passed,4.222
+place_coffeecup,iiwa14,30,BUCKET2_判据失败,10/10,0.5685,passed,4.723
+place_coffeecup,iiwa14,31,SUCCESS,完成状态: 10/10,0.0136,passed,4.63
+place_coffeecup,iiwa14,32,BUCKET1_早期IK失败,0/10,,passed,5.775
+place_coffeecup,iiwa14,33,BUCKET1_早期IK失败,0/10,,passed,5.991
+place_coffeecup,iiwa14,34,SUCCESS,完成状态: 10/10,0.0063,passed,4.727
+place_coffeecup,iiwa14,35,BUCKET2_判据失败,10/10,0.2281,passed,5.013
+place_coffeecup,iiwa14,36,SUCCESS,完成状态: 10/10,0.0132,passed,5.023
+place_coffeecup,iiwa14,37,SUCCESS,完成状态: 10/10,0.015,passed,4.714
+place_coffeecup,iiwa14,38,BUCKET1_早期IK失败,0/10,,passed,5.948
+place_coffeecup,iiwa14,39,BUCKET2_判据失败,10/10,0.1812,passed,5.304
+place_coffeecup,iiwa14,40,BUCKET1_早期IK失败,7/10,,passed,6.128
+place_coffeecup,iiwa14,41,BUCKET2_判据失败,10/10,0.108,passed,4.753
+place_coffeecup,iiwa14,42,SUCCESS,完成状态: 10/10,0.0037,passed,4.963
+place_coffeecup,iiwa14,43,BUCKET2_判据失败,10/10,0.0529,passed,4.676
+place_coffeecup,iiwa14,44,SUCCESS,完成状态: 10/10,0.0239,passed,4.69
+place_coffeecup,iiwa14,45,BUCKET1_早期IK失败,0/10,,passed,5.938
+place_coffeecup,iiwa14,46,BUCKET2_判据失败,10/10,0.204,passed,4.722
+place_coffeecup,iiwa14,47,BUCKET2_判据失败,10/10,0.2979,passed,4.67
+place_coffeecup,iiwa14,48,BUCKET2_判据失败,10/10,0.4743,passed,4.494
+place_coffeecup,iiwa14,49,BUCKET2_判据失败,10/10,1.0814,passed,4.388
+place_coffeecup,iiwa14,50,BUCKET2_判据失败,10/10,0.1617,passed,4.829
+place_coffeecup,panda,1,SUCCESS,完成状态: 10/10,0.02,passed,4.703
+place_coffeecup,panda,2,BUCKET1_早期IK失败,0/10,,passed,4.434
+place_coffeecup,panda,3,SUCCESS,完成状态: 10/10,0.0192,passed,4.866
+place_coffeecup,panda,4,BUCKET1_早期IK失败,0/10,,passed,4.429
+place_coffeecup,panda,5,BUCKET1_早期IK失败,0/10,,passed,4.316
+place_coffeecup,panda,6,BUCKET1_早期IK失败,5/10,,passed,4.816
+place_coffeecup,panda,7,BUCKET1_早期IK失败,0/10,,passed,4.115
+place_coffeecup,panda,8,BUCKET1_早期IK失败,9/10,,passed,4.341
+place_coffeecup,panda,9,BUCKET1_早期IK失败,0/10,,passed,5.007
+place_coffeecup,panda,10,BUCKET1_早期IK失败,0/10,,passed,4.581
+place_coffeecup,panda,11,SUCCESS,完成状态: 10/10,0.0175,passed,4.74
+place_coffeecup,panda,12,BUCKET1_早期IK失败,6/10,,passed,4.715
+place_coffeecup,panda,13,SUCCESS,完成状态: 10/10,0.0213,passed,4.472
+place_coffeecup,panda,14,SUCCESS,完成状态: 10/10,0.0232,passed,4.686
+place_coffeecup,panda,15,SUCCESS,完成状态: 10/10,0.0201,passed,4.645
+place_coffeecup,panda,16,BUCKET1_早期IK失败,0/10,,passed,4.51
+place_coffeecup,panda,17,BUCKET2_判据失败,10/10,0.2257,passed,4.869
+place_coffeecup,panda,18,BUCKET1_早期IK失败,6/10,,passed,4.753
+place_coffeecup,panda,19,BUCKET1_早期IK失败,0/10,,passed,4.303
+place_coffeecup,panda,20,SUCCESS,完成状态: 10/10,0.0221,passed,4.691
+place_coffeecup,panda,21,SUCCESS,完成状态: 10/10,0.0221,passed,4.329
+place_coffeecup,panda,22,SUCCESS,完成状态: 10/10,0.0152,passed,4.687
+place_coffeecup,panda,23,BUCKET2_判据失败,10/10,0.0301,passed,4.742
+place_coffeecup,panda,24,SUCCESS,完成状态: 10/10,0.0255,passed,4.628
+place_coffeecup,panda,25,BUCKET1_早期IK失败,9/10,,passed,4.615
+place_coffeecup,panda,26,SUCCESS,完成状态: 10/10,0.0212,passed,4.724
+place_coffeecup,panda,27,SUCCESS,完成状态: 10/10,0.0185,passed,4.513
+place_coffeecup,panda,28,SUCCESS,完成状态: 10/10,0.0208,passed,4.561
+place_coffeecup,panda,29,SUCCESS,完成状态: 10/10,0.0211,passed,4.826
+place_coffeecup,panda,30,SUCCESS,完成状态: 10/10,0.0216,passed,4.882
+place_coffeecup,panda,31,BUCKET1_早期IK失败,6/10,,passed,4.84
+place_coffeecup,panda,32,BUCKET1_早期IK失败,6/10,,passed,4.752
+place_coffeecup,panda,33,SUCCESS,完成状态: 10/10,0.0179,passed,4.064
+place_coffeecup,panda,34,SUCCESS,完成状态: 10/10,0.0173,passed,3.781
+place_coffeecup,panda,35,SUCCESS,完成状态: 10/10,0.0226,passed,4.522
+place_coffeecup,panda,36,BUCKET1_早期IK失败,6/10,,passed,4.506
+place_coffeecup,panda,37,BUCKET1_早期IK失败,6/10,,passed,4.748
+place_coffeecup,panda,38,SUCCESS,完成状态: 10/10,0.0211,passed,4.947
+place_coffeecup,panda,39,SUCCESS,完成状态: 10/10,0.0194,passed,4.514
+place_coffeecup,panda,40,SUCCESS,完成状态: 10/10,0.0209,passed,4.892
+place_coffeecup,panda,41,SUCCESS,完成状态: 10/10,0.0186,passed,4.895
+place_coffeecup,panda,42,BUCKET1_早期IK失败,0/10,,passed,4.396
+place_coffeecup,panda,43,BUCKET1_早期IK失败,0/10,,passed,4.265
+place_coffeecup,panda,44,BUCKET1_早期IK失败,0/10,,passed,4.357
+place_coffeecup,panda,45,SUCCESS,完成状态: 10/10,0.0226,passed,4.54
+place_coffeecup,panda,46,SUCCESS,完成状态: 10/10,0.0205,passed,4.775
+place_coffeecup,panda,47,SUCCESS,完成状态: 10/10,0.0183,passed,4.389
+place_coffeecup,panda,48,SUCCESS,完成状态: 10/10,0.0225,passed,4.781
+place_coffeecup,panda,49,BUCKET1_早期IK失败,0/10,,passed,4.548
+place_coffeecup,panda,50,BUCKET1_早期IK失败,6/10,,passed,4.648
+place_coffeecup,piper,1,SUCCESS,完成状态: 10/10,0.0185,passed,5.236
+place_coffeecup,piper,2,SUCCESS,完成状态: 10/10,0.0105,passed,5.41
+place_coffeecup,piper,3,SUCCESS,完成状态: 10/10,0.0229,passed,5.313
+place_coffeecup,piper,4,SUCCESS,完成状态: 10/10,0.0295,passed,5.413
+place_coffeecup,piper,5,SUCCESS,完成状态: 10/10,0.0182,passed,5.289
+place_coffeecup,piper,6,BUCKET2_判据失败,10/10,0.0333,passed,5.949
+place_coffeecup,piper,7,SUCCESS,完成状态: 10/10,0.019,passed,5.414
+place_coffeecup,piper,8,BUCKET2_判据失败,10/10,0.036,passed,5.012
+place_coffeecup,piper,9,SUCCESS,完成状态: 10/10,0.0236,passed,5.228
+place_coffeecup,piper,10,SUCCESS,完成状态: 10/10,0.0232,passed,5.261
+place_coffeecup,piper,11,SUCCESS,完成状态: 10/10,0.0201,passed,5.273
+place_coffeecup,piper,12,SUCCESS,完成状态: 10/10,0.0219,passed,4.994
+place_coffeecup,piper,13,SUCCESS,完成状态: 10/10,0.0245,passed,5.368
+place_coffeecup,piper,14,SUCCESS,完成状态: 10/10,0.0198,passed,5.182
+place_coffeecup,piper,15,SUCCESS,完成状态: 10/10,0.0152,passed,5.415
+place_coffeecup,piper,16,SUCCESS,完成状态: 10/10,0.0222,passed,4.96
+place_coffeecup,piper,17,SUCCESS,完成状态: 10/10,0.0196,passed,5.521
+place_coffeecup,piper,18,BUCKET2_判据失败,10/10,0.0229,passed,5.302
+place_coffeecup,piper,19,SUCCESS,完成状态: 10/10,0.0202,passed,5.279
+place_coffeecup,piper,20,SUCCESS,完成状态: 10/10,0.0244,passed,5.432
+place_coffeecup,piper,21,SUCCESS,完成状态: 10/10,0.0171,passed,5.199
+place_coffeecup,piper,22,SUCCESS,完成状态: 10/10,0.0219,passed,5.134
+place_coffeecup,piper,23,SUCCESS,完成状态: 10/10,0.0222,passed,5.238
+place_coffeecup,piper,24,BUCKET2_判据失败,10/10,0.0332,passed,5.641
+place_coffeecup,piper,25,SUCCESS,完成状态: 10/10,0.0179,passed,5.787
+place_coffeecup,piper,26,BUCKET1_早期IK失败,5/10,,passed,5.038
+place_coffeecup,piper,27,BUCKET2_判据失败,10/10,0.0201,passed,5.129
+place_coffeecup,piper,28,SUCCESS,完成状态: 10/10,0.0216,passed,4.965
+place_coffeecup,piper,29,SUCCESS,完成状态: 10/10,0.0193,passed,5.324
+place_coffeecup,piper,30,BUCKET2_判据失败,10/10,0.0318,passed,5.749
+place_coffeecup,piper,31,SUCCESS,完成状态: 10/10,0.0207,passed,5.304
+place_coffeecup,piper,32,SUCCESS,完成状态: 10/10,0.0227,passed,5.672
+place_coffeecup,piper,33,SUCCESS,完成状态: 10/10,0.0216,passed,5.581
+place_coffeecup,piper,34,SUCCESS,完成状态: 10/10,0.0194,passed,5.429
+place_coffeecup,piper,35,SUCCESS,完成状态: 10/10,0.0218,passed,5.24
+place_coffeecup,piper,36,SUCCESS,完成状态: 10/10,0.0213,passed,5.341
+place_coffeecup,piper,37,SUCCESS,完成状态: 10/10,0.0237,passed,5.293
+place_coffeecup,piper,38,SUCCESS,完成状态: 10/10,0.0179,passed,5.27
+place_coffeecup,piper,39,SUCCESS,完成状态: 10/10,0.0231,passed,5.311
+place_coffeecup,piper,40,SUCCESS,完成状态: 10/10,0.014,passed,5.993
+place_coffeecup,piper,41,SUCCESS,完成状态: 10/10,0.0194,passed,5.567
+place_coffeecup,piper,42,SUCCESS,完成状态: 10/10,0.0208,passed,5.69
+place_coffeecup,piper,43,SUCCESS,完成状态: 10/10,0.0237,passed,5.645
+place_coffeecup,piper,44,SUCCESS,完成状态: 10/10,0.0216,passed,5.324
+place_coffeecup,piper,45,SUCCESS,完成状态: 10/10,0.0252,passed,5.317
+place_coffeecup,piper,46,SUCCESS,完成状态: 10/10,0.0224,passed,5.551
+place_coffeecup,piper,47,SUCCESS,完成状态: 10/10,0.0179,passed,5.336
+place_coffeecup,piper,48,BUCKET2_判据失败,10/10,0.0209,passed,5.11
+place_coffeecup,piper,49,SUCCESS,完成状态: 10/10,0.019,passed,5.535
+place_coffeecup,piper,50,SUCCESS,完成状态: 10/10,0.0197,passed,4.661
+place_coffeecup,rm65,1,BUCKET1_早期IK失败,0/10,,passed,3.983
+place_coffeecup,rm65,2,BUCKET1_早期IK失败,0/10,,passed,4.648
+place_coffeecup,rm65,3,SUCCESS,完成状态: 10/10,0.0063,passed,4.929
+place_coffeecup,rm65,4,BUCKET1_早期IK失败,0/10,,passed,4.956
+place_coffeecup,rm65,5,SUCCESS,完成状态: 10/10,0.0049,passed,5.093
+place_coffeecup,rm65,6,SUCCESS,完成状态: 10/10,0.0023,passed,5.163
+place_coffeecup,rm65,7,BUCKET1_早期IK失败,0/10,,passed,5.006
+place_coffeecup,rm65,8,SUCCESS,完成状态: 10/10,0.0176,passed,5.189
+place_coffeecup,rm65,9,SUCCESS,完成状态: 10/10,0.008,passed,5.302
+place_coffeecup,rm65,10,SUCCESS,完成状态: 10/10,0.0058,passed,5.137
+place_coffeecup,rm65,11,SUCCESS,完成状态: 10/10,0.0063,passed,5.187
+place_coffeecup,rm65,12,SUCCESS,完成状态: 10/10,0.0079,passed,5.015
+place_coffeecup,rm65,13,SUCCESS,完成状态: 10/10,0.0129,passed,4.733
+place_coffeecup,rm65,14,BUCKET1_早期IK失败,6/10,,passed,5.117
+place_coffeecup,rm65,15,BUCKET1_早期IK失败,0/10,,passed,4.665
+place_coffeecup,rm65,16,SUCCESS,完成状态: 10/10,0.029,passed,4.973
+place_coffeecup,rm65,17,SUCCESS,完成状态: 10/10,0.0073,passed,5.152
+place_coffeecup,rm65,18,SUCCESS,完成状态: 10/10,0.0047,passed,5.077
+place_coffeecup,rm65,19,SUCCESS,完成状态: 10/10,0.0031,passed,5.126
+place_coffeecup,rm65,20,SUCCESS,完成状态: 10/10,0.0272,passed,5.02
+place_coffeecup,rm65,21,BUCKET1_早期IK失败,0/10,,passed,4.881
+place_coffeecup,rm65,22,SUCCESS,完成状态: 10/10,0.0074,passed,4.513
+place_coffeecup,rm65,23,SUCCESS,完成状态: 10/10,0.0032,passed,4.979
+place_coffeecup,rm65,24,BUCKET1_早期IK失败,0/10,,passed,4.769
+place_coffeecup,rm65,25,SUCCESS,完成状态: 10/10,0.0093,passed,5.053
+place_coffeecup,rm65,26,SUCCESS,完成状态: 10/10,0.0139,passed,5.176
+place_coffeecup,rm65,27,SUCCESS,完成状态: 10/10,0.0237,passed,5.167
+place_coffeecup,rm65,28,BUCKET1_早期IK失败,0/10,,passed,4.772
+place_coffeecup,rm65,29,SUCCESS,完成状态: 10/10,0.0034,passed,5.082
+place_coffeecup,rm65,30,BUCKET1_早期IK失败,0/10,,passed,5.128
+place_coffeecup,rm65,31,SUCCESS,完成状态: 10/10,0.0154,passed,5.305
+place_coffeecup,rm65,32,SUCCESS,完成状态: 10/10,0.0018,passed,5.366
+place_coffeecup,rm65,33,BUCKET1_早期IK失败,0/10,,passed,4.181
+place_coffeecup,rm65,34,BUCKET1_早期IK失败,0/10,,passed,4.459
+place_coffeecup,rm65,35,SUCCESS,完成状态: 10/10,0.0151,passed,4.885
+place_coffeecup,rm65,36,BUCKET2_判据失败,10/10,0.054,passed,4.947
+place_coffeecup,rm65,37,SUCCESS,完成状态: 10/10,0.0168,passed,4.365
+place_coffeecup,rm65,38,BUCKET1_早期IK失败,0/10,,passed,4.671
+place_coffeecup,rm65,39,BUCKET1_早期IK失败,6/10,,passed,4.861
+place_coffeecup,rm65,40,SUCCESS,完成状态: 10/10,0.0124,passed,4.917
+place_coffeecup,rm65,41,BUCKET1_早期IK失败,6/10,,passed,4.651
+place_coffeecup,rm65,42,BUCKET1_早期IK失败,0/10,,passed,4.619
+place_coffeecup,rm65,43,SUCCESS,完成状态: 10/10,0.0042,passed,4.896
+place_coffeecup,rm65,44,SUCCESS,完成状态: 10/10,0.0175,passed,4.864
+place_coffeecup,rm65,45,SUCCESS,完成状态: 10/10,0.0055,passed,4.716
+place_coffeecup,rm65,46,SUCCESS,完成状态: 10/10,0.018,passed,4.883
+place_coffeecup,rm65,47,SUCCESS,完成状态: 10/10,0.0076,passed,4.905
+place_coffeecup,rm65,48,SUCCESS,完成状态: 10/10,0.0075,passed,5.103
+place_coffeecup,rm65,49,BUCKET1_早期IK失败,0/10,,passed,4.77
+place_coffeecup,rm65,50,SUCCESS,完成状态: 10/10,0.0028,passed,4.374
+place_coffeecup,ur5e,1,BUCKET1_早期IK失败,0/10,,passed,5.958
+place_coffeecup,ur5e,2,BUCKET1_早期IK失败,0/10,,passed,6.458
+place_coffeecup,ur5e,3,SUCCESS,完成状态: 10/10,0.013,passed,5.582
+place_coffeecup,ur5e,4,SUCCESS,完成状态: 10/10,0.0096,passed,5.372
+place_coffeecup,ur5e,5,BUCKET1_早期IK失败,0/10,,passed,6.361
+place_coffeecup,ur5e,6,BUCKET1_早期IK失败,0/10,,passed,5.803
+place_coffeecup,ur5e,7,SUCCESS,完成状态: 10/10,0.008,passed,5.367
+place_coffeecup,ur5e,8,SUCCESS,完成状态: 10/10,0.012,passed,5.272
+place_coffeecup,ur5e,9,BUCKET1_早期IK失败,0/10,,passed,6.045
+place_coffeecup,ur5e,10,BUCKET1_早期IK失败,6/10,,passed,6.499
+place_coffeecup,ur5e,11,BUCKET2_判据失败,10/10,0.0326,passed,4.898
+place_coffeecup,ur5e,12,BUCKET1_早期IK失败,0/10,,passed,6.312
+place_coffeecup,ur5e,13,BUCKET1_早期IK失败,0/10,,passed,5.757
+place_coffeecup,ur5e,14,BUCKET1_早期IK失败,0/10,,passed,5.922
+place_coffeecup,ur5e,15,SUCCESS,完成状态: 10/10,0.0121,passed,4.878
+place_coffeecup,ur5e,16,BUCKET1_早期IK失败,0/10,,passed,4.85
+place_coffeecup,ur5e,17,BUCKET1_早期IK失败,0/10,,passed,5.946
+place_coffeecup,ur5e,18,SUCCESS,完成状态: 10/10,0.0143,passed,4.989
+place_coffeecup,ur5e,19,SUCCESS,完成状态: 10/10,0.0051,passed,4.986
+place_coffeecup,ur5e,20,SUCCESS,完成状态: 10/10,0.0149,passed,5.119
+place_coffeecup,ur5e,21,SUCCESS,完成状态: 10/10,0.0097,passed,5.17
+place_coffeecup,ur5e,22,BUCKET1_早期IK失败,7/10,,passed,6.482
+place_coffeecup,ur5e,23,SUCCESS,完成状态: 10/10,0.0099,passed,5.416
+place_coffeecup,ur5e,24,SUCCESS,完成状态: 10/10,0.0031,passed,5.706
+place_coffeecup,ur5e,25,SUCCESS,完成状态: 10/10,0.0041,passed,5.347
+place_coffeecup,ur5e,26,BUCKET1_早期IK失败,0/10,,passed,5.926
+place_coffeecup,ur5e,27,SUCCESS,完成状态: 10/10,0.0136,passed,5.137
+place_coffeecup,ur5e,28,SUCCESS,完成状态: 10/10,0.009,passed,5.142
+place_coffeecup,ur5e,29,BUCKET1_早期IK失败,0/10,,passed,6.373
+place_coffeecup,ur5e,30,SUCCESS,完成状态: 10/10,0.0156,passed,4.929
+place_coffeecup,ur5e,31,BUCKET1_早期IK失败,0/10,,passed,4.076
+place_coffeecup,ur5e,32,BUCKET2_判据失败,10/10,0.0198,passed,4.903
+place_coffeecup,ur5e,33,SUCCESS,完成状态: 10/10,0.0146,passed,4.974
+place_coffeecup,ur5e,34,BUCKET1_早期IK失败,0/10,,passed,5.485
+place_coffeecup,ur5e,35,SUCCESS,完成状态: 10/10,0.0105,passed,5.078
+place_coffeecup,ur5e,36,BUCKET1_早期IK失败,0/10,,passed,5.678
+place_coffeecup,ur5e,37,SUCCESS,完成状态: 10/10,0.0122,passed,4.73
+place_coffeecup,ur5e,38,SUCCESS,完成状态: 10/10,0.015,passed,5.005
+place_coffeecup,ur5e,39,SUCCESS,完成状态: 10/10,0.009,passed,5.179
+place_coffeecup,ur5e,40,BUCKET1_早期IK失败,0/10,,passed,4.655
+place_coffeecup,ur5e,41,SUCCESS,完成状态: 10/10,0.014,passed,5.042
+place_coffeecup,ur5e,42,BUCKET1_早期IK失败,0/10,,passed,5.829
+place_coffeecup,ur5e,43,SUCCESS,完成状态: 10/10,0.0222,passed,4.646
+place_coffeecup,ur5e,44,SUCCESS,完成状态: 10/10,0.0143,passed,5.357
+place_coffeecup,ur5e,45,BUCKET1_早期IK失败,0/10,,passed,6.166
+place_coffeecup,ur5e,46,SUCCESS,完成状态: 10/10,0.0155,passed,5.269
+place_coffeecup,ur5e,47,BUCKET1_早期IK失败,0/10,,passed,5.929
+place_coffeecup,ur5e,48,BUCKET1_早期IK失败,0/10,,passed,6.098
+place_coffeecup,ur5e,49,SUCCESS,完成状态: 10/10,0.0135,passed,5.236
+place_coffeecup,ur5e,50,BUCKET1_早期IK失败,0/10,,passed,6.007
+place_coffeecup,xarm7,1,BUCKET2_判据失败,10/10,0.0352,passed,4.912
+place_coffeecup,xarm7,2,SUCCESS,完成状态: 10/10,0.0154,passed,4.595
+place_coffeecup,xarm7,3,BUCKET2_判据失败,10/10,0.0415,passed,4.738
+place_coffeecup,xarm7,4,SUCCESS,完成状态: 10/10,0.0074,passed,5.036
+place_coffeecup,xarm7,5,SUCCESS,完成状态: 10/10,0.0244,passed,5.06
+place_coffeecup,xarm7,6,SUCCESS,完成状态: 10/10,0.014,passed,4.894
+place_coffeecup,xarm7,7,BUCKET2_判据失败,10/10,0.0505,passed,5.041
+place_coffeecup,xarm7,8,BUCKET1_早期IK失败,0/10,,passed,5.831
+place_coffeecup,xarm7,9,SUCCESS,完成状态: 10/10,0.0234,passed,4.291
+place_coffeecup,xarm7,10,SUCCESS,完成状态: 10/10,0.0284,passed,4.522
+place_coffeecup,xarm7,11,SUCCESS,完成状态: 10/10,0.0261,passed,4.833
+place_coffeecup,xarm7,12,SUCCESS,完成状态: 10/10,0.0177,passed,4.796
+place_coffeecup,xarm7,13,BUCKET2_判据失败,10/10,0.0348,passed,5.133
+place_coffeecup,xarm7,14,SUCCESS,完成状态: 10/10,0.0298,passed,5.278
+place_coffeecup,xarm7,15,SUCCESS,完成状态: 10/10,0.0074,passed,5.02
+place_coffeecup,xarm7,16,BUCKET2_判据失败,10/10,0.0318,passed,5.157
+place_coffeecup,xarm7,17,BUCKET2_判据失败,10/10,0.0318,passed,5.317
+place_coffeecup,xarm7,18,SUCCESS,完成状态: 10/10,0.0061,passed,5.065
+place_coffeecup,xarm7,19,SUCCESS,完成状态: 10/10,0.021,passed,5.268
+place_coffeecup,xarm7,20,SUCCESS,完成状态: 10/10,0.0285,passed,5.263
+place_coffeecup,xarm7,21,BUCKET2_判据失败,10/10,0.0307,passed,4.431
+place_coffeecup,xarm7,22,SUCCESS,完成状态: 10/10,0.026,passed,4.657
+place_coffeecup,xarm7,23,SUCCESS,完成状态: 10/10,0.0121,passed,4.873
+place_coffeecup,xarm7,24,SUCCESS,完成状态: 10/10,0.0108,passed,5.024
+place_coffeecup,xarm7,25,BUCKET2_判据失败,10/10,0.0368,passed,5.199
+place_coffeecup,xarm7,26,BUCKET2_判据失败,10/10,0.0371,passed,5.109
+place_coffeecup,xarm7,27,BUCKET2_判据失败,10/10,0.0326,passed,5.277
+place_coffeecup,xarm7,28,SUCCESS,完成状态: 10/10,0.0202,passed,5.132
+place_coffeecup,xarm7,29,SUCCESS,完成状态: 10/10,0.0139,passed,5.425
+place_coffeecup,xarm7,30,SUCCESS,完成状态: 10/10,0.0299,passed,5.217
+place_coffeecup,xarm7,31,SUCCESS,完成状态: 10/10,0.016,passed,5.029
+place_coffeecup,xarm7,32,SUCCESS,完成状态: 10/10,0.0232,passed,5.105
+place_coffeecup,xarm7,33,SUCCESS,完成状态: 10/10,0.0234,passed,4.922
+place_coffeecup,xarm7,34,BUCKET2_判据失败,10/10,0.0386,passed,4.748
+place_coffeecup,xarm7,35,SUCCESS,完成状态: 10/10,0.0091,passed,5.127
+place_coffeecup,xarm7,36,BUCKET1_早期IK失败,0/10,,passed,4.643
+place_coffeecup,xarm7,37,SUCCESS,完成状态: 10/10,0.0123,passed,5.017
+place_coffeecup,xarm7,38,SUCCESS,完成状态: 10/10,0.0224,passed,5.16
+place_coffeecup,xarm7,39,BUCKET1_早期IK失败,0/10,,passed,6.016
+place_coffeecup,xarm7,40,SUCCESS,完成状态: 10/10,0.028,passed,4.958
+place_coffeecup,xarm7,41,SUCCESS,完成状态: 10/10,0.0233,passed,4.845
+place_coffeecup,xarm7,42,SUCCESS,完成状态: 10/10,0.0078,passed,5.004
+place_coffeecup,xarm7,43,SUCCESS,完成状态: 10/10,0.0096,passed,4.381
+place_coffeecup,xarm7,44,BUCKET1_早期IK失败,0/10,,passed,5.758
+place_coffeecup,xarm7,45,SUCCESS,完成状态: 10/10,0.0281,passed,4.549
+place_coffeecup,xarm7,46,SUCCESS,完成状态: 10/10,0.0135,passed,4.633
+place_coffeecup,xarm7,47,SUCCESS,完成状态: 10/10,0.0236,passed,5.126
+place_coffeecup,xarm7,48,SUCCESS,完成状态: 10/10,0.0227,passed,4.995
+place_coffeecup,xarm7,49,SUCCESS,完成状态: 10/10,0.0125,passed,5.032
+place_coffeecup,xarm7,50,BUCKET1_早期IK失败,0/10,,passed,5.554
+place_kiwi_fruit,airbot_play,1,BUCKET2_判据失败,10/10,0.2439,passed,4.803
+place_kiwi_fruit,airbot_play,2,BUCKET2_判据失败,10/10,0.1685,passed,4.948
+place_kiwi_fruit,airbot_play,3,SUCCESS,完成状态: 10/10,0.0081,passed,4.645
+place_kiwi_fruit,airbot_play,4,BUCKET2_判据失败,10/10,0.2821,passed,4.845
+place_kiwi_fruit,airbot_play,5,SUCCESS,完成状态: 10/10,0.0124,passed,4.778
+place_kiwi_fruit,airbot_play,6,BUCKET2_判据失败,10/10,0.3087,passed,4.863
+place_kiwi_fruit,airbot_play,7,SUCCESS,完成状态: 10/10,0.017,passed,4.504
+place_kiwi_fruit,airbot_play,8,BUCKET2_判据失败,10/10,0.2208,passed,4.788
+place_kiwi_fruit,airbot_play,9,SUCCESS,完成状态: 10/10,0.0028,passed,4.737
+place_kiwi_fruit,airbot_play,10,BUCKET2_判据失败,10/10,0.3579,passed,4.845
+place_kiwi_fruit,airbot_play,11,BUCKET2_判据失败,10/10,0.0579,passed,4.848
+place_kiwi_fruit,airbot_play,12,BUCKET2_判据失败,10/10,0.2296,passed,4.977
+place_kiwi_fruit,airbot_play,13,SUCCESS,完成状态: 10/10,0.016,passed,5.078
+place_kiwi_fruit,airbot_play,14,BUCKET2_判据失败,10/10,0.2945,passed,5.028
+place_kiwi_fruit,airbot_play,15,BUCKET2_判据失败,10/10,0.2562,passed,4.907
+place_kiwi_fruit,airbot_play,16,BUCKET1_早期IK失败,1/10,,passed,4.352
+place_kiwi_fruit,airbot_play,17,BUCKET2_判据失败,10/10,0.2672,passed,4.683
+place_kiwi_fruit,airbot_play,18,BUCKET1_早期IK失败,1/10,,passed,4.824
+place_kiwi_fruit,airbot_play,19,BUCKET2_判据失败,10/10,0.1917,passed,5.041
+place_kiwi_fruit,airbot_play,20,SUCCESS,完成状态: 10/10,0.0122,passed,5.139
+place_kiwi_fruit,airbot_play,21,SUCCESS,完成状态: 10/10,0.0121,passed,5.314
+place_kiwi_fruit,airbot_play,22,SUCCESS,完成状态: 10/10,0.0021,passed,5.049
+place_kiwi_fruit,airbot_play,23,BUCKET2_判据失败,10/10,0.1644,passed,5.087
+place_kiwi_fruit,airbot_play,24,SUCCESS,完成状态: 10/10,0.013,passed,5.344
+place_kiwi_fruit,airbot_play,25,BUCKET2_判据失败,10/10,0.1916,passed,5.209
+place_kiwi_fruit,airbot_play,26,BUCKET2_判据失败,10/10,0.017,passed,5.221
+place_kiwi_fruit,airbot_play,27,SUCCESS,完成状态: 10/10,0.0138,passed,5.229
+place_kiwi_fruit,airbot_play,28,BUCKET2_判据失败,10/10,0.2614,passed,4.466
+place_kiwi_fruit,airbot_play,29,BUCKET2_判据失败,10/10,0.2338,passed,4.797
+place_kiwi_fruit,airbot_play,30,BUCKET2_判据失败,10/10,0.2589,passed,4.916
+place_kiwi_fruit,airbot_play,31,SUCCESS,完成状态: 10/10,0.0034,passed,5.129
+place_kiwi_fruit,airbot_play,32,BUCKET2_判据失败,10/10,0.235,passed,5.188
+place_kiwi_fruit,airbot_play,33,SUCCESS,完成状态: 10/10,0.0043,passed,5.227
+place_kiwi_fruit,airbot_play,34,BUCKET2_判据失败,10/10,0.292,passed,5.164
+place_kiwi_fruit,airbot_play,35,SUCCESS,完成状态: 10/10,0.0088,passed,5.277
+place_kiwi_fruit,airbot_play,36,SUCCESS,完成状态: 10/10,0.0045,passed,5.278
+place_kiwi_fruit,airbot_play,37,SUCCESS,完成状态: 10/10,0.0071,passed,5.055
+place_kiwi_fruit,airbot_play,38,SUCCESS,完成状态: 10/10,0.0141,passed,5.171
+place_kiwi_fruit,airbot_play,39,BUCKET2_判据失败,10/10,0.1789,passed,5.077
+place_kiwi_fruit,airbot_play,40,SUCCESS,完成状态: 10/10,0.0164,passed,4.925
+place_kiwi_fruit,airbot_play,41,BUCKET2_判据失败,10/10,0.272,passed,4.699
+place_kiwi_fruit,airbot_play,42,SUCCESS,完成状态: 10/10,0.0031,passed,5.159
+place_kiwi_fruit,airbot_play,43,BUCKET1_早期IK失败,1/10,,passed,5.172
+place_kiwi_fruit,airbot_play,44,BUCKET2_判据失败,10/10,0.2997,passed,5.074
+place_kiwi_fruit,airbot_play,45,BUCKET2_判据失败,10/10,0.1874,passed,4.908
+place_kiwi_fruit,airbot_play,46,BUCKET2_判据失败,10/10,0.2254,passed,5.042
+place_kiwi_fruit,airbot_play,47,SUCCESS,完成状态: 10/10,0.0056,passed,5.079
+place_kiwi_fruit,airbot_play,48,BUCKET2_判据失败,10/10,0.2809,passed,5.072
+place_kiwi_fruit,airbot_play,49,SUCCESS,完成状态: 10/10,0.0079,passed,5.107
+place_kiwi_fruit,airbot_play,50,BUCKET2_判据失败,10/10,0.2049,passed,4.453
+place_kiwi_fruit,arx_l5,1,BUCKET2_判据失败,10/10,0.0864,passed,4.852
+place_kiwi_fruit,arx_l5,2,BUCKET2_判据失败,10/10,0.105,passed,4.898
+place_kiwi_fruit,arx_l5,3,BUCKET2_判据失败,10/10,0.0205,passed,4.92
+place_kiwi_fruit,arx_l5,4,BUCKET2_判据失败,10/10,0.0737,passed,5.191
+place_kiwi_fruit,arx_l5,5,SUCCESS,完成状态: 10/10,0.0195,passed,4.923
+place_kiwi_fruit,arx_l5,6,SUCCESS,完成状态: 10/10,0.0161,passed,5.154
+place_kiwi_fruit,arx_l5,7,SUCCESS,完成状态: 10/10,0.0179,passed,4.923
+place_kiwi_fruit,arx_l5,8,BUCKET2_判据失败,10/10,0.0208,passed,5.333
+place_kiwi_fruit,arx_l5,9,SUCCESS,完成状态: 10/10,0.017,passed,5.111
+place_kiwi_fruit,arx_l5,10,SUCCESS,完成状态: 10/10,0.0192,passed,5.154
+place_kiwi_fruit,arx_l5,11,BUCKET2_判据失败,10/10,0.0631,passed,5.484
+place_kiwi_fruit,arx_l5,12,SUCCESS,完成状态: 10/10,0.0155,passed,5.435
+place_kiwi_fruit,arx_l5,13,BUCKET2_判据失败,10/10,0.0989,passed,4.956
+place_kiwi_fruit,arx_l5,14,SUCCESS,完成状态: 10/10,0.0161,passed,5.11
+place_kiwi_fruit,arx_l5,15,BUCKET2_判据失败,10/10,0.0767,passed,5.119
+place_kiwi_fruit,arx_l5,16,SUCCESS,完成状态: 10/10,0.019,passed,5.096
+place_kiwi_fruit,arx_l5,17,BUCKET2_判据失败,10/10,0.0224,passed,5.174
+place_kiwi_fruit,arx_l5,18,BUCKET2_判据失败,10/10,0.0699,passed,5.044
+place_kiwi_fruit,arx_l5,19,BUCKET2_判据失败,10/10,0.0217,passed,5.188
+place_kiwi_fruit,arx_l5,20,SUCCESS,完成状态: 10/10,0.0174,passed,5.351
+place_kiwi_fruit,arx_l5,21,BUCKET2_判据失败,10/10,0.0627,passed,5.298
+place_kiwi_fruit,arx_l5,22,SUCCESS,完成状态: 10/10,0.0197,passed,5.23
+place_kiwi_fruit,arx_l5,23,SUCCESS,完成状态: 10/10,0.0196,passed,5.21
+place_kiwi_fruit,arx_l5,24,SUCCESS,完成状态: 10/10,0.0151,passed,5.452
+place_kiwi_fruit,arx_l5,25,BUCKET2_判据失败,10/10,0.0466,passed,4.619
+place_kiwi_fruit,arx_l5,26,SUCCESS,完成状态: 10/10,0.0173,passed,4.835
+place_kiwi_fruit,arx_l5,27,SUCCESS,完成状态: 10/10,0.0147,passed,5.115
+place_kiwi_fruit,arx_l5,28,SUCCESS,完成状态: 10/10,0.0196,passed,4.974
+place_kiwi_fruit,arx_l5,29,BUCKET2_判据失败,10/10,0.0209,passed,5.07
+place_kiwi_fruit,arx_l5,30,BUCKET2_判据失败,10/10,0.0805,passed,5.22
+place_kiwi_fruit,arx_l5,31,SUCCESS,完成状态: 10/10,0.0154,passed,5.083
+place_kiwi_fruit,arx_l5,32,BUCKET2_判据失败,10/10,0.0785,passed,5.185
+place_kiwi_fruit,arx_l5,33,SUCCESS,完成状态: 10/10,0.0153,passed,5.384
+place_kiwi_fruit,arx_l5,34,BUCKET2_判据失败,10/10,0.0691,passed,5.361
+place_kiwi_fruit,arx_l5,35,BUCKET2_判据失败,10/10,0.0663,passed,5.159
+place_kiwi_fruit,arx_l5,36,SUCCESS,完成状态: 10/10,0.0104,passed,5.117
+place_kiwi_fruit,arx_l5,37,SUCCESS,完成状态: 10/10,0.0195,passed,4.984
+place_kiwi_fruit,arx_l5,38,BUCKET2_判据失败,10/10,0.0209,passed,4.755
+place_kiwi_fruit,arx_l5,39,SUCCESS,完成状态: 10/10,0.0167,passed,4.967
+place_kiwi_fruit,arx_l5,40,BUCKET2_判据失败,10/10,0.0745,passed,4.982
+place_kiwi_fruit,arx_l5,41,SUCCESS,完成状态: 10/10,0.0185,passed,5.063
+place_kiwi_fruit,arx_l5,42,BUCKET2_判据失败,10/10,0.0725,passed,4.952
+place_kiwi_fruit,arx_l5,43,BUCKET2_判据失败,10/10,0.0857,passed,4.924
+place_kiwi_fruit,arx_l5,44,SUCCESS,完成状态: 10/10,0.0158,passed,5.228
+place_kiwi_fruit,arx_l5,45,BUCKET2_判据失败,10/10,0.0685,passed,5.006
+place_kiwi_fruit,arx_l5,46,BUCKET2_判据失败,10/10,0.0209,passed,4.981
+place_kiwi_fruit,arx_l5,47,SUCCESS,完成状态: 10/10,0.0175,passed,4.339
+place_kiwi_fruit,arx_l5,48,SUCCESS,完成状态: 10/10,0.0182,passed,4.887
+place_kiwi_fruit,arx_l5,49,BUCKET2_判据失败,10/10,0.2062,passed,4.92
+place_kiwi_fruit,arx_l5,50,SUCCESS,完成状态: 10/10,0.0157,passed,5.001
+place_kiwi_fruit,arx_x5,1,SUCCESS,完成状态: 10/10,0.0025,passed,5.29
+place_kiwi_fruit,arx_x5,2,SUCCESS,完成状态: 10/10,0.0047,passed,5.144
+place_kiwi_fruit,arx_x5,3,SUCCESS,完成状态: 10/10,0.0039,passed,5.22
+place_kiwi_fruit,arx_x5,4,SUCCESS,完成状态: 10/10,0.0035,passed,5.057
+place_kiwi_fruit,arx_x5,5,SUCCESS,完成状态: 10/10,0.003,passed,5.137
+place_kiwi_fruit,arx_x5,6,SUCCESS,完成状态: 10/10,0.0099,passed,4.964
+place_kiwi_fruit,arx_x5,7,SUCCESS,完成状态: 10/10,0.004,passed,5.35
+place_kiwi_fruit,arx_x5,8,SUCCESS,完成状态: 10/10,0.0013,passed,5.156
+place_kiwi_fruit,arx_x5,9,SUCCESS,完成状态: 10/10,0.0116,passed,5.343
+place_kiwi_fruit,arx_x5,10,SUCCESS,完成状态: 10/10,0.003,passed,5.435
+place_kiwi_fruit,arx_x5,11,SUCCESS,完成状态: 10/10,0.0108,passed,4.679
+place_kiwi_fruit,arx_x5,12,SUCCESS,完成状态: 10/10,0.0034,passed,4.917
+place_kiwi_fruit,arx_x5,13,SUCCESS,完成状态: 10/10,0.0071,passed,4.93
+place_kiwi_fruit,arx_x5,14,SUCCESS,完成状态: 10/10,0.0016,passed,5.198
+place_kiwi_fruit,arx_x5,15,SUCCESS,完成状态: 10/10,0.0049,passed,4.991
+place_kiwi_fruit,arx_x5,16,SUCCESS,完成状态: 10/10,0.0062,passed,5.411
+place_kiwi_fruit,arx_x5,17,SUCCESS,完成状态: 10/10,0.0066,passed,4.778
+place_kiwi_fruit,arx_x5,18,SUCCESS,完成状态: 10/10,0.0095,passed,5.185
+place_kiwi_fruit,arx_x5,19,SUCCESS,完成状态: 10/10,0.0064,passed,5.446
+place_kiwi_fruit,arx_x5,20,SUCCESS,完成状态: 10/10,0.002,passed,5.265
+place_kiwi_fruit,arx_x5,21,SUCCESS,完成状态: 10/10,0.0038,passed,4.947
+place_kiwi_fruit,arx_x5,22,SUCCESS,完成状态: 10/10,0.0036,passed,5.119
+place_kiwi_fruit,arx_x5,23,SUCCESS,完成状态: 10/10,0.0039,passed,4.588
+place_kiwi_fruit,arx_x5,24,SUCCESS,完成状态: 10/10,0.0053,passed,4.802
+place_kiwi_fruit,arx_x5,25,SUCCESS,完成状态: 10/10,0.0032,passed,5.124
+place_kiwi_fruit,arx_x5,26,SUCCESS,完成状态: 10/10,0.0044,passed,4.957
+place_kiwi_fruit,arx_x5,27,SUCCESS,完成状态: 10/10,0.0071,passed,5.183
+place_kiwi_fruit,arx_x5,28,SUCCESS,完成状态: 10/10,0.0041,passed,5.089
+place_kiwi_fruit,arx_x5,29,BUCKET2_判据失败,10/10,0.1126,passed,5.497
+place_kiwi_fruit,arx_x5,30,BUCKET2_判据失败,10/10,0.0205,passed,4.894
+place_kiwi_fruit,arx_x5,31,SUCCESS,完成状态: 10/10,0.0043,passed,5.089
+place_kiwi_fruit,arx_x5,32,SUCCESS,完成状态: 10/10,0.0046,passed,5.701
+place_kiwi_fruit,arx_x5,33,SUCCESS,完成状态: 10/10,0.0046,passed,4.956
+place_kiwi_fruit,arx_x5,34,SUCCESS,完成状态: 10/10,0.0053,passed,5.128
+place_kiwi_fruit,arx_x5,35,SUCCESS,完成状态: 10/10,0.006,passed,5.029
+place_kiwi_fruit,arx_x5,36,SUCCESS,完成状态: 10/10,0.006,passed,4.703
+place_kiwi_fruit,arx_x5,37,SUCCESS,完成状态: 10/10,0.0013,passed,5.107
+place_kiwi_fruit,arx_x5,38,SUCCESS,完成状态: 10/10,0.0007,passed,4.958
+place_kiwi_fruit,arx_x5,39,SUCCESS,完成状态: 10/10,0.0055,passed,4.918
+place_kiwi_fruit,arx_x5,40,SUCCESS,完成状态: 10/10,0.007,passed,4.805
+place_kiwi_fruit,arx_x5,41,SUCCESS,完成状态: 10/10,0.0061,passed,5.271
+place_kiwi_fruit,arx_x5,42,SUCCESS,完成状态: 10/10,0.0071,passed,4.928
+place_kiwi_fruit,arx_x5,43,SUCCESS,完成状态: 10/10,0.0115,passed,5.05
+place_kiwi_fruit,arx_x5,44,SUCCESS,完成状态: 10/10,0.0003,passed,5.46
+place_kiwi_fruit,arx_x5,45,SUCCESS,完成状态: 10/10,0.0005,passed,4.751
+place_kiwi_fruit,arx_x5,46,SUCCESS,完成状态: 10/10,0.0096,passed,4.926
+place_kiwi_fruit,arx_x5,47,SUCCESS,完成状态: 10/10,0.0038,passed,5.038
+place_kiwi_fruit,arx_x5,48,SUCCESS,完成状态: 10/10,0.0119,passed,5.11
+place_kiwi_fruit,arx_x5,49,SUCCESS,完成状态: 10/10,0.0071,passed,5.048
+place_kiwi_fruit,arx_x5,50,SUCCESS,完成状态: 10/10,0.0034,passed,5.216
+place_kiwi_fruit,iiwa14,1,BUCKET2_判据失败,10/10,0.2472,passed,4.909
+place_kiwi_fruit,iiwa14,2,SUCCESS,完成状态: 10/10,0.01,passed,4.907
+place_kiwi_fruit,iiwa14,3,BUCKET2_判据失败,10/10,0.2591,passed,4.98
+place_kiwi_fruit,iiwa14,4,BUCKET2_判据失败,10/10,0.0469,passed,5.025
+place_kiwi_fruit,iiwa14,5,SUCCESS,完成状态: 10/10,0.0025,passed,4.852
+place_kiwi_fruit,iiwa14,6,BUCKET2_判据失败,10/10,0.6694,passed,4.973
+place_kiwi_fruit,iiwa14,7,SUCCESS,完成状态: 10/10,0.0037,passed,5.122
+place_kiwi_fruit,iiwa14,8,BUCKET2_判据失败,10/10,0.4627,passed,5.135
+place_kiwi_fruit,iiwa14,9,BUCKET2_判据失败,10/10,0.8305,passed,5.181
+place_kiwi_fruit,iiwa14,10,BUCKET2_判据失败,10/10,0.3827,passed,5.233
+place_kiwi_fruit,iiwa14,11,BUCKET2_判据失败,10/10,0.7007,passed,5.167
+place_kiwi_fruit,iiwa14,12,BUCKET2_判据失败,10/10,0.2195,passed,5.06
+place_kiwi_fruit,iiwa14,13,SUCCESS,完成状态: 10/10,0.0122,passed,5.191
+place_kiwi_fruit,iiwa14,14,BUCKET2_判据失败,10/10,0.3122,passed,5.265
+place_kiwi_fruit,iiwa14,15,BUCKET2_判据失败,10/10,0.5983,passed,5.296
+place_kiwi_fruit,iiwa14,16,SUCCESS,完成状态: 10/10,0.0014,passed,5.115
+place_kiwi_fruit,iiwa14,17,BUCKET2_判据失败,10/10,0.1648,passed,5.398
+place_kiwi_fruit,iiwa14,18,BUCKET2_判据失败,10/10,0.4755,passed,4.554
+place_kiwi_fruit,iiwa14,19,SUCCESS,完成状态: 10/10,0.0068,passed,4.638
+place_kiwi_fruit,iiwa14,20,BUCKET2_判据失败,10/10,0.1694,passed,5.052
+place_kiwi_fruit,iiwa14,21,SUCCESS,完成状态: 10/10,0.0055,passed,5.013
+place_kiwi_fruit,iiwa14,22,BUCKET2_判据失败,10/10,0.1653,passed,5.261
+place_kiwi_fruit,iiwa14,23,BUCKET2_判据失败,10/10,1.001,passed,5.312
+place_kiwi_fruit,iiwa14,24,SUCCESS,完成状态: 10/10,0.0102,passed,5.228
+place_kiwi_fruit,iiwa14,25,SUCCESS,完成状态: 10/10,0.0095,passed,5.032
+place_kiwi_fruit,iiwa14,26,BUCKET2_判据失败,10/10,0.1972,passed,5.161
+place_kiwi_fruit,iiwa14,27,SUCCESS,完成状态: 10/10,0.0036,passed,5.369
+place_kiwi_fruit,iiwa14,28,BUCKET2_判据失败,10/10,0.0206,passed,5.182
+place_kiwi_fruit,iiwa14,29,SUCCESS,完成状态: 10/10,0.0195,passed,5.046
+place_kiwi_fruit,iiwa14,30,BUCKET2_判据失败,10/10,0.6005,passed,4.968
+place_kiwi_fruit,iiwa14,31,BUCKET2_判据失败,10/10,0.0722,passed,4.893
+place_kiwi_fruit,iiwa14,32,BUCKET2_判据失败,10/10,0.274,passed,5.003
+place_kiwi_fruit,iiwa14,33,BUCKET2_判据失败,10/10,0.0214,passed,4.85
+place_kiwi_fruit,iiwa14,34,SUCCESS,完成状态: 10/10,0.007,passed,4.893
+place_kiwi_fruit,iiwa14,35,SUCCESS,完成状态: 10/10,0.0008,passed,5.067
+place_kiwi_fruit,iiwa14,36,BUCKET2_判据失败,10/10,0.3067,passed,5.235
+place_kiwi_fruit,iiwa14,37,BUCKET2_判据失败,10/10,0.2872,passed,5.026
+place_kiwi_fruit,iiwa14,38,BUCKET2_判据失败,10/10,0.2956,passed,4.968
+place_kiwi_fruit,iiwa14,39,SUCCESS,完成状态: 10/10,0.0091,passed,5.294
+place_kiwi_fruit,iiwa14,40,BUCKET2_判据失败,10/10,0.6398,passed,4.468
+place_kiwi_fruit,iiwa14,41,BUCKET2_判据失败,10/10,0.6986,passed,4.919
+place_kiwi_fruit,iiwa14,42,BUCKET2_判据失败,10/10,0.009,passed,4.959
+place_kiwi_fruit,iiwa14,43,SUCCESS,完成状态: 10/10,0.0143,passed,5.173
+place_kiwi_fruit,iiwa14,44,BUCKET2_判据失败,10/10,0.5628,passed,4.81
+place_kiwi_fruit,iiwa14,45,SUCCESS,完成状态: 10/10,0.0093,passed,4.976
+place_kiwi_fruit,iiwa14,46,BUCKET2_判据失败,10/10,0.4263,passed,5.112
+place_kiwi_fruit,iiwa14,47,BUCKET2_判据失败,10/10,0.1904,passed,4.782
+place_kiwi_fruit,iiwa14,48,BUCKET2_判据失败,10/10,0.4208,passed,5.138
+place_kiwi_fruit,iiwa14,49,BUCKET2_判据失败,10/10,0.2102,passed,5.218
+place_kiwi_fruit,iiwa14,50,SUCCESS,完成状态: 10/10,0.0191,passed,5.399
+place_kiwi_fruit,panda,1,SUCCESS,完成状态: 10/10,0.0087,passed,5.113
+place_kiwi_fruit,panda,2,SUCCESS,完成状态: 10/10,0.0051,passed,5.258
+place_kiwi_fruit,panda,3,BUCKET1_早期IK失败,6/10,,passed,5.15
+place_kiwi_fruit,panda,4,SUCCESS,完成状态: 10/10,0.0065,passed,5.334
+place_kiwi_fruit,panda,5,BUCKET1_早期IK失败,9/10,,passed,5.255
+place_kiwi_fruit,panda,6,BUCKET1_早期IK失败,6/10,,passed,4.989
+place_kiwi_fruit,panda,7,SUCCESS,完成状态: 10/10,0.0041,passed,5.673
+place_kiwi_fruit,panda,8,SUCCESS,完成状态: 10/10,0.005,passed,5.347
+place_kiwi_fruit,panda,9,SUCCESS,完成状态: 10/10,0.0032,passed,5.683
+place_kiwi_fruit,panda,10,SUCCESS,完成状态: 10/10,0.0034,passed,5.551
+place_kiwi_fruit,panda,11,SUCCESS,完成状态: 10/10,0.0042,passed,5.769
+place_kiwi_fruit,panda,12,SUCCESS,完成状态: 10/10,0.0047,passed,5.569
+place_kiwi_fruit,panda,13,SUCCESS,完成状态: 10/10,0.0048,passed,5.617
+place_kiwi_fruit,panda,14,SUCCESS,完成状态: 10/10,0.0065,passed,5.569
+place_kiwi_fruit,panda,15,SUCCESS,完成状态: 10/10,0.0044,passed,5.707
+place_kiwi_fruit,panda,16,SUCCESS,完成状态: 10/10,0.0067,passed,5.313
+place_kiwi_fruit,panda,17,SUCCESS,完成状态: 10/10,0.0046,passed,5.215
+place_kiwi_fruit,panda,18,SUCCESS,完成状态: 10/10,0.0054,passed,5.043
+place_kiwi_fruit,panda,19,BUCKET1_早期IK失败,0/10,,passed,5.252
+place_kiwi_fruit,panda,20,SUCCESS,完成状态: 10/10,0.0036,passed,5.288
+place_kiwi_fruit,panda,21,SUCCESS,完成状态: 10/10,0.0043,passed,5.274
+place_kiwi_fruit,panda,22,SUCCESS,完成状态: 10/10,0.0058,passed,5.206
+place_kiwi_fruit,panda,23,SUCCESS,完成状态: 10/10,0.0089,passed,5.211
+place_kiwi_fruit,panda,24,SUCCESS,完成状态: 10/10,0.0075,passed,5.561
+place_kiwi_fruit,panda,25,SUCCESS,完成状态: 10/10,0.0098,passed,5.289
+place_kiwi_fruit,panda,26,SUCCESS,完成状态: 10/10,0.0049,passed,4.784
+place_kiwi_fruit,panda,27,SUCCESS,完成状态: 10/10,0.0041,passed,5.402
+place_kiwi_fruit,panda,28,SUCCESS,完成状态: 10/10,0.0044,passed,5.585
+place_kiwi_fruit,panda,29,SUCCESS,完成状态: 10/10,0.0042,passed,5.637
+place_kiwi_fruit,panda,30,SUCCESS,完成状态: 10/10,0.0047,passed,5.286
+place_kiwi_fruit,panda,31,SUCCESS,完成状态: 10/10,0.0081,passed,5.406
+place_kiwi_fruit,panda,32,SUCCESS,完成状态: 10/10,0.0046,passed,5.287
+place_kiwi_fruit,panda,33,SUCCESS,完成状态: 10/10,0.005,passed,5.284
+place_kiwi_fruit,panda,34,SUCCESS,完成状态: 10/10,0.006,passed,5.364
+place_kiwi_fruit,panda,35,SUCCESS,完成状态: 10/10,0.0044,passed,5.242
+place_kiwi_fruit,panda,36,SUCCESS,完成状态: 10/10,0.0074,passed,5.443
+place_kiwi_fruit,panda,37,BUCKET1_早期IK失败,5/10,,passed,4.787
+place_kiwi_fruit,panda,38,SUCCESS,完成状态: 10/10,0.0047,passed,5.174
+place_kiwi_fruit,panda,39,SUCCESS,完成状态: 10/10,0.0104,passed,5.292
+place_kiwi_fruit,panda,40,BUCKET1_早期IK失败,5/10,,passed,5.046
+place_kiwi_fruit,panda,41,BUCKET1_早期IK失败,5/10,,passed,5.157
+place_kiwi_fruit,panda,42,BUCKET2_判据失败,10/10,0.1409,passed,5.113
+place_kiwi_fruit,panda,43,SUCCESS,完成状态: 10/10,0.0038,passed,4.91
+place_kiwi_fruit,panda,44,BUCKET1_早期IK失败,0/10,,passed,5.32
+place_kiwi_fruit,panda,45,BUCKET1_早期IK失败,6/10,,passed,5.034
+place_kiwi_fruit,panda,46,BUCKET1_早期IK失败,6/10,,passed,4.971
+place_kiwi_fruit,panda,47,SUCCESS,完成状态: 10/10,0.005,passed,5.347
+place_kiwi_fruit,panda,48,SUCCESS,完成状态: 10/10,0.0042,passed,5.633
+place_kiwi_fruit,panda,49,SUCCESS,完成状态: 10/10,0.0051,passed,5.706
+place_kiwi_fruit,panda,50,SUCCESS,完成状态: 10/10,0.0063,passed,5.537
+place_kiwi_fruit,piper,1,SUCCESS,完成状态: 10/10,0.0013,passed,5.922
+place_kiwi_fruit,piper,2,SUCCESS,完成状态: 10/10,0.0058,passed,5.762
+place_kiwi_fruit,piper,3,SUCCESS,完成状态: 10/10,0.0019,passed,5.648
+place_kiwi_fruit,piper,4,SUCCESS,完成状态: 10/10,0.0029,passed,5.688
+place_kiwi_fruit,piper,5,SUCCESS,完成状态: 10/10,0.0069,passed,5.636
+place_kiwi_fruit,piper,6,BUCKET2_判据失败,10/10,0.1018,passed,5.61
+place_kiwi_fruit,piper,7,SUCCESS,完成状态: 10/10,0.0018,passed,5.286
+place_kiwi_fruit,piper,8,SUCCESS,完成状态: 10/10,0.0069,passed,5.199
+place_kiwi_fruit,piper,9,BUCKET2_判据失败,10/10,0.1157,passed,5.144
+place_kiwi_fruit,piper,10,SUCCESS,完成状态: 10/10,0.002,passed,5.532
+place_kiwi_fruit,piper,11,SUCCESS,完成状态: 10/10,0.0009,passed,5.1
+place_kiwi_fruit,piper,12,SUCCESS,完成状态: 10/10,0.0063,passed,5.469
+place_kiwi_fruit,piper,13,SUCCESS,完成状态: 10/10,0.0005,passed,5.294
+place_kiwi_fruit,piper,14,BUCKET1_早期IK失败,5/10,,passed,5.289
+place_kiwi_fruit,piper,15,SUCCESS,完成状态: 10/10,0.0013,passed,5.087
+place_kiwi_fruit,piper,16,BUCKET1_早期IK失败,5/10,,passed,5.074
+place_kiwi_fruit,piper,17,SUCCESS,完成状态: 10/10,0.002,passed,5.562
+place_kiwi_fruit,piper,18,SUCCESS,完成状态: 10/10,0.0072,passed,5.61
+place_kiwi_fruit,piper,19,BUCKET1_早期IK失败,5/10,,passed,5.281
+place_kiwi_fruit,piper,20,SUCCESS,完成状态: 10/10,0.0027,passed,5.185
+place_kiwi_fruit,piper,21,BUCKET2_判据失败,10/10,0.2427,passed,5.394
+place_kiwi_fruit,piper,22,SUCCESS,完成状态: 10/10,0.0028,passed,5.434
+place_kiwi_fruit,piper,23,SUCCESS,完成状态: 10/10,0.0033,passed,5.363
+place_kiwi_fruit,piper,24,SUCCESS,完成状态: 10/10,0.0068,passed,5.43
+place_kiwi_fruit,piper,25,SUCCESS,完成状态: 10/10,0.002,passed,5.384
+place_kiwi_fruit,piper,26,SUCCESS,完成状态: 10/10,0.0018,passed,5.184
+place_kiwi_fruit,piper,27,SUCCESS,完成状态: 10/10,0.0012,passed,4.778
+place_kiwi_fruit,piper,28,SUCCESS,完成状态: 10/10,0.001,passed,5.425
+place_kiwi_fruit,piper,29,SUCCESS,完成状态: 10/10,0.0013,passed,5.085
+place_kiwi_fruit,piper,30,SUCCESS,完成状态: 10/10,0.0016,passed,5.292
+place_kiwi_fruit,piper,31,SUCCESS,完成状态: 10/10,0.0012,passed,5.321
+place_kiwi_fruit,piper,32,SUCCESS,完成状态: 10/10,0.0037,passed,5.02
+place_kiwi_fruit,piper,33,SUCCESS,完成状态: 10/10,0.0067,passed,5.427
+place_kiwi_fruit,piper,34,SUCCESS,完成状态: 10/10,0.0016,passed,5.258
+place_kiwi_fruit,piper,35,SUCCESS,完成状态: 10/10,0.0023,passed,5.3
+place_kiwi_fruit,piper,36,SUCCESS,完成状态: 10/10,0.0055,passed,5.634
+place_kiwi_fruit,piper,37,SUCCESS,完成状态: 10/10,0.0023,passed,5.856
+place_kiwi_fruit,piper,38,SUCCESS,完成状态: 10/10,0.0037,passed,5.677
+place_kiwi_fruit,piper,39,SUCCESS,完成状态: 10/10,0.0019,passed,5.879
+place_kiwi_fruit,piper,40,SUCCESS,完成状态: 10/10,0.0045,passed,5.716
+place_kiwi_fruit,piper,41,BUCKET2_判据失败,10/10,0.2692,passed,5.678
+place_kiwi_fruit,piper,42,SUCCESS,完成状态: 10/10,0.0022,passed,5.422
+place_kiwi_fruit,piper,43,SUCCESS,完成状态: 10/10,0.0026,passed,5.864
+place_kiwi_fruit,piper,44,SUCCESS,完成状态: 10/10,0.0058,passed,5.162
+place_kiwi_fruit,piper,45,SUCCESS,完成状态: 10/10,0.0056,passed,5.324
+place_kiwi_fruit,piper,46,SUCCESS,完成状态: 10/10,0.0019,passed,5.463
+place_kiwi_fruit,piper,47,SUCCESS,完成状态: 10/10,0.0007,passed,5.721
+place_kiwi_fruit,piper,48,SUCCESS,完成状态: 10/10,0.0037,passed,5.399
+place_kiwi_fruit,piper,49,SUCCESS,完成状态: 10/10,0.0023,passed,5.129
+place_kiwi_fruit,piper,50,SUCCESS,完成状态: 10/10,0.0018,passed,5.288
+place_kiwi_fruit,rm65,1,BUCKET2_判据失败,10/10,0.3232,passed,5.039
+place_kiwi_fruit,rm65,2,SUCCESS,完成状态: 10/10,0.001,passed,4.853
+place_kiwi_fruit,rm65,3,BUCKET1_早期IK失败,0/10,,passed,4.976
+place_kiwi_fruit,rm65,4,SUCCESS,完成状态: 10/10,0.0083,passed,5.243
+place_kiwi_fruit,rm65,5,BUCKET2_判据失败,10/10,0.0195,passed,4.744
+place_kiwi_fruit,rm65,6,SUCCESS,完成状态: 10/10,0.0183,passed,5.498
+place_kiwi_fruit,rm65,7,SUCCESS,完成状态: 10/10,0.0024,passed,5.436
+place_kiwi_fruit,rm65,8,BUCKET2_判据失败,10/10,0.3861,passed,5.551
+place_kiwi_fruit,rm65,9,SUCCESS,完成状态: 10/10,0.0058,passed,5.411
+place_kiwi_fruit,rm65,10,SUCCESS,完成状态: 10/10,0.0046,passed,5.242
+place_kiwi_fruit,rm65,11,BUCKET2_判据失败,10/10,0.0218,passed,5.253
+place_kiwi_fruit,rm65,12,SUCCESS,完成状态: 10/10,0.0145,passed,5.435
+place_kiwi_fruit,rm65,13,SUCCESS,完成状态: 10/10,0.0052,passed,5.243
+place_kiwi_fruit,rm65,14,SUCCESS,完成状态: 10/10,0.0028,passed,5.311
+place_kiwi_fruit,rm65,15,BUCKET2_判据失败,10/10,0.3534,passed,5.603
+place_kiwi_fruit,rm65,16,SUCCESS,完成状态: 10/10,0.0179,passed,4.804
+place_kiwi_fruit,rm65,17,BUCKET2_判据失败,10/10,0.2287,passed,5.197
+place_kiwi_fruit,rm65,18,SUCCESS,完成状态: 10/10,0.0049,passed,5.331
+place_kiwi_fruit,rm65,19,SUCCESS,完成状态: 10/10,0.0136,passed,5.121
+place_kiwi_fruit,rm65,20,SUCCESS,完成状态: 10/10,0.0094,passed,5.172
+place_kiwi_fruit,rm65,21,SUCCESS,完成状态: 10/10,0.0114,passed,5.094
+place_kiwi_fruit,rm65,22,BUCKET2_判据失败,10/10,0.1786,passed,5.213
+place_kiwi_fruit,rm65,23,SUCCESS,完成状态: 10/10,0.0054,passed,5.538
+place_kiwi_fruit,rm65,24,BUCKET2_判据失败,10/10,0.3132,passed,5.705
+place_kiwi_fruit,rm65,25,SUCCESS,完成状态: 10/10,0.006,passed,5.285
+place_kiwi_fruit,rm65,26,SUCCESS,完成状态: 10/10,0.0096,passed,5.458
+place_kiwi_fruit,rm65,27,SUCCESS,完成状态: 10/10,0.0036,passed,5.475
+place_kiwi_fruit,rm65,28,BUCKET2_判据失败,10/10,0.332,passed,5.711
+place_kiwi_fruit,rm65,29,BUCKET2_判据失败,10/10,0.1285,passed,5.499
+place_kiwi_fruit,rm65,30,SUCCESS,完成状态: 10/10,0.01,passed,5.633
+place_kiwi_fruit,rm65,31,SUCCESS,完成状态: 10/10,0.0018,passed,5.302
+place_kiwi_fruit,rm65,32,SUCCESS,完成状态: 10/10,0.0122,passed,5.081
+place_kiwi_fruit,rm65,33,BUCKET2_判据失败,10/10,0.0272,passed,5.557
+place_kiwi_fruit,rm65,34,BUCKET2_判据失败,10/10,0.1052,passed,5.437
+place_kiwi_fruit,rm65,35,SUCCESS,完成状态: 10/10,0.0128,passed,5.156
+place_kiwi_fruit,rm65,36,BUCKET1_早期IK失败,6/10,,passed,5.194
+place_kiwi_fruit,rm65,37,BUCKET1_早期IK失败,1/10,,passed,5.273
+place_kiwi_fruit,rm65,38,BUCKET1_早期IK失败,5/10,,passed,5.286
+place_kiwi_fruit,rm65,39,BUCKET1_早期IK失败,1/10,,passed,5.565
+place_kiwi_fruit,rm65,40,BUCKET2_判据失败,10/10,0.1692,passed,5.087
+place_kiwi_fruit,rm65,41,BUCKET2_判据失败,10/10,0.258,passed,5.038
+place_kiwi_fruit,rm65,42,SUCCESS,完成状态: 10/10,0.0136,passed,5.632
+place_kiwi_fruit,rm65,43,BUCKET2_判据失败,10/10,0.0357,passed,5.495
+place_kiwi_fruit,rm65,44,BUCKET2_判据失败,10/10,0.2985,passed,5.442
+place_kiwi_fruit,rm65,45,SUCCESS,完成状态: 10/10,0.0035,passed,5.427
+place_kiwi_fruit,rm65,46,SUCCESS,完成状态: 10/10,0.0162,passed,5.38
+place_kiwi_fruit,rm65,47,BUCKET1_早期IK失败,1/10,,passed,5.097
+place_kiwi_fruit,rm65,48,SUCCESS,完成状态: 10/10,0.0034,passed,5.402
+place_kiwi_fruit,rm65,49,SUCCESS,完成状态: 10/10,0.0151,passed,5.383
+place_kiwi_fruit,rm65,50,SUCCESS,完成状态: 10/10,0.0147,passed,5.436
+place_kiwi_fruit,ur5e,1,BUCKET1_早期IK失败,1/10,,passed,5.385
+place_kiwi_fruit,ur5e,2,SUCCESS,完成状态: 10/10,0.0035,passed,5.112
+place_kiwi_fruit,ur5e,3,BUCKET1_早期IK失败,0/10,,passed,5.783
+place_kiwi_fruit,ur5e,4,SUCCESS,完成状态: 10/10,0.0055,passed,5.036
+place_kiwi_fruit,ur5e,5,SUCCESS,完成状态: 10/10,0.0056,passed,4.966
+place_kiwi_fruit,ur5e,6,BUCKET1_早期IK失败,1/10,,passed,5.52
+place_kiwi_fruit,ur5e,7,SUCCESS,完成状态: 10/10,0.0056,passed,5.186
+place_kiwi_fruit,ur5e,8,BUCKET1_早期IK失败,1/10,,passed,6.292
+place_kiwi_fruit,ur5e,9,SUCCESS,完成状态: 10/10,0.0036,passed,5.261
+place_kiwi_fruit,ur5e,10,BUCKET1_早期IK失败,0/10,,passed,5.454
+place_kiwi_fruit,ur5e,11,SUCCESS,完成状态: 10/10,0.0048,passed,5.404
+place_kiwi_fruit,ur5e,12,BUCKET1_早期IK失败,1/10,,passed,5.036
+place_kiwi_fruit,ur5e,13,SUCCESS,完成状态: 10/10,0.0043,passed,5.549
+place_kiwi_fruit,ur5e,14,BUCKET1_早期IK失败,0/10,,passed,6.095
+place_kiwi_fruit,ur5e,15,SUCCESS,完成状态: 10/10,0.0052,passed,5.563
+place_kiwi_fruit,ur5e,16,BUCKET1_早期IK失败,0/10,,passed,5.908
+place_kiwi_fruit,ur5e,17,SUCCESS,完成状态: 10/10,0.0056,passed,5.077
+place_kiwi_fruit,ur5e,18,BUCKET1_早期IK失败,0/10,,passed,5.872
+place_kiwi_fruit,ur5e,19,BUCKET1_早期IK失败,7/10,,passed,6.338
+place_kiwi_fruit,ur5e,20,BUCKET1_早期IK失败,0/10,,passed,6.883
+place_kiwi_fruit,ur5e,21,SUCCESS,完成状态: 10/10,0.0047,passed,5.568
+place_kiwi_fruit,ur5e,22,SUCCESS,完成状态: 10/10,0.0032,passed,5.369
+place_kiwi_fruit,ur5e,23,SUCCESS,完成状态: 10/10,0.0037,passed,5.613
+place_kiwi_fruit,ur5e,24,SUCCESS,完成状态: 10/10,0.0057,passed,5.368
+place_kiwi_fruit,ur5e,25,SUCCESS,完成状态: 10/10,0.0035,passed,5.119
+place_kiwi_fruit,ur5e,26,SUCCESS,完成状态: 10/10,0.0035,passed,5.778
+place_kiwi_fruit,ur5e,27,BUCKET1_早期IK失败,0/10,,passed,6.135
+place_kiwi_fruit,ur5e,28,BUCKET1_早期IK失败,0/10,,passed,5.891
+place_kiwi_fruit,ur5e,29,SUCCESS,完成状态: 10/10,0.0049,passed,4.856
+place_kiwi_fruit,ur5e,30,SUCCESS,完成状态: 10/10,0.0036,passed,5.319
+place_kiwi_fruit,ur5e,31,BUCKET1_早期IK失败,0/10,,passed,5.511
+place_kiwi_fruit,ur5e,32,SUCCESS,完成状态: 10/10,0.0058,passed,5.288
+place_kiwi_fruit,ur5e,33,SUCCESS,完成状态: 10/10,0.0038,passed,5.249
+place_kiwi_fruit,ur5e,34,BUCKET1_早期IK失败,0/10,,passed,5.837
+place_kiwi_fruit,ur5e,35,SUCCESS,完成状态: 10/10,0.006,passed,5.362
+place_kiwi_fruit,ur5e,36,SUCCESS,完成状态: 10/10,0.0047,passed,4.592
+place_kiwi_fruit,ur5e,37,BUCKET1_早期IK失败,0/10,,passed,5.534
+place_kiwi_fruit,ur5e,38,BUCKET1_早期IK失败,0/10,,passed,5.755
+place_kiwi_fruit,ur5e,39,SUCCESS,完成状态: 10/10,0.0046,passed,5.121
+place_kiwi_fruit,ur5e,40,SUCCESS,完成状态: 10/10,0.0052,passed,5.517
+place_kiwi_fruit,ur5e,41,SUCCESS,完成状态: 10/10,0.0054,passed,5.468
+place_kiwi_fruit,ur5e,42,SUCCESS,完成状态: 10/10,0.0043,passed,5.551
+place_kiwi_fruit,ur5e,43,BUCKET1_早期IK失败,0/10,,passed,5.948
+place_kiwi_fruit,ur5e,44,SUCCESS,完成状态: 10/10,0.0019,passed,5.421
+place_kiwi_fruit,ur5e,45,BUCKET1_早期IK失败,0/10,,passed,5.986
+place_kiwi_fruit,ur5e,46,SUCCESS,完成状态: 10/10,0.0056,passed,5.135
+place_kiwi_fruit,ur5e,47,SUCCESS,完成状态: 10/10,0.0059,passed,5.613
+place_kiwi_fruit,ur5e,48,SUCCESS,完成状态: 10/10,0.0055,passed,5.663
+place_kiwi_fruit,ur5e,49,SUCCESS,完成状态: 10/10,0.0051,passed,5.338
+place_kiwi_fruit,ur5e,50,SUCCESS,完成状态: 10/10,0.0035,passed,5.094
+place_kiwi_fruit,xarm7,1,BUCKET2_判据失败,10/10,0.0904,passed,5.182
+place_kiwi_fruit,xarm7,2,SUCCESS,完成状态: 10/10,0.005,passed,5.325
+place_kiwi_fruit,xarm7,3,BUCKET2_判据失败,10/10,0.0636,passed,5.188
+place_kiwi_fruit,xarm7,4,SUCCESS,完成状态: 10/10,0.0073,passed,5.142
+place_kiwi_fruit,xarm7,5,SUCCESS,完成状态: 10/10,0.0152,passed,5.049
+place_kiwi_fruit,xarm7,6,SUCCESS,完成状态: 10/10,0.0071,passed,5.29
+place_kiwi_fruit,xarm7,7,SUCCESS,完成状态: 10/10,0.0197,passed,5.471
+place_kiwi_fruit,xarm7,8,BUCKET2_判据失败,10/10,0.0211,passed,5.182
+place_kiwi_fruit,xarm7,9,SUCCESS,完成状态: 10/10,0.0041,passed,5.16
+place_kiwi_fruit,xarm7,10,BUCKET2_判据失败,10/10,0.0221,passed,5.4
+place_kiwi_fruit,xarm7,11,SUCCESS,完成状态: 10/10,0.0106,passed,5.419
+place_kiwi_fruit,xarm7,12,SUCCESS,完成状态: 10/10,0.0031,passed,5.535
+place_kiwi_fruit,xarm7,13,SUCCESS,完成状态: 10/10,0.0063,passed,5.394
+place_kiwi_fruit,xarm7,14,SUCCESS,完成状态: 10/10,0.0063,passed,5.356
+place_kiwi_fruit,xarm7,15,SUCCESS,完成状态: 10/10,0.0024,passed,5.264
+place_kiwi_fruit,xarm7,16,SUCCESS,完成状态: 10/10,0.0043,passed,5.407
+place_kiwi_fruit,xarm7,17,SUCCESS,完成状态: 10/10,0.0042,passed,5.28
+place_kiwi_fruit,xarm7,18,BUCKET2_判据失败,10/10,0.1287,passed,5.29
+place_kiwi_fruit,xarm7,19,BUCKET2_判据失败,10/10,0.0219,passed,5.465
+place_kiwi_fruit,xarm7,20,SUCCESS,完成状态: 10/10,0.0135,passed,5.248
+place_kiwi_fruit,xarm7,21,SUCCESS,完成状态: 10/10,0.006,passed,5.5
+place_kiwi_fruit,xarm7,22,SUCCESS,完成状态: 10/10,0.0087,passed,5.523
+place_kiwi_fruit,xarm7,23,SUCCESS,完成状态: 10/10,0.0115,passed,5.388
+place_kiwi_fruit,xarm7,24,SUCCESS,完成状态: 10/10,0.0016,passed,5.297
+place_kiwi_fruit,xarm7,25,SUCCESS,完成状态: 10/10,0.0064,passed,5.656
+place_kiwi_fruit,xarm7,26,SUCCESS,完成状态: 10/10,0.007,passed,5.552
+place_kiwi_fruit,xarm7,27,SUCCESS,完成状态: 10/10,0.0068,passed,5.634
+place_kiwi_fruit,xarm7,28,SUCCESS,完成状态: 10/10,0.0042,passed,5.316
+place_kiwi_fruit,xarm7,29,SUCCESS,完成状态: 10/10,0.0055,passed,5.238
+place_kiwi_fruit,xarm7,30,SUCCESS,完成状态: 10/10,0.0173,passed,5.446
+place_kiwi_fruit,xarm7,31,SUCCESS,完成状态: 10/10,0.0052,passed,5.546
+place_kiwi_fruit,xarm7,32,BUCKET2_判据失败,10/10,0.0155,passed,5.308
+place_kiwi_fruit,xarm7,33,SUCCESS,完成状态: 10/10,0.0023,passed,5.094
+place_kiwi_fruit,xarm7,34,SUCCESS,完成状态: 10/10,0.0042,passed,5.127
+place_kiwi_fruit,xarm7,35,SUCCESS,完成状态: 10/10,0.0061,passed,5.397
+place_kiwi_fruit,xarm7,36,SUCCESS,完成状态: 10/10,0.0026,passed,5.415
+place_kiwi_fruit,xarm7,37,BUCKET2_判据失败,10/10,0.1243,passed,5.006
+place_kiwi_fruit,xarm7,38,BUCKET2_判据失败,10/10,0.0343,passed,5.016
+place_kiwi_fruit,xarm7,39,SUCCESS,完成状态: 10/10,0.0034,passed,5.598
+place_kiwi_fruit,xarm7,40,BUCKET2_判据失败,10/10,0.1274,passed,5.426
+place_kiwi_fruit,xarm7,41,SUCCESS,完成状态: 10/10,0.0035,passed,5.412
+place_kiwi_fruit,xarm7,42,SUCCESS,完成状态: 10/10,0.0045,passed,5.281
+place_kiwi_fruit,xarm7,43,SUCCESS,完成状态: 10/10,0.0059,passed,5.389
+place_kiwi_fruit,xarm7,44,SUCCESS,完成状态: 10/10,0.0062,passed,5.219
+place_kiwi_fruit,xarm7,45,BUCKET2_判据失败,10/10,0.1006,passed,5.407
+place_kiwi_fruit,xarm7,46,SUCCESS,完成状态: 10/10,0.0048,passed,5.525
+place_kiwi_fruit,xarm7,47,SUCCESS,完成状态: 10/10,0.0067,passed,5.238
+place_kiwi_fruit,xarm7,48,SUCCESS,完成状态: 10/10,0.0068,passed,5.499
+place_kiwi_fruit,xarm7,49,SUCCESS,完成状态: 10/10,0.0005,passed,4.752
+place_kiwi_fruit,xarm7,50,SUCCESS,完成状态: 10/10,0.0089,passed,5.114
+stack_block,airbot_play,1,SUCCESS,完成状态: 18/18,0.0026,passed,5.121
+stack_block,airbot_play,2,BUCKET2_判据失败,18/18,0.0453,passed,5.115
+stack_block,airbot_play,3,BUCKET2_判据失败,18/18,0.0438,passed,5.085
+stack_block,airbot_play,4,BUCKET1_早期IK失败,1/18,,passed,4.552
+stack_block,airbot_play,5,BUCKET2_判据失败,18/18,0.0338,passed,4.747
+stack_block,airbot_play,6,BUCKET2_判据失败,18/18,0.2494,passed,4.835
+stack_block,airbot_play,7,SUCCESS,完成状态: 18/18,0.0021,passed,4.613
+stack_block,airbot_play,8,BUCKET2_判据失败,18/18,0.033,passed,4.462
+stack_block,airbot_play,9,SUCCESS,完成状态: 18/18,0.0045,passed,4.46
+stack_block,airbot_play,10,BUCKET2_判据失败,18/18,0.0203,passed,4.66
+stack_block,airbot_play,11,SUCCESS,完成状态: 18/18,0.0029,passed,3.969
+stack_block,airbot_play,12,BUCKET2_判据失败,18/18,0.0403,passed,4.456
+stack_block,airbot_play,13,SUCCESS,完成状态: 18/18,0.0113,passed,4.464
+stack_block,airbot_play,14,BUCKET2_判据失败,18/18,0.3829,passed,4.69
+stack_block,airbot_play,15,SUCCESS,完成状态: 18/18,0.004,passed,4.649
+stack_block,airbot_play,16,BUCKET2_判据失败,18/18,0.3712,passed,4.557
+stack_block,airbot_play,17,SUCCESS,完成状态: 18/18,0.0053,passed,4.746
+stack_block,airbot_play,18,BUCKET2_判据失败,18/18,0.0078,passed,4.325
+stack_block,airbot_play,19,BUCKET2_判据失败,18/18,0.2669,passed,4.512
+stack_block,airbot_play,20,BUCKET2_判据失败,18/18,0.0431,passed,4.483
+stack_block,airbot_play,21,BUCKET2_判据失败,18/18,0.0225,passed,4.255
+stack_block,airbot_play,22,BUCKET2_判据失败,18/18,0.0519,passed,3.945
+stack_block,airbot_play,23,BUCKET2_判据失败,18/18,0.128,passed,4.174
+stack_block,airbot_play,24,BUCKET2_判据失败,18/18,0.0068,passed,4.549
+stack_block,airbot_play,25,BUCKET2_判据失败,18/18,0.2003,passed,4.577
+stack_block,airbot_play,26,SUCCESS,完成状态: 18/18,0.0156,passed,4.722
+stack_block,airbot_play,27,SUCCESS,完成状态: 18/18,0.0046,passed,5.033
+stack_block,airbot_play,28,BUCKET2_判据失败,18/18,0.0349,passed,5.032
+stack_block,airbot_play,29,SUCCESS,完成状态: 18/18,0.0026,passed,5.094
+stack_block,airbot_play,30,BUCKET2_判据失败,18/18,0.0161,passed,4.937
+stack_block,airbot_play,31,BUCKET2_判据失败,18/18,0.0334,passed,4.763
+stack_block,airbot_play,32,BUCKET2_判据失败,18/18,0.0135,passed,4.743
+stack_block,airbot_play,33,BUCKET2_判据失败,18/18,0.0077,passed,4.833
+stack_block,airbot_play,34,BUCKET2_判据失败,18/18,0.003,passed,4.636
+stack_block,airbot_play,35,BUCKET2_判据失败,18/18,0.0464,passed,4.493
+stack_block,airbot_play,36,BUCKET1_早期IK失败,10/18,,passed,4.471
+stack_block,airbot_play,37,SUCCESS,完成状态: 18/18,0.0071,passed,4.481
+stack_block,airbot_play,38,BUCKET2_判据失败,18/18,0.0023,passed,4.061
+stack_block,airbot_play,39,SUCCESS,完成状态: 18/18,0.0048,passed,4.446
+stack_block,airbot_play,40,BUCKET2_判据失败,18/18,0.0363,passed,4.463
+stack_block,airbot_play,41,BUCKET2_判据失败,18/18,0.2748,passed,4.548
+stack_block,airbot_play,42,SUCCESS,完成状态: 18/18,0.0107,passed,4.61
+stack_block,airbot_play,43,BUCKET2_判据失败,18/18,0.0544,passed,4.572
+stack_block,airbot_play,44,BUCKET2_判据失败,18/18,0.0214,passed,4.545
+stack_block,airbot_play,45,BUCKET2_判据失败,18/18,0.0583,passed,4.582
+stack_block,airbot_play,46,BUCKET1_早期IK失败,6/18,,passed,4.42
+stack_block,airbot_play,47,SUCCESS,完成状态: 18/18,0.006,passed,4.413
+stack_block,airbot_play,48,BUCKET1_早期IK失败,1/18,,passed,4.098
+stack_block,airbot_play,49,BUCKET2_判据失败,18/18,0.0066,passed,4.059
+stack_block,airbot_play,50,BUCKET1_早期IK失败,1/18,,passed,4.038
+stack_block,arx_l5,1,BUCKET2_判据失败,18/18,0.1347,passed,4.675
+stack_block,arx_l5,2,BUCKET2_判据失败,18/18,0.0441,passed,4.61
+stack_block,arx_l5,3,BUCKET2_判据失败,18/18,0.37,passed,4.826
+stack_block,arx_l5,4,BUCKET2_判据失败,18/18,0.0685,passed,4.503
+stack_block,arx_l5,5,BUCKET2_判据失败,18/18,0.2248,passed,4.344
+stack_block,arx_l5,6,BUCKET2_判据失败,18/18,0.0448,passed,4.313
+stack_block,arx_l5,7,BUCKET2_判据失败,18/18,0.0497,passed,4.649
+stack_block,arx_l5,8,BUCKET2_判据失败,18/18,0.0979,passed,4.405
+stack_block,arx_l5,9,BUCKET2_判据失败,18/18,0.0692,passed,4.229
+stack_block,arx_l5,10,BUCKET2_判据失败,18/18,0.0723,passed,3.967
+stack_block,arx_l5,11,BUCKET2_判据失败,18/18,0.1411,passed,4.469
+stack_block,arx_l5,12,BUCKET2_判据失败,18/18,0.0506,passed,4.576
+stack_block,arx_l5,13,BUCKET2_判据失败,18/18,0.0627,passed,4.507
+stack_block,arx_l5,14,BUCKET2_判据失败,18/18,0.0923,passed,4.592
+stack_block,arx_l5,15,BUCKET2_判据失败,18/18,0.2307,passed,4.497
+stack_block,arx_l5,16,BUCKET2_判据失败,18/18,0.0446,passed,4.548
+stack_block,arx_l5,17,BUCKET2_判据失败,18/18,0.0433,passed,4.609
+stack_block,arx_l5,18,BUCKET2_判据失败,18/18,0.2498,passed,4.392
+stack_block,arx_l5,19,BUCKET2_判据失败,18/18,0.0645,passed,4.466
+stack_block,arx_l5,20,BUCKET2_判据失败,18/18,0.0695,passed,4.079
+stack_block,arx_l5,21,BUCKET2_判据失败,18/18,0.0888,passed,3.85
+stack_block,arx_l5,22,BUCKET1_早期IK失败,14/18,,passed,4.606
+stack_block,arx_l5,23,BUCKET2_判据失败,18/18,0.1196,passed,4.483
+stack_block,arx_l5,24,BUCKET2_判据失败,18/18,0.1336,passed,4.541
+stack_block,arx_l5,25,BUCKET2_判据失败,18/18,0.2694,passed,4.777
+stack_block,arx_l5,26,BUCKET2_判据失败,18/18,0.0622,passed,4.857
+stack_block,arx_l5,27,BUCKET2_判据失败,18/18,0.0391,passed,4.676
+stack_block,arx_l5,28,BUCKET2_判据失败,18/18,0.0498,passed,4.457
+stack_block,arx_l5,29,BUCKET2_判据失败,18/18,0.0558,passed,4.506
+stack_block,arx_l5,30,BUCKET2_判据失败,18/18,0.0354,passed,4.614
+stack_block,arx_l5,31,BUCKET2_判据失败,18/18,0.0898,passed,4.381
+stack_block,arx_l5,32,BUCKET2_判据失败,18/18,0.1505,passed,4.371
+stack_block,arx_l5,33,BUCKET2_判据失败,18/18,0.0532,passed,4.024
+stack_block,arx_l5,34,BUCKET2_判据失败,18/18,0.0697,passed,4.309
+stack_block,arx_l5,35,BUCKET2_判据失败,18/18,0.1477,passed,4.602
+stack_block,arx_l5,36,BUCKET2_判据失败,18/18,0.0732,passed,4.486
+stack_block,arx_l5,37,BUCKET2_判据失败,18/18,0.0331,passed,4.681
+stack_block,arx_l5,38,BUCKET2_判据失败,18/18,0.2657,passed,4.545
+stack_block,arx_l5,39,BUCKET2_判据失败,18/18,0.0557,passed,4.647
+stack_block,arx_l5,40,BUCKET2_判据失败,18/18,0.0375,passed,4.496
+stack_block,arx_l5,41,BUCKET2_判据失败,18/18,0.3303,passed,4.461
+stack_block,arx_l5,42,BUCKET2_判据失败,18/18,0.0447,passed,4.493
+stack_block,arx_l5,43,BUCKET2_判据失败,18/18,0.0836,passed,3.996
+stack_block,arx_l5,44,BUCKET2_判据失败,18/18,0.1596,passed,3.99
+stack_block,arx_l5,45,BUCKET2_判据失败,18/18,0.1552,passed,4.143
+stack_block,arx_l5,46,BUCKET2_判据失败,18/18,0.1872,passed,4.556
+stack_block,arx_l5,47,BUCKET2_判据失败,18/18,0.0497,passed,4.859
+stack_block,arx_l5,48,BUCKET2_判据失败,18/18,0.1095,passed,4.584
+stack_block,arx_l5,49,BUCKET2_判据失败,18/18,0.0404,passed,4.462
+stack_block,arx_l5,50,BUCKET2_判据失败,18/18,0.072,passed,4.666
+stack_block,arx_x5,1,SUCCESS,完成状态: 18/18,0.0059,passed,4.872
+stack_block,arx_x5,2,SUCCESS,完成状态: 18/18,0.0043,passed,4.596
+stack_block,arx_x5,3,SUCCESS,完成状态: 18/18,0.0087,passed,4.388
+stack_block,arx_x5,4,SUCCESS,完成状态: 18/18,0.004,passed,4.143
+stack_block,arx_x5,5,SUCCESS,完成状态: 18/18,0.0053,passed,4.124
+stack_block,arx_x5,6,SUCCESS,完成状态: 18/18,0.0066,passed,4.34
+stack_block,arx_x5,7,SUCCESS,完成状态: 18/18,0.0082,passed,4.611
+stack_block,arx_x5,8,SUCCESS,完成状态: 18/18,0.009,passed,4.712
+stack_block,arx_x5,9,SUCCESS,完成状态: 18/18,0.0076,passed,4.752
+stack_block,arx_x5,10,SUCCESS,完成状态: 18/18,0.007,passed,4.454
+stack_block,arx_x5,11,SUCCESS,完成状态: 18/18,0.0048,passed,4.591
+stack_block,arx_x5,12,SUCCESS,完成状态: 18/18,0.0099,passed,4.645
+stack_block,arx_x5,13,SUCCESS,完成状态: 18/18,0.0094,passed,4.591
+stack_block,arx_x5,14,SUCCESS,完成状态: 18/18,0.0055,passed,4.028
+stack_block,arx_x5,15,SUCCESS,完成状态: 18/18,0.0097,passed,4.022
+stack_block,arx_x5,16,SUCCESS,完成状态: 18/18,0.0031,passed,4.01
+stack_block,arx_x5,17,SUCCESS,完成状态: 18/18,0.0097,passed,4.417
+stack_block,arx_x5,18,SUCCESS,完成状态: 18/18,0.0036,passed,4.457
+stack_block,arx_x5,19,SUCCESS,完成状态: 18/18,0.0074,passed,4.408
+stack_block,arx_x5,20,SUCCESS,完成状态: 18/18,0.0025,passed,4.459
+stack_block,arx_x5,21,SUCCESS,完成状态: 18/18,0.0107,passed,4.79
+stack_block,arx_x5,22,SUCCESS,完成状态: 18/18,0.0099,passed,4.485
+stack_block,arx_x5,23,SUCCESS,完成状态: 18/18,0.019,passed,4.231
+stack_block,arx_x5,24,SUCCESS,完成状态: 18/18,0.0099,passed,4.583
+stack_block,arx_x5,25,SUCCESS,完成状态: 18/18,0.0083,passed,4.139
+stack_block,arx_x5,26,SUCCESS,完成状态: 18/18,0.0066,passed,4.37
+stack_block,arx_x5,27,SUCCESS,完成状态: 18/18,0.0072,passed,4.479
+stack_block,arx_x5,28,BUCKET2_判据失败,18/18,0.0251,passed,4.777
+stack_block,arx_x5,29,SUCCESS,完成状态: 18/18,0.0069,passed,4.524
+stack_block,arx_x5,30,BUCKET2_判据失败,18/18,0.0343,passed,4.567
+stack_block,arx_x5,31,SUCCESS,完成状态: 18/18,0.0016,passed,4.459
+stack_block,arx_x5,32,SUCCESS,完成状态: 18/18,0.0075,passed,4.377
+stack_block,arx_x5,33,BUCKET2_判据失败,18/18,0.0299,passed,4.03
+stack_block,arx_x5,34,SUCCESS,完成状态: 18/18,0.0055,passed,3.876
+stack_block,arx_x5,35,SUCCESS,完成状态: 18/18,0.0089,passed,4.301
+stack_block,arx_x5,36,SUCCESS,完成状态: 18/18,0.0131,passed,4.706
+stack_block,arx_x5,37,BUCKET2_判据失败,18/18,0.0235,passed,4.819
+stack_block,arx_x5,38,SUCCESS,完成状态: 18/18,0.012,passed,4.883
+stack_block,arx_x5,39,SUCCESS,完成状态: 18/18,0.0058,passed,4.796
+stack_block,arx_x5,40,SUCCESS,完成状态: 18/18,0.0074,passed,4.611
+stack_block,arx_x5,41,SUCCESS,完成状态: 18/18,0.0129,passed,4.402
+stack_block,arx_x5,42,SUCCESS,完成状态: 18/18,0.0096,passed,4.598
+stack_block,arx_x5,43,SUCCESS,完成状态: 18/18,0.0064,passed,4.759
+stack_block,arx_x5,44,SUCCESS,完成状态: 18/18,0.004,passed,4.821
+stack_block,arx_x5,45,SUCCESS,完成状态: 18/18,0.0004,passed,4.84
+stack_block,arx_x5,46,BUCKET2_判据失败,18/18,0.0258,passed,4.635
+stack_block,arx_x5,47,BUCKET2_判据失败,18/18,0.0295,passed,4.872
+stack_block,arx_x5,48,SUCCESS,完成状态: 18/18,0.008,passed,4.553
+stack_block,arx_x5,49,SUCCESS,完成状态: 18/18,0.0078,passed,4.519
+stack_block,arx_x5,50,SUCCESS,完成状态: 18/18,0.0066,passed,4.581
+stack_block,iiwa14,1,BUCKET2_判据失败,18/18,0.1032,passed,4.037
+stack_block,iiwa14,2,BUCKET2_判据失败,18/18,0.3519,passed,3.754
+stack_block,iiwa14,3,BUCKET2_判据失败,18/18,0.0094,passed,4.159
+stack_block,iiwa14,4,BUCKET2_判据失败,18/18,0.3389,passed,4.645
+stack_block,iiwa14,5,BUCKET2_判据失败,18/18,0.0353,passed,4.608
+stack_block,iiwa14,6,BUCKET2_判据失败,18/18,0.0345,passed,4.552
+stack_block,iiwa14,7,BUCKET2_判据失败,18/18,0.2854,passed,4.686
+stack_block,iiwa14,8,BUCKET2_判据失败,18/18,0.0105,passed,4.743
+stack_block,iiwa14,9,BUCKET2_判据失败,18/18,0.0135,passed,4.763
+stack_block,iiwa14,10,BUCKET2_判据失败,18/18,0.0429,passed,4.649
+stack_block,iiwa14,11,BUCKET2_判据失败,18/18,0.3355,passed,4.764
+stack_block,iiwa14,12,SUCCESS,完成状态: 18/18,0.0081,passed,4.657
+stack_block,iiwa14,13,BUCKET2_判据失败,18/18,0.237,passed,4.691
+stack_block,iiwa14,14,SUCCESS,完成状态: 18/18,0.0132,passed,4.672
+stack_block,iiwa14,15,BUCKET2_判据失败,18/18,0.277,passed,4.672
+stack_block,iiwa14,16,SUCCESS,完成状态: 18/18,0.0099,passed,4.742
+stack_block,iiwa14,17,BUCKET2_判据失败,18/18,0.2048,passed,4.421
+stack_block,iiwa14,18,BUCKET2_判据失败,18/18,0.011,passed,4.768
+stack_block,iiwa14,19,BUCKET2_判据失败,18/18,0.321,passed,5.032
+stack_block,iiwa14,20,BUCKET2_判据失败,18/18,0.341,passed,5.259
+stack_block,iiwa14,21,BUCKET2_判据失败,18/18,0.2341,passed,5.114
+stack_block,iiwa14,22,BUCKET2_判据失败,18/18,0.2774,passed,4.596
+stack_block,iiwa14,23,BUCKET2_判据失败,18/18,0.2557,passed,4.785
+stack_block,iiwa14,24,BUCKET2_判据失败,18/18,0.0371,passed,4.627
+stack_block,iiwa14,25,BUCKET2_判据失败,18/18,0.3833,passed,4.776
+stack_block,iiwa14,26,BUCKET2_判据失败,18/18,0.2091,passed,4.645
+stack_block,iiwa14,27,BUCKET2_判据失败,18/18,0.1108,passed,4.836
+stack_block,iiwa14,28,BUCKET2_判据失败,18/18,0.0112,passed,4.66
+stack_block,iiwa14,29,BUCKET2_判据失败,18/18,0.205,passed,4.584
+stack_block,iiwa14,30,BUCKET2_判据失败,18/18,0.3374,passed,4.712
+stack_block,iiwa14,31,BUCKET2_判据失败,18/18,0.0352,passed,4.895
+stack_block,iiwa14,32,BUCKET2_判据失败,18/18,0.1205,passed,4.432
+stack_block,iiwa14,33,BUCKET2_判据失败,18/18,0.0111,passed,4.408
+stack_block,iiwa14,34,BUCKET2_判据失败,18/18,0.2555,passed,4.732
+stack_block,iiwa14,35,BUCKET2_判据失败,18/18,0.1569,passed,5.107
+stack_block,iiwa14,36,SUCCESS,完成状态: 18/18,0.0148,passed,4.989
+stack_block,iiwa14,37,BUCKET2_判据失败,18/18,0.0043,passed,5.211
+stack_block,iiwa14,38,BUCKET2_判据失败,18/18,0.0349,passed,4.555
+stack_block,iiwa14,39,BUCKET2_判据失败,18/18,0.0091,passed,4.648
+stack_block,iiwa14,40,BUCKET2_判据失败,18/18,0.245,passed,4.692
+stack_block,iiwa14,41,BUCKET2_判据失败,18/18,0.0122,passed,4.568
+stack_block,iiwa14,42,BUCKET2_判据失败,18/18,0.2532,passed,4.671
+stack_block,iiwa14,43,BUCKET2_判据失败,18/18,0.1646,passed,4.568
+stack_block,iiwa14,44,BUCKET2_判据失败,18/18,0.0313,passed,4.683
+stack_block,iiwa14,45,BUCKET2_判据失败,18/18,0.5146,passed,4.734
+stack_block,iiwa14,46,BUCKET1_早期IK失败,14/18,,passed,5.503
+stack_block,iiwa14,47,BUCKET2_判据失败,18/18,0.4566,passed,4.371
+stack_block,iiwa14,48,BUCKET2_判据失败,18/18,0.0088,passed,4.562
+stack_block,iiwa14,49,BUCKET2_判据失败,18/18,0.2865,passed,4.274
+stack_block,iiwa14,50,BUCKET2_判据失败,18/18,0.1175,passed,4.721
+stack_block,panda,1,BUCKET1_早期IK失败,0/18,,passed,4.921
+stack_block,panda,2,SUCCESS,完成状态: 18/18,0.006,passed,5.04
+stack_block,panda,3,SUCCESS,完成状态: 18/18,0.0024,passed,4.381
+stack_block,panda,4,SUCCESS,完成状态: 18/18,0.0092,passed,4.715
+stack_block,panda,5,SUCCESS,完成状态: 18/18,0.0089,passed,4.644
+stack_block,panda,6,BUCKET1_早期IK失败,0/18,,passed,4.44
+stack_block,panda,7,SUCCESS,完成状态: 18/18,0.002,passed,4.849
+stack_block,panda,8,SUCCESS,完成状态: 18/18,0.0075,passed,4.858
+stack_block,panda,9,SUCCESS,完成状态: 18/18,0.0061,passed,4.682
+stack_block,panda,10,SUCCESS,完成状态: 18/18,0.0064,passed,4.653
+stack_block,panda,11,SUCCESS,完成状态: 18/18,0.0036,passed,4.733
+stack_block,panda,12,SUCCESS,完成状态: 18/18,0.0065,passed,4.986
+stack_block,panda,13,BUCKET1_早期IK失败,13/18,,passed,4.308
+stack_block,panda,14,SUCCESS,完成状态: 18/18,0.0042,passed,4.422
+stack_block,panda,15,BUCKET2_判据失败,18/18,0.0344,passed,5.101
+stack_block,panda,16,SUCCESS,完成状态: 18/18,0.0014,passed,4.826
+stack_block,panda,17,SUCCESS,完成状态: 18/18,0.0069,passed,4.563
+stack_block,panda,18,BUCKET1_早期IK失败,9/18,,passed,4.58
+stack_block,panda,19,SUCCESS,完成状态: 18/18,0.0041,passed,4.768
+stack_block,panda,20,SUCCESS,完成状态: 18/18,0.0072,passed,4.778
+stack_block,panda,21,SUCCESS,完成状态: 18/18,0.0057,passed,4.661
+stack_block,panda,22,SUCCESS,完成状态: 18/18,0.0064,passed,4.763
+stack_block,panda,23,BUCKET1_早期IK失败,0/18,,passed,4.635
+stack_block,panda,24,BUCKET2_判据失败,18/18,0.0277,passed,4.731
+stack_block,panda,25,SUCCESS,完成状态: 18/18,0.0036,passed,4.598
+stack_block,panda,26,SUCCESS,完成状态: 18/18,0.0081,passed,4.871
+stack_block,panda,27,BUCKET1_早期IK失败,5/18,,passed,4.455
+stack_block,panda,28,SUCCESS,完成状态: 18/18,0.0094,passed,4.323
+stack_block,panda,29,SUCCESS,完成状态: 18/18,0.0036,passed,4.752
+stack_block,panda,30,SUCCESS,完成状态: 18/18,0.0022,passed,4.893
+stack_block,panda,31,SUCCESS,完成状态: 18/18,0.0063,passed,4.72
+stack_block,panda,32,SUCCESS,完成状态: 18/18,0.0075,passed,5.076
+stack_block,panda,33,SUCCESS,完成状态: 18/18,0.006,passed,4.775
+stack_block,panda,34,BUCKET1_早期IK失败,14/18,,passed,4.469
+stack_block,panda,35,SUCCESS,完成状态: 18/18,0.0167,passed,4.581
+stack_block,panda,36,BUCKET1_早期IK失败,0/18,,passed,4.658
+stack_block,panda,37,SUCCESS,完成状态: 18/18,0.0103,passed,4.758
+stack_block,panda,38,SUCCESS,完成状态: 18/18,0.0086,passed,4.707
+stack_block,panda,39,SUCCESS,完成状态: 18/18,0.0074,passed,4.496
+stack_block,panda,40,SUCCESS,完成状态: 18/18,0.0083,passed,4.359
+stack_block,panda,41,BUCKET1_早期IK失败,9/18,,passed,4.651
+stack_block,panda,42,SUCCESS,完成状态: 18/18,0.004,passed,4.86
+stack_block,panda,43,SUCCESS,完成状态: 18/18,0.0104,passed,4.817
+stack_block,panda,44,SUCCESS,完成状态: 18/18,0.009,passed,4.725
+stack_block,panda,45,SUCCESS,完成状态: 18/18,0.0064,passed,4.685
+stack_block,panda,46,BUCKET1_早期IK失败,9/18,,passed,4.762
+stack_block,panda,47,SUCCESS,完成状态: 18/18,0.0047,passed,4.608
+stack_block,panda,48,SUCCESS,完成状态: 18/18,0.0039,passed,4.766
+stack_block,panda,49,SUCCESS,完成状态: 18/18,0.0115,passed,4.585
+stack_block,panda,50,SUCCESS,完成状态: 18/18,0.0065,passed,4.835
+stack_block,piper,1,BUCKET2_判据失败,18/18,0.0216,passed,5.189
+stack_block,piper,2,SUCCESS,完成状态: 18/18,0.007,passed,4.533
+stack_block,piper,3,SUCCESS,完成状态: 18/18,0.0129,passed,4.459
+stack_block,piper,4,SUCCESS,完成状态: 18/18,0.0047,passed,5.261
+stack_block,piper,5,BUCKET2_判据失败,18/18,0.0087,passed,5.36
+stack_block,piper,6,BUCKET2_判据失败,18/18,0.0348,passed,5.263
+stack_block,piper,7,BUCKET2_判据失败,18/18,0.0421,passed,5.189
+stack_block,piper,8,SUCCESS,完成状态: 18/18,0.0023,passed,5.241
+stack_block,piper,9,BUCKET2_判据失败,18/18,0.0064,passed,5.067
+stack_block,piper,10,BUCKET2_判据失败,18/18,0.0062,passed,5.382
+stack_block,piper,11,SUCCESS,完成状态: 18/18,0.0102,passed,5.267
+stack_block,piper,12,BUCKET2_判据失败,18/18,0.0361,passed,4.731
+stack_block,piper,13,BUCKET2_判据失败,18/18,0.0107,passed,5.371
+stack_block,piper,14,SUCCESS,完成状态: 18/18,0.0031,passed,4.798
+stack_block,piper,15,BUCKET2_判据失败,18/18,0.0347,passed,5.464
+stack_block,piper,16,BUCKET2_判据失败,18/18,0.0512,passed,5.334
+stack_block,piper,17,BUCKET2_判据失败,18/18,0.0342,passed,5.075
+stack_block,piper,18,BUCKET2_判据失败,18/18,0.0056,passed,5.097
+stack_block,piper,19,SUCCESS,完成状态: 18/18,0.0038,passed,5.255
+stack_block,piper,20,SUCCESS,完成状态: 18/18,0.0063,passed,5.242
+stack_block,piper,21,BUCKET2_判据失败,18/18,0.0359,passed,5.196
+stack_block,piper,22,BUCKET2_判据失败,18/18,0.0349,passed,5.283
+stack_block,piper,23,SUCCESS,完成状态: 18/18,0.002,passed,4.619
+stack_block,piper,24,SUCCESS,完成状态: 18/18,0.0075,passed,4.98
+stack_block,piper,25,SUCCESS,完成状态: 18/18,0.0042,passed,4.972
+stack_block,piper,26,BUCKET2_判据失败,18/18,0.0478,passed,5.088
+stack_block,piper,27,BUCKET2_判据失败,18/18,0.0334,passed,5.149
+stack_block,piper,28,BUCKET2_判据失败,18/18,0.0348,passed,5.148
+stack_block,piper,29,SUCCESS,完成状态: 18/18,0.0071,passed,5.445
+stack_block,piper,30,BUCKET2_判据失败,18/18,0.0405,passed,5.138
+stack_block,piper,31,SUCCESS,完成状态: 18/18,0.0062,passed,5.329
+stack_block,piper,32,BUCKET2_判据失败,18/18,0.0433,passed,5.124
+stack_block,piper,33,BUCKET2_判据失败,18/18,0.0376,passed,4.437
+stack_block,piper,34,SUCCESS,完成状态: 18/18,0.0063,passed,5.144
+stack_block,piper,35,BUCKET2_判据失败,18/18,0.036,passed,5.328
+stack_block,piper,36,BUCKET2_判据失败,18/18,0.0507,passed,5.463
+stack_block,piper,37,BUCKET2_判据失败,18/18,0.0346,passed,4.98
+stack_block,piper,38,SUCCESS,完成状态: 18/18,0.0084,passed,5.126
+stack_block,piper,39,BUCKET2_判据失败,18/18,0.0346,passed,5.098
+stack_block,piper,40,SUCCESS,完成状态: 18/18,0.0038,passed,5.183
+stack_block,piper,41,BUCKET2_判据失败,18/18,0.0047,passed,5.145
+stack_block,piper,42,BUCKET2_判据失败,18/18,0.0404,passed,4.846
+stack_block,piper,43,BUCKET2_判据失败,18/18,0.0482,passed,5.227
+stack_block,piper,44,BUCKET2_判据失败,18/18,0.0349,passed,5.399
+stack_block,piper,45,BUCKET2_判据失败,18/18,0.0501,passed,5.252
+stack_block,piper,46,SUCCESS,完成状态: 18/18,0.0058,passed,5.269
+stack_block,piper,47,SUCCESS,完成状态: 18/18,0.0096,passed,5.199
+stack_block,piper,48,BUCKET2_判据失败,18/18,0.0408,passed,4.875
+stack_block,piper,49,SUCCESS,完成状态: 18/18,0.0049,passed,5.003
+stack_block,piper,50,SUCCESS,完成状态: 18/18,0.0112,passed,4.686
+stack_block,rm65,1,SUCCESS,完成状态: 18/18,0.0024,passed,5.0
+stack_block,rm65,2,SUCCESS,完成状态: 18/18,0.0113,passed,5.033
+stack_block,rm65,3,BUCKET1_早期IK失败,9/18,,passed,5.107
+stack_block,rm65,4,BUCKET1_早期IK失败,14/18,,passed,5.02
+stack_block,rm65,5,BUCKET2_判据失败,18/18,0.0386,passed,5.023
+stack_block,rm65,6,BUCKET2_判据失败,18/18,0.0354,passed,4.736
+stack_block,rm65,7,BUCKET1_早期IK失败,1/18,,passed,3.927
+stack_block,rm65,8,BUCKET2_判据失败,18/18,0.0274,passed,4.368
+stack_block,rm65,9,BUCKET1_早期IK失败,6/18,,passed,4.641
+stack_block,rm65,10,BUCKET1_早期IK失败,14/18,,passed,5.168
+stack_block,rm65,11,BUCKET1_早期IK失败,9/18,,passed,5.101
+stack_block,rm65,12,BUCKET2_判据失败,18/18,0.034,passed,5.098
+stack_block,rm65,13,BUCKET1_早期IK失败,10/18,,passed,4.801
+stack_block,rm65,14,BUCKET2_判据失败,18/18,0.0347,passed,5.09
+stack_block,rm65,15,SUCCESS,完成状态: 18/18,0.003,passed,4.078
+stack_block,rm65,16,BUCKET1_早期IK失败,6/18,,passed,4.126
+stack_block,rm65,17,BUCKET2_判据失败,18/18,0.0348,passed,4.941
+stack_block,rm65,18,BUCKET1_早期IK失败,14/18,,passed,4.479
+stack_block,rm65,19,BUCKET2_判据失败,18/18,0.0364,passed,4.665
+stack_block,rm65,20,BUCKET2_判据失败,18/18,0.0494,passed,4.597
+stack_block,rm65,21,BUCKET1_早期IK失败,6/18,,passed,4.414
+stack_block,rm65,22,BUCKET2_判据失败,18/18,0.0328,passed,4.477
+stack_block,rm65,23,BUCKET1_早期IK失败,6/18,,passed,4.51
+stack_block,rm65,24,BUCKET1_早期IK失败,10/18,,passed,4.645
+stack_block,rm65,25,BUCKET2_判据失败,18/18,0.0279,passed,4.645
+stack_block,rm65,26,BUCKET1_早期IK失败,6/18,,passed,4.561
+stack_block,rm65,27,BUCKET2_判据失败,18/18,0.0378,passed,4.786
+stack_block,rm65,28,SUCCESS,完成状态: 18/18,0.0196,passed,4.68
+stack_block,rm65,29,BUCKET2_判据失败,18/18,0.0337,passed,4.789
+stack_block,rm65,30,BUCKET2_判据失败,18/18,0.041,passed,4.359
+stack_block,rm65,31,SUCCESS,完成状态: 18/18,0.0093,passed,4.414
+stack_block,rm65,32,BUCKET1_早期IK失败,1/18,,passed,4.283
+stack_block,rm65,33,SUCCESS,完成状态: 18/18,0.0053,passed,4.737
+stack_block,rm65,34,BUCKET2_判据失败,18/18,0.0397,passed,4.583
+stack_block,rm65,35,BUCKET2_判据失败,18/18,0.059,passed,4.695
+stack_block,rm65,36,BUCKET2_判据失败,18/18,0.0355,passed,4.536
+stack_block,rm65,37,BUCKET1_早期IK失败,14/18,,passed,4.284
+stack_block,rm65,38,BUCKET1_早期IK失败,5/18,,passed,4.416
+stack_block,rm65,39,BUCKET1_早期IK失败,0/18,,passed,4.218
+stack_block,rm65,40,BUCKET2_判据失败,18/18,0.0182,passed,4.796
+stack_block,rm65,41,SUCCESS,完成状态: 18/18,0.0102,passed,4.688
+stack_block,rm65,42,BUCKET2_判据失败,18/18,0.0503,passed,4.399
+stack_block,rm65,43,BUCKET1_早期IK失败,14/18,,passed,4.685
+stack_block,rm65,44,BUCKET2_判据失败,18/18,0.0024,passed,4.401
+stack_block,rm65,45,BUCKET2_判据失败,18/18,0.0097,passed,4.461
+stack_block,rm65,46,BUCKET1_早期IK失败,1/18,,passed,4.433
+stack_block,rm65,47,BUCKET2_判据失败,18/18,0.0345,passed,4.434
+stack_block,rm65,48,BUCKET1_早期IK失败,6/18,,passed,4.092
+stack_block,rm65,49,BUCKET2_判据失败,18/18,0.0346,passed,4.27
+stack_block,rm65,50,BUCKET2_判据失败,18/18,0.0433,passed,4.505
+stack_block,ur5e,1,BUCKET1_早期IK失败,10/18,,passed,4.369
+stack_block,ur5e,2,SUCCESS,完成状态: 18/18,0.0042,passed,4.618
+stack_block,ur5e,3,SUCCESS,完成状态: 18/18,0.0024,passed,4.553
+stack_block,ur5e,4,SUCCESS,完成状态: 18/18,0.0008,passed,4.742
+stack_block,ur5e,5,SUCCESS,完成状态: 18/18,0.0096,passed,4.464
+stack_block,ur5e,6,SUCCESS,完成状态: 18/18,0.0056,passed,4.656
+stack_block,ur5e,7,BUCKET1_早期IK失败,1/18,,passed,4.756
+stack_block,ur5e,8,BUCKET1_早期IK失败,6/18,,passed,5.404
+stack_block,ur5e,9,SUCCESS,完成状态: 18/18,0.0037,passed,4.688
+stack_block,ur5e,10,SUCCESS,完成状态: 18/18,0.0053,passed,4.413
+stack_block,ur5e,11,SUCCESS,完成状态: 18/18,0.0026,passed,4.651
+stack_block,ur5e,12,SUCCESS,完成状态: 18/18,0.0101,passed,4.648
+stack_block,ur5e,13,BUCKET1_早期IK失败,1/18,,passed,4.554
+stack_block,ur5e,14,BUCKET1_早期IK失败,1/18,,passed,4.489
+stack_block,ur5e,15,BUCKET1_早期IK失败,10/18,,passed,4.619
+stack_block,ur5e,16,BUCKET1_早期IK失败,1/18,,passed,4.579
+stack_block,ur5e,17,SUCCESS,完成状态: 18/18,0.0062,passed,4.908
+stack_block,ur5e,18,BUCKET1_早期IK失败,1/18,,passed,4.505
+stack_block,ur5e,19,BUCKET1_早期IK失败,1/18,,passed,5.091
+stack_block,ur5e,20,BUCKET1_早期IK失败,1/18,,passed,4.85
+stack_block,ur5e,21,SUCCESS,完成状态: 18/18,0.0054,passed,4.636
+stack_block,ur5e,22,SUCCESS,完成状态: 18/18,0.0073,passed,4.795
+stack_block,ur5e,23,BUCKET1_早期IK失败,1/18,,passed,4.345
+stack_block,ur5e,24,BUCKET1_早期IK失败,1/18,,passed,4.711
+stack_block,ur5e,25,BUCKET1_早期IK失败,1/18,,passed,4.71
+stack_block,ur5e,26,SUCCESS,完成状态: 18/18,0.0081,passed,4.672
+stack_block,ur5e,27,SUCCESS,完成状态: 18/18,0.0084,passed,4.467
+stack_block,ur5e,28,BUCKET2_判据失败,18/18,0.035,passed,4.685
+stack_block,ur5e,29,SUCCESS,完成状态: 18/18,0.0051,passed,4.726
+stack_block,ur5e,30,SUCCESS,完成状态: 18/18,0.0043,passed,5.063
+stack_block,ur5e,31,BUCKET1_早期IK失败,10/18,,passed,4.869
+stack_block,ur5e,32,SUCCESS,完成状态: 18/18,0.0044,passed,4.986
+stack_block,ur5e,33,BUCKET1_早期IK失败,10/18,,passed,4.444
+stack_block,ur5e,34,SUCCESS,完成状态: 18/18,0.0066,passed,4.617
+stack_block,ur5e,35,BUCKET1_早期IK失败,10/18,,passed,5.142
+stack_block,ur5e,36,SUCCESS,完成状态: 18/18,0.0016,passed,4.133
+stack_block,ur5e,37,BUCKET2_判据失败,18/18,0.0351,passed,4.802
+stack_block,ur5e,38,SUCCESS,完成状态: 18/18,0.0071,passed,4.647
+stack_block,ur5e,39,BUCKET2_判据失败,18/18,0.0355,passed,4.346
+stack_block,ur5e,40,BUCKET1_早期IK失败,10/18,,passed,4.262
+stack_block,ur5e,41,BUCKET1_早期IK失败,1/18,,passed,3.914
+stack_block,ur5e,42,SUCCESS,完成状态: 18/18,0.0098,passed,4.583
+stack_block,ur5e,43,SUCCESS,完成状态: 18/18,0.0068,passed,4.544
+stack_block,ur5e,44,SUCCESS,完成状态: 18/18,0.0056,passed,4.249
+stack_block,ur5e,45,SUCCESS,完成状态: 18/18,0.0061,passed,4.982
+stack_block,ur5e,46,BUCKET1_早期IK失败,1/18,,passed,4.359
+stack_block,ur5e,47,BUCKET1_早期IK失败,1/18,,passed,4.687
+stack_block,ur5e,48,BUCKET1_早期IK失败,10/18,,passed,4.93
+stack_block,ur5e,49,BUCKET1_早期IK失败,1/18,,passed,4.417
+stack_block,ur5e,50,SUCCESS,完成状态: 18/18,0.0037,passed,4.882
+stack_block,xarm7,1,BUCKET2_判据失败,18/18,0.2003,passed,4.463
+stack_block,xarm7,2,BUCKET2_判据失败,18/18,0.0097,passed,4.719
+stack_block,xarm7,3,BUCKET2_判据失败,18/18,0.0109,passed,4.514
+stack_block,xarm7,4,BUCKET2_判据失败,18/18,0.0397,passed,4.554
+stack_block,xarm7,5,BUCKET2_判据失败,18/18,0.0611,passed,4.722
+stack_block,xarm7,6,BUCKET2_判据失败,18/18,0.0465,passed,4.497
+stack_block,xarm7,7,BUCKET2_判据失败,18/18,0.0923,passed,4.468
+stack_block,xarm7,8,BUCKET2_判据失败,18/18,0.1009,passed,4.566
+stack_block,xarm7,9,BUCKET2_判据失败,18/18,0.0494,passed,4.577
+stack_block,xarm7,10,BUCKET2_判据失败,18/18,0.0883,passed,4.669
+stack_block,xarm7,11,BUCKET2_判据失败,18/18,0.0572,passed,4.549
+stack_block,xarm7,12,SUCCESS,完成状态: 18/18,0.0072,passed,4.494
+stack_block,xarm7,13,BUCKET2_判据失败,18/18,0.0445,passed,4.419
+stack_block,xarm7,14,BUCKET2_判据失败,18/18,0.1043,passed,4.659
+stack_block,xarm7,15,BUCKET2_判据失败,18/18,0.0387,passed,4.716
+stack_block,xarm7,16,BUCKET2_判据失败,18/18,0.088,passed,4.67
+stack_block,xarm7,17,BUCKET2_判据失败,18/18,0.0441,passed,4.819
+stack_block,xarm7,18,BUCKET2_判据失败,18/18,0.0744,passed,4.433
+stack_block,xarm7,19,BUCKET2_判据失败,18/18,0.0612,passed,4.717
+stack_block,xarm7,20,BUCKET2_判据失败,18/18,0.1061,passed,4.733
+stack_block,xarm7,21,BUCKET2_判据失败,18/18,0.009,passed,4.56
+stack_block,xarm7,22,BUCKET2_判据失败,18/18,0.0107,passed,4.506
+stack_block,xarm7,23,BUCKET2_判据失败,18/18,0.0056,passed,4.577
+stack_block,xarm7,24,BUCKET2_判据失败,18/18,0.08,passed,4.44
+stack_block,xarm7,25,BUCKET2_判据失败,18/18,0.0056,passed,4.549
+stack_block,xarm7,26,BUCKET2_判据失败,18/18,0.0469,passed,4.628
+stack_block,xarm7,27,BUCKET2_判据失败,18/18,0.061,passed,4.622
+stack_block,xarm7,28,BUCKET2_判据失败,18/18,0.0601,passed,4.633
+stack_block,xarm7,29,BUCKET2_判据失败,18/18,0.1365,passed,4.625
+stack_block,xarm7,30,BUCKET2_判据失败,18/18,0.0541,passed,4.851
+stack_block,xarm7,31,BUCKET2_判据失败,18/18,0.0337,passed,4.625
+stack_block,xarm7,32,BUCKET2_判据失败,18/18,0.0441,passed,4.443
+stack_block,xarm7,33,BUCKET2_判据失败,18/18,0.0118,passed,4.508
+stack_block,xarm7,34,BUCKET2_判据失败,18/18,0.0651,passed,4.69
+stack_block,xarm7,35,BUCKET2_判据失败,18/18,0.0518,passed,4.583
+stack_block,xarm7,36,BUCKET2_判据失败,18/18,0.0577,passed,4.794
+stack_block,xarm7,37,BUCKET2_判据失败,18/18,0.1396,passed,4.681
+stack_block,xarm7,38,BUCKET2_判据失败,18/18,0.0613,passed,4.803
+stack_block,xarm7,39,BUCKET2_判据失败,18/18,0.0599,passed,4.596
+stack_block,xarm7,40,BUCKET2_判据失败,18/18,0.0755,passed,4.653
+stack_block,xarm7,41,BUCKET2_判据失败,18/18,0.108,passed,4.457
+stack_block,xarm7,42,BUCKET2_判据失败,18/18,0.0478,passed,4.537
+stack_block,xarm7,43,BUCKET2_判据失败,18/18,0.0441,passed,4.659
+stack_block,xarm7,44,BUCKET2_判据失败,18/18,0.056,passed,4.64
+stack_block,xarm7,45,BUCKET2_判据失败,18/18,0.0426,passed,4.662
+stack_block,xarm7,46,BUCKET2_判据失败,18/18,0.0442,passed,4.623
+stack_block,xarm7,47,BUCKET2_判据失败,18/18,0.0807,passed,4.495
+stack_block,xarm7,48,BUCKET2_判据失败,18/18,0.0757,passed,4.469
+stack_block,xarm7,49,BUCKET2_判据失败,18/18,0.0093,passed,3.926
+stack_block,xarm7,50,BUCKET2_判据失败,18/18,0.0411,passed,3.122

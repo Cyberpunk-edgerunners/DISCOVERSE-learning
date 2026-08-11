@@ -272,3 +272,7 @@ mjmodel.xml
 
 # 简历等
 source-notes/*.pdf
+
+# docs/log/ 是学习笔记，不是运行日志 —— 排除在 log 忽略规则之外
+!docs/log/
+!docs/log/*.md

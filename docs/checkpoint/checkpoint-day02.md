@@ -87,7 +87,7 @@ PYEOF
 ```
 模块                        语句   未覆盖  覆盖率
 randomization.py             300    274     9%   ← 确定性攻坚核心
-task_base.py                 160    134    16%   ← 含最高优先线索
+task_base.py                 160    134    16%   ← 成功判定逻辑（原线索已证伪，见下）
 robot_interface.py            88     74    16%
 mink_solver.py                79     64    19%   ← IK，Day 3-4 也要碰
 recorder.py                   63     51    19%
@@ -98,15 +98,21 @@ config_utils.py               48      1    98%   ← 只差第 83 行
 TOTAL                        961    674    30%
 ```
 
-### 最高优先线索（Day 3-4 第一件事）
+### ⚠️ 实测修正：原「最高优先线索」的假设已被证伪（2026-07-30）
 
-**[task_base.py:149-167](../../discoverse/universal_manipulation/task_base.py#L149) 从未被任何测试执行过**（覆盖率报告确认）。
+原记录写着「若 `except` 吞异常后返回 `True`，则任何条件检查出错都判定成功，可能是整个项目最严重的缺陷」。
 
-已知：
-- `task_base.py:163` 未知条件类型只 `print` 警告，不报错
-- `task_base.py:165-167` 有 `except` 吞异常 —— **返回值是什么？**
+**实测：返回的是 `False`，不是 `True`。** [task_base.py:165-167](../../discoverse/universal_manipulation/task_base.py#L165) 与未知条件类型分支（:164）都返回 `False` —— fail-closed，是安全的。
 
-**若吞异常后返回 `True`，则任何条件检查出错都判定为成功** —— 这直接解释 Day 1 那条「完成状态 10/10 但实际距离 0.2908m」。**可能是整个项目最严重的缺陷。**
+**Day 1「完成状态 10/10 但距离 0.2908m」的真正解释**：`step()` 返回值语义重载（[universal_task_runtime.py:213-262](../../examples/universal_tasks/universal_task_runtime.py#L213)）。`False` 有三个出处（原语失败 :223 / 超时 :234 / 抛异常 :262），而 `run()` 只写 `if not self.step(): break`，无法区分。超时退出时 `self.success` 保持初值 `False`，但 `state_idx` 已推进到 10 → 打印「完成状态 10/10」+「任务成功：否」。**是「进度指标与成功判定脱钩」，不是「伪造成功」。**
+
+**完整分析见 [defect-inventory-day02.md](../defect-inventory-day02.md) 第二节与缺陷 M。**
+
+> **教训**：这条假设从 Day 1 带到 Day 2，被当作两天的最高优先线索，而它只需要一条 `sed -n '165,167p'` 就能证伪。**checkpoint 里的每条推断都该标注「已核实 / 待核实」。**
+
+### Day 3-4 真正的最高优先项
+
+`randomization.py` 的 seed 问题（见下方「确定性攻坚目标」）。另外 [defect-inventory-day02.md](../defect-inventory-day02.md) 里新增的**缺陷 J（`collision_radius` 键名不匹配，11/13 物体避让半径静默失效）严重度高于原线索**，且可能解释部分 flake 率 —— 建议优先处理。
 
 ### 确定性攻坚目标
 
@@ -264,9 +270,10 @@ $PY -m pytest tests/ --lf                    # 只跑上次失败的
 
 ## 九、Day 3-4 待办清单
 
-- [ ] 查 `task_base.py:149-167` 的 `except` 吞异常后返回值（**最高优先**）
+- [x] ~~查 `task_base.py:149-167` 的 `except` 吞异常后返回值~~ —— **已证伪，返回 `False`，见第四节修正**
+- [ ] **修缺陷 J**（`collision_radius` 键名不匹配，11/13 物体避让半径失效）—— 影响最大且一行可修，见 [defect-inventory-day02.md](../defect-inventory-day02.md)
 - [ ] 写"同种子两次运行结果一致"测试 → 预期红
-- [ ] 定位 seed 在哪一层断掉（`settings.seed: null` → `randomization.py` 20+ 处裸 `np.random`）
-- [ ] TDD 修复：seed 贯穿到所有随机源
+- [ ] 定位 seed 在哪一层断掉（**实测精确数字**：`randomization.py` **25 处**裸 `np.random`，该文件 `seed` 零命中；`settings.seed: null` 声明于 **6 处**但无任何代码读取；`utils/__init__.py:86` 另有 stdlib `random.choice`）
+- [ ] TDD 修复：seed 贯穿到所有随机源（含 texture 那条独立路径）
 - [ ] 查缺陷 H 的 iiwa14 根因（命令见第三节）
-- [ ] `mink_solver.py` IK 状态泄漏（计划文档提到）
+- [ ] `mink_solver.py` IK 状态泄漏（计划文档提到）；顺带修缺陷 O（`dt` 被 `:126` 硬编码遮蔽）

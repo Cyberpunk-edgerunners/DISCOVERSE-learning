@@ -1,0 +1,42 @@
+# Day 5 全量 flake 采样的实验元数据。
+# 数据本身见同名 .csv（2250 行，每行一次运行）。
+
+date: '2026-08-07'
+command: pytest tests/integration/test_task_matrix.py -m flake --count=50 -n 8
+git_commit: c722ca8ae0d9bb2d8c4b16df20c6d879f315b161
+
+n_per_cell: 50
+robots: 9
+tasks: 5
+total_runs: 2250
+wall_clock_min: ~10
+
+# 结果概览（详见 ../flakiness-analysis.md）
+buckets:
+  SUCCESS: 924
+  BUCKET2_判据失败: 660
+  BUCKET4_配置崩溃: 355
+  BUCKET1_早期IK失败: 299
+  BUCKET3_超时: 12
+
+caveats:
+  - BUCKET4 是配置缺陷（cover_cup 对非 airbot_play 声明了不存在的相机 eye_arm），
+    100% 复现、无随机性。统计 flake 率时必须剔除，否则热力图那一行永远是黑的，
+    会误导人去调 IK 容差而真正的问题是一行配置。
+    剔除后真实 flake 率 = 924/1895 = 48.8%（而非 924/2250 = 41.1%）。
+  - BUCKET3 的 12 例里至少 1 例（cover_cup-airbot_play）是撞上 pytest 全局
+    timeout=60s 而非任务真超时 —— pyproject.toml 的 timeout 先于用例内的
+    TIMEOUT_S=120 生效，导致归桶不准。
+  - N=50 时 95% 置信区间约 ±12%（p≈0.5）。不要用它区分接近的数值，
+    例如 50% 和 56% 之间的差异在噪声范围内。
+
+# 为什么这份数据进了 git（一个有退出条件的临时决定）
+retention:
+  rationale: >
+    155KB 换「结论可复算」。数据含随机性，重跑 2250 次也得不到同一份 ——
+    它是一次性观测记录，不是可再生的中间产物。
+    对比 data/ 目录（任务采集的视频与轨迹）：大、每次跑都变、是中间产物，
+    因此上游把它加进了 .gitignore，那是对的。
+  exit_condition: >
+    累积约 10 份实验数据（~1.5MB）时迁移到 Git LFS 或 CI artifact。
+    在那之前不做优化。
