@@ -1,0 +1,93 @@
+# ============================================================
+# Dockerfile.test —— DISCOVERSE 无头测试镜像
+#
+# 用途：在没有显示器、没有 GPU 的机器上跑 pytest。
+#      最终目标运行环境是 GitHub Actions 的免费 runner。
+#
+# 构建：docker build -f discoverse/docker/Dockerfile.test -t discoverse:test .
+# 运行：docker run --rm discoverse:test pytest tests/ -q
+# 验收：输出必须是 113 passed, 4 skipped, 45 deselected, 10 xfailed
+#      —— 与本机 `source scripts/dev/env.sh && $PY -m pytest tests/ -q` 一致
+# ============================================================
+
+# ---- 基础镜像 ----
+# 为什么不是 nvidia/cuda（现有 Dockerfile 用的那个）：
+#   本机已装 nvidia-container-toolkit，docker run --gpus all 确实能用 GPU。
+#   但这个镜像最终要跑在 GitHub Actions 免费 runner 上，那里没有 GPU。
+#   绑死 GPU 的镜像会「本机绿、CI 红」。
+#   而且测试瓶颈根本不在渲染 —— 113 个用例 3 秒跑完，
+#   测的是配置层和 IK 求解，不是渲染性能。
+#   代价：nvidia/cuda:11.8.0-base 约 2 GB，这里约 130 MB。
+#
+# 为什么锁 3.10：本机 tests/__pycache__ 是 cpython-310，
+#   版本不一致会在依赖 wheel 上出岔子。
+FROM python:3.10-slim
+
+# ---- 构建期不要交互式提问 ----
+# apt 装某些包时会弹时区选择等对话框，容器里没人回答会挂住。
+ENV DEBIAN_FRONTEND=noninteractive
+
+# ---- 系统依赖 ----
+# libosmesa6-dev: osmesa 软件渲染的核心库。
+#   ⚠️ 名字带 -dev 看着像编译期依赖，但 osmesa 运行期就要它，砍不得。
+# libgl1 / libglx-mesa0: OpenGL 运行时，mujoco 链接时需要。
+# --no-install-recommends: 不装「推荐」的附带包，能省不少体积。
+# rm -rf /var/lib/apt/lists/*: 清 apt 索引缓存。
+#   ⚠️ 必须和 apt-get install 在同一个 RUN 里 ——
+#      Docker 每个 RUN 是一层，分开写的话缓存已经进了上一层，删了也不减体积。
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libosmesa6-dev \
+    libgl1 \
+    libglx-mesa0 \
+    libglib2.0-0 \
+    && rm -rf /var/lib/apt/lists/*
+
+# ---- 渲染后端：整个镜像存在的理由 ----
+# glfw 需要显示器，容器里没有 $DISPLAY，一渲染就崩。
+# 现有 discoverse/docker/Dockerfile 第 58 行写的正是 ENV MUJOCO_GL=glfw，
+# 这就是它不能直接拿来跑测试的原因。
+# osmesa = Off-Screen Mesa，纯 CPU 软件渲染，慢但零环境依赖。
+#
+# 写成 ENV 而不是靠 scripts/dev/env.sh：
+#   source 出来的变量不跨进程，忘了 source 就跑错后端，而且不报错只是行为不同。
+#   ENV 是焊死在镜像里的，进容器就一定在。
+ENV MUJOCO_GL=osmesa
+
+# PYTHONDONTWRITEBYTECODE: 不生成 .pyc，容器是一次性的，省体积
+# PYTHONUNBUFFERED: 日志实时输出，否则 CI 里看不到进度只能等结束
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1
+
+WORKDIR /workspace
+
+# ---- 先装依赖，再拷源码（分层缓存的关键）----
+# Docker 按层缓存，某层的输入没变就直接复用。
+# 依赖清单很少变、源码天天变，所以依赖必须放前面。
+# 反过来写的话，改一行代码就要重装全部依赖。
+COPY requirements-test.txt /tmp/requirements-test.txt
+RUN pip install --no-cache-dir -r /tmp/requirements-test.txt
+
+# ---- 再拷源码 ----
+# 实际拷什么由仓库根的 .dockerignore 决定。
+COPY . /workspace/
+
+# ---- 装 discoverse 本体 ----
+# --no-deps: 不让 pip 再去解析 pyproject.toml 的依赖。
+#   依赖已由 requirements-test.txt 精确控制，
+#   不加这个会把 pyproject 里的版本范围重新解一遍，破坏钉死的版本。
+RUN pip install --no-cache-dir --no-deps -e .
+
+# ---- 构建期自检 ----
+# 在 build 阶段就验证关键 import，把「运行时才发现依赖缺失」
+# 提前到「构建时就失败」。失败越早越便宜。
+#
+# 📌 这一行就是 checkpoint-day06-07.md §2.2 说的那道守护：
+#    「理想做法是 CI 里加一个干净环境 job 跑
+#      pip install -e . && python -c "import discoverse.universal_manipulation"」
+#    ⚠️ 也正是这一行会让你第一次 build 失败 —— 那是设计好的，见 Step 5.4。
+RUN python -c "import mujoco; print('MuJoCo', mujoco.__version__)" \
+    && python -c "import discoverse.universal_manipulation; print('discoverse OK')"
+
+# 默认跑全量回归。docker run 时可以覆盖，例如：
+#   docker run --rm discoverse:test pytest tests/unit -v
+CMD ["pytest", "tests/", "-q"]

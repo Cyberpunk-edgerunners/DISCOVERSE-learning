@@ -1,0 +1,66 @@
+# ============================================================
+# requirements-test.txt —— 测试镜像的 Python 依赖
+#
+# 为什么单独一个文件，而不是直接 pip install -e .：
+#   1. Docker 分层缓存：依赖清单很少变，源码天天变。
+#      先 COPY 这个文件装依赖，再 COPY 源码，
+#      改代码时能复用依赖层缓存，重建从几分钟变几秒。
+#   2. 这里只列「跑测试」需要的，比 pyproject.toml 的
+#      完整依赖窄，镜像更小。
+#
+# 版本策略：全部钉死（==）而非 >=。
+#   测试镜像的核心价值是可复现。参考缺陷 #3：
+#   pytest 超时未生效，怀疑是 pytest 9.1.1 与
+#   pytest-timeout 2.4.0 的版本兼容问题，根因至今未定位。
+#   版本浮动会让这类 bug 时有时无，更难查。
+#   代价是要手工升级 —— 对测试环境来说这是优点。
+# ============================================================
+
+# ---- 测试框架 ----
+pytest==9.1.1
+pytest-cov==7.1.0          # 覆盖率，pyproject.toml 里配了 [tool.coverage]
+pytest-timeout==2.4.0      # MuJoCo 最常见的失败模式是死循环而非抛异常
+coverage==7.15.2
+
+# ---- 仿真核心 ----
+mujoco==3.10.0
+numpy==2.2.6
+scipy==1.15.3
+
+###------补充：eager import 链的全部硬依赖
+# ---- IK 求解链路 ----
+# universal_manipulation/__init__.py 会主动加载 mink_solver，
+# 而 mink_solver.py:8 是模块级 import mink —— 缺失则整个包
+# import 即失败（这是 Day 6-7 的缺陷 L）。
+mink==1.2.0
+quadprog==0.1.13           # mink_solver.py:45 的默认求解后端
+pyyaml==6.0.3
+av==17.1.0
+PyOpenGL==3.1.10
+pillow==12.2.0
+
+# ---- discoverse 核心依赖中测试会碰到的 ----
+opencv-python==4.13.0.92
+matplotlib==3.10.9
+psutil==7.2.2
+tqdm==4.69.0
+mediapy==1.2.7
+screeninfo==0.8.1
+
+
+
+# ============================================================
+# 没有装的，以及理由：
+#
+#   pytest-xdist / pytest-repeat / pytest-json-report
+#     → Day 5 的 flake 采样实验用（--count=50 -n 8），
+#       日常回归不需要。以后要在容器里跑 flake 实验再加。
+#
+#   torch / gaussian_renderer
+#     → 3DGS 渲染和策略学习用，测试完全不涉及。
+#       torch 的 CUDA 版约 2.5 GB，是原镜像最大的一块。
+#
+# ⚠️ 这份清单目前是不完整的 —— Step 5 构建后会撞
+#    ModuleNotFoundError。那是刻意留的教学环节，
+#    撞完请回到 Step 5.8 决定修在哪一层。
+# ============================================================

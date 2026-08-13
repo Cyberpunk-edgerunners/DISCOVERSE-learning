@@ -1,0 +1,45 @@
+# ============================================================
+# docker-compose.test.yml —— 把冗长的 docker run 参数固化下来
+#
+# 用法：
+#   docker compose -f docker-compose.test.yml up --abort-on-container-exit
+#   docker compose -f docker-compose.test.yml run --rm test pytest tests/unit -v
+#
+# 注意不要写 version: '3.8' —— 新版 compose 已废弃该字段，会告警。
+# ============================================================
+
+services:
+  test:
+    build:
+      context: . # 构建上下文=仓库根，.dockerignore 在这一层生效
+      dockerfile: discoverse/docker/Dockerfile.test
+    image: discoverse:test
+
+    environment:
+      # 与 Dockerfile 里的 ENV 重复是有意的：
+      # 显式写在这里，读 compose 文件的人一眼能看到这是无头配置，
+      # 不用去翻 Dockerfile。
+      - MUJOCO_GL=osmesa
+
+    volumes:
+      # 挂载源码目录后，改测试不用重建镜像，改完直接跑。
+      # :ro = read-only，容器不能写宿主机的源码，防止容器内的
+      #       __pycache__ 之类污染工作区。
+      - ./tests:/workspace/tests:ro
+      # - ./discoverse:/workspace/discoverse:ro   不挂载使用镜像内copy的副本
+      # ⚠️ 输出目录不能只读 —— 覆盖率报告要写进来。
+      # 需要 htmlcov 时取消下面两行的注释：
+      # - ./htmlcov:/workspace/htmlcov
+      # - ./.coverage:/workspace/.coverage
+
+      # 覆盖 Dockerfile 的 CMD。
+    command: pytest tests/ -q
+    # 没有 GPU 相关配置是刻意的 —— 见 Dockerfile.test 里的基础镜像注释。
+    # 如果哪天真需要 GPU（3DGS 渲染 / 策略训练），加：
+    #   deploy:
+    #     resources:
+    #       reservations:
+    #         devices:
+    #           - driver: nvidia
+    #             count: all
+    #             capabilities: [gpu]

@@ -1,0 +1,69 @@
+# ============================================================
+# .dockerignore —— 控制 `COPY . /workspace` 实际复制什么
+#
+# 语法和 .gitignore 一样，但作用完全不同：
+#   .gitignore   决定什么不进 git 仓库
+#   .dockerignore 决定什么不进 Docker 镜像
+# 两者互不影响，需要分别维护。
+#
+# ⚠️ 排错时注意：这里挡掉的东西，容器里就是「文件不存在」，
+#    而 tests/conftest.py 遇到 MJCF 不存在会 pytest.skip —— 
+#    也就是「测试变绿但啥也没测」。改动本文件后必须比对 skip 数。
+# ============================================================
+
+# ---- 版本控制（312 MB，镜像里完全用不到）---
+.git
+.gitignore
+.gitattributes
+.gitmodules
+
+# ---- Python 运行时产物 ----
+# 这些是本机 python 生成的缓存，架构/版本可能与容器不一致，
+# 带进去反而可能引起诡异问题，让容器自己重新生成。
+__pycache__
+*.pyc
+*.pyo
+*.egg-info
+.pytest_cache
+.coverage
+htmlcov
+
+# ---- 策略学习（3.3 MB，但依赖 torch 等重型库，测试不涉及）----
+# pyproject.toml 的 [tool.setuptools.packages.find] 也 exclude 了它
+policies
+submodules
+
+# ---- 文档与笔记（测试不读）----
+docs
+source-notes
+README.md
+README_zh.md
+LICENSE
+CLAUDE.md
+.claude
+.claudeignore
+
+# ---- 编辑器 ----
+.vscode
+.idea
+
+# ---- 数据与素材 ----
+data
+assets
+
+# ============================================================
+# ⚠️ 注意这里没有排除 models/
+#
+# 直觉上 models/ 有 439 MB，是瘦身大头，但：
+#   tests/unit/test_conftest_fixtures.py 等直接加载
+#   models/mjcf/manipulator/*.xml，而这些 XML 的 <compiler>
+#   标签里写着 meshdir="../../meshes/" —— 编译期就要读 mesh 文件。
+#   实测 robot_airbot_play.xml 加载后 nmesh=14, ntex=2。
+#
+# 排除 models/ 的后果不是报错，是 pytest.skip 静默兜住 →
+# 测试全绿但一个 MJCF 都没真正加载过。
+#
+# 如果要进一步瘦身，用 Step 3.5 的实验法逐个目录验证，
+# 例如 models/meshes/object/（241 MB）可能可以排除。
+# 验证方式：mv 走 → 跑测试 → 看 skip 数变没变 → mv 回来。
+# ============================================================
