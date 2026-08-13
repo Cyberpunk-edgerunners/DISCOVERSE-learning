@@ -52,8 +52,17 @@
 | §二十 | R | `randomize_scene` 返回类型与注解不符 | 🟢 Low | ⏸ 未修 | 静态核实 |
 | §廿一 | T | 库代码 96 处 `print` 代替 `logging` | 🟢 Low | ⏸ 未修 | 实测 |
 | §廿二 | X | MuJoCo viewer 退出时段错误 | 🟢 Low | ⏸ 未修 | 静态核实 |
+| §廿三 | **L′** | 另外 4 个包未声明依赖 —— **缺陷 L 只修了一半** | 🟠 High | ⏸ 未修 | 实测 |
+| §廿四 | **Y** | `recoder_single_arm` 部分写入留下 0 字节坏文件 | 🟡 Medium | ⏸ 3 xfail | 实测 |
+| §廿五 | **Z** | `PyavImageEncoder` 未 close 则整段录像静默丢失 | 🟡 Medium | ⏸ 1 xfail | 实测 |
+| §廿六 | **G** | `cv2` 依赖的系统库 `libglib2.0-0` 未记录 | 🟢 Low | ✅ 已修（`Dockerfile.test`） | 实测 |
 
-**已修 5 条，未修 15 条**，其中 10 条由 `xfail(strict=True)` 测试守护。
+**已修 6 条，未修 18 条**，其中 14 条由 `xfail(strict=True)` 测试守护。
+
+> **§廿三 ~ §廿六 是 Day 8-9 新增。** 四条都由**同一件事**暴露：把测试放进一个干净的 Docker 容器里跑。
+>
+> 其中 **L′ 与 G 是同一个问题的两层**：L′ 是 pip 管的 Python 包缺失，G 是 pip **管不到**的系统库缺失。
+> 而 L′ 尤其值得注意 —— 它证明**缺陷 L 当时只修了症状**（见 §廿三）。
 
 ### 1.2 关于"未修"的说明
 
@@ -77,6 +86,29 @@
 | V | `eye_arm` 相机 | 渲染器 | MJCF 里不存在 |
 
 **Python 语义根源**：`dict.get(key, default)` 键不存在时返回默认值而非报错；`for x in []` 直接跳过循环体；`all([])` 返回 `True`。三者都让"配置缺失"表现为"一切正常"。
+
+### 1.3.1 Day 8-9 的补充：该模式不限于配置，也不限于本项目
+
+容器化过程中同一模式又出现 **5 次**，其中三次根本不在 YAML 里：
+
+| 场景 | 声明了什么 | 实际 |
+|---|---|---|
+| `MUJOCO_GL=glfw`（现有 `Dockerfile:58`） | 用 glfw 渲染 | 无头环境下不可用 |
+| `pyproject.toml` 核心依赖 | 依赖齐全 | **少 4 个包**（§廿三） |
+| `HTTP_PROXY=127.0.0.1:7897` | 走代理 | **代理软件两个月前就停了** |
+| compose 的 `:ro` 挂载 | 保护源码不被容器改 | **顺带杀死一个合法测试** |
+| `recoder_single_arm` | 产出 obs-action JSON | **0 字节坏文件**（§廿四） |
+
+**三点补充结论**：
+
+**其一，该模式不是配置文件特有的。** git 的 `.gitignore`（Day 6-7 吞掉 `docs/log/`）、Docker 的 `.dockerignore`（挡掉 MJCF 使测试静默 skip）、systemd 的环境变量，全都表现出同一行为。**它是"声明式配置 + 缺失即默认"这一组合的固有属性。**
+
+**其二，"声明"不一定错，副作用同样静默。** 上表第四行 `:ro` 挂载是**完全正确的配置** —— 它就是要防止容器写宿主机源码。但它顺带让一个需要写临时 YAML 的测试失败。**任何声明都可能有未预期的下游影响，而配置系统不会告诉你。**
+
+**其三，环境会随时间漂移。** 那个代理配置写下时是对的，代理停掉之后就不对了，**而没有任何机制会通知你**。
+
+> 本机环境是**累积**的，容器环境是**声明**的。
+> **这是容器化最根本的价值 —— 不是"隔离"，是"没有历史包袱"。**
 
 > **本报告最值得带走的结论**：配置驱动系统里，**最危险的不是配置写错，而是配置写了没人读**。写错通常会报错，没人读则永远沉默。
 >
@@ -594,7 +626,11 @@ radius = self._get_collision_radius(obj_config)   # 兼容 collision_radius / mi
 
 ## 七、缺陷 L｜`mink`/`quadprog` 未声明依赖，包无法 import
 
-**严重级别**：🟠 High ｜ **状态**：✅ 已修复（本次）｜【实测】
+**严重级别**：🟠 High ｜ **状态**：✅ 已修复 ｜【实测】
+
+> ⚠️ **本条修复不完整。** Day 8-9 在干净容器中发现**同一文件、同一机制**下还有 4 个包未声明（`pyyaml`/`av`/`PyOpenGL`/`pillow`）——见 **§廿三（缺陷 L′）**。
+>
+> 修本条时看见 `mink` 缺就补 `mink`，**没有系统性走完整条 eager import 链**。这是一次典型的**修症状而非修根因**：修复动作正确，但排查范围不完整。
 
 ### 7.1 影响模块
 
@@ -1805,25 +1841,599 @@ finally:
 
 ---
 
-## 廿三、验证与复现
+## 廿三、缺陷 L′｜另外 4 个包未声明依赖 —— 缺陷 L 只修了一半
 
-### 23.1 环境
+**严重级别**：🟠 High ｜ **状态**：⏸ 未修（`requirements-test.txt` 已绕过，`pyproject.toml` 未改）｜【实测】
+
+### 23.1 影响模块
+
+- `pyproject.toml`（核心 `dependencies` 缺 4 项）
+- `discoverse/universal_manipulation/__init__.py`（eager import 全部子模块）
+- 所有通过 `pip install -e .` 安装本项目的用户
+
+### 23.2 复现步骤
+
+**必须在干净环境复现** —— 这正是它能存活至今的原因。
+
+```bash
+docker run --rm -v "$PWD":/src python:3.10-slim bash -c '
+  cd /src && pip install -q -e . 2>/dev/null
+  python -c "import discoverse.universal_manipulation"'
+```
+
+或直接构建 `Dockerfile.test`（其末尾的自检 `RUN` 就是这条守护）。
+
+### 23.3 预期 vs 实际
+
+| | 行为 |
+|---|---|
+| **预期** | `pip install -e .` 后包可正常 import |
+| **实际** | `ModuleNotFoundError: No module named 'yaml'`，**整个包 import 即失败** |
+
+修完 `yaml` 会依次撞上 `av`、`OpenGL`、`PIL` —— 共 4 个。
+
+### 23.4 根因分析
+
+**`__init__.py` 是 eager import**，无条件加载全部子模块：
+
+```python
+from .config_utils import (...)              # → yaml
+from .robot_config import RobotConfigLoader  # → yaml
+from .task_config import TaskConfigLoader    # → yaml
+from .mink_solver import MinkIKSolver        # → mink, quadprog（缺陷 L 已修）
+from .randomization import SceneRandomizer   # → OpenGL, PIL
+from .recorder import PyavImageEncoder, ...  # → av
+```
+
+四个包的实际 import 点：
+
+| 包 | 位置 | 在 `pyproject.toml` 的哪个组 |
+|---|---|---|
+| `pyyaml` | `config_utils.py:2`、`robot_config.py:8`、`task_config.py:8` | `[act]` |
+| `av` | `recorder.py:6-7` | `[data-collection]` |
+| `PyOpenGL` | `randomization.py:10` | `[xml-editor]` |
+| `pillow` | `randomization.py:11` | `[data-collection]` |
+
+**四个全部只声明在 `[project.optional-dependencies]`，而 `pip install -e .` 只装核心 `dependencies`。**
+
+### 23.5 ⚠️ 排查陷阱：grep 会给出相反的结论
+
+```bash
+$ grep -n "\"av\"\|PyOpenGL\|pillow\|pyyaml" pyproject.toml
+72:    "PyOpenGL>=3.1.0",
+81:    "pyyaml",
+129:    "pillow>=10.2.0",
+131:    "av"
+```
+
+**四个全部命中，看起来毫无问题。** 但命中的全在可选组里。
+
+正确做法是按**结构**查：
+
+```python
+core = open('pyproject.toml').read().split('dependencies = [')[1].split(']')[0]
+for p in ['pyyaml','av','PyOpenGL','pillow']:
+    print(f"{p:10} {'在核心' if p.lower() in core.lower() else '不在核心 ← 缺'}")
+# 四个全部输出「不在核心」
+```
+
+> 📌 **`grep` 回答的是「这些字符出现过吗」，不是「它在语义上生效吗」。**
+>
+> 这是本报告第二次记录同类陷阱 —— §2.3 的缺陷 H 也是"grep 不足以判可达性"。
+
+### 23.6 为什么本机从未发现
+
+这 4 个包在开发机上**全都装着**：
+
+```bash
+$ python -c "import av, OpenGL, PIL, yaml; print('全都在')"
+全都在
+```
+
+它们是被 optional 组或早期手工 pip 顺带装上的。
+
+> **开发环境是「脏」的，这份脏掩盖了依赖声明的缺失。**
+> **任何在现有环境里的验证都发现不了它 —— 只有干净容器能。**
+
+### 23.7 与缺陷 L 的关系：只修了症状
+
+| | 缺陷 L（§七，已修） | **L′（本条）** |
+|---|---|---|
+| 缺失的包 | `mink`、`quadprog` | `pyyaml`、`av`、`PyOpenGL`、`pillow` |
+| 机制 | `__init__.py` eager import | **完全相同** |
+| 文件 | 同一个 | **同一个** |
+
+**修缺陷 L 时看见 `mink` 缺就补 `mink`，没有系统性走完整条 eager import 链。**
+
+这是一次**修症状而非修根因**的典型：修复动作正确，但排查范围不完整。
+
+### 23.8 修复方案
+
+三个层次，代价与受益不同：
+
+| 方案 | 改哪 | 谁受益 | 代价 |
+|---|---|---|---|
+| **A** | `requirements-test.txt` | **只有测试镜像** | 5 分钟；`pip install -e .` 的用户照样崩 |
+| **B** | `pyproject.toml` 核心 `dependencies` | 所有安装者 | 核心依赖变重（`av` 拖 ffmpeg 约 30-40 MB） |
+| **C** | `__init__.py` 改惰性导入 | 所有人 + **镜像省 106 MB** | 改动大，可能破坏现有 import 路径 |
+
+**当前状态：只做了 A。** 容器绿了，但**真 bug 仍在** —— `Dockerfile.test` 用了 `--no-deps`，容器完全绕过 `pyproject.toml`。
+
+> ⚠️ **「容器绿了」和「bug 修好了」是两件事。**
+
+**建议做 B**（与缺陷 L 修法一致，改同一处），**C 作为根治方案**：
+
+```python
+# 方案 C 示意：重依赖改为按需加载
+def __getattr__(name):
+    if name in ("PyavImageEncoder", "recoder_single_arm"):
+        from .recorder import PyavImageEncoder, recoder_single_arm
+        return {"PyavImageEncoder": PyavImageEncoder,
+                "recoder_single_arm": recoder_single_arm}[name]
+    raise AttributeError(name)
+```
+
+⚠️ **动 C 之前必须跑全量回归** —— `__all__` 导出的名字改成惰性后，现有 `from discoverse.universal_manipulation import X` 的行为会变。
+
+### 23.9 方案 C 的量化价值【Day 9 实测】
+
+镜像内按包体积排序：
+
+| 包 | 体积 | 测试需要吗 |
+|---|---|---|
+| `av` + `av.libs` | **106 MB** | ❌ **只有 recorder 用，测试不录视频** |
+| `OpenGL` | 30 MB | ✅ `randomization.py` |
+
+**`av` 单独占 106 MB，却因 eager import 成为硬依赖。**
+
+> 📌 昨天只能说方案 C「治本」，今天能说「**省 106 MB**」。
+> **能把架构改进换算成数字，说服力完全不同。**
+
+### 23.10 回归验证
+
+**守护已经存在** —— `Dockerfile.test` 末尾：
+
+```dockerfile
+RUN python -c "import mujoco; print('MuJoCo', mujoco.__version__)" \
+ && python -c "import discoverse.universal_manipulation; print('discoverse OK')"
+```
+
+这正是 [checkpoint-day06-07.md](checkpoint/checkpoint-day06-07.md) §2.2 当时说"留给 Day 10-11"的那道守护：
+
+> 理想做法是 CI 里加一个干净环境 job 跑 `pip install -e . && python -c "import discoverse.universal_manipulation"`
+
+**Day 8 以镜像构建自检的形式实现了它。** Day 10-11 的 CI 只要 build 这个镜像即可。
+
+⚠️ **但当前守护有个盲区**：`--no-deps` 使它验证的是 `requirements-test.txt` 而非 `pyproject.toml`。**修复 B 之后应加一个不带 `--no-deps` 的干净安装 job。**
+
+### 23.11 影响范围
+
+- **所有新安装者**：`pip install -e .` 后包不可用
+- **CI**：任何从零安装的流水线都会失败
+- **文档**：README 的安装说明因此是错的
+
+---
+
+## 廿四、缺陷 Y｜`recoder_single_arm` 部分写入留下 0 字节坏文件
+
+**严重级别**：🟡 Medium ｜ **状态**：⏸ 未修（3 个 xfail 守护）｜【实测】
+
+### 24.1 影响模块
+
+- `discoverse/universal_manipulation/recorder.py:76-91`
+- `examples/universal_tasks/universal_task_runtime.py:345`（唯一调用方）
+- 所有消费 `obs_action.json` 的下游（数据集加载、策略训练）
+
+### 24.2 复现步骤
+
+```python
+import os, tempfile
+from discoverse.universal_manipulation.recorder import recoder_single_arm
+
+d = tempfile.mkdtemp()
+obs_lst = [{"time": 0.0, "jq": [1, 2, 3]}]      # 故意漏 'action'
+try:
+    recoder_single_arm(d, obs_lst)
+except Exception as e:
+    print(f"抛异常: {type(e).__name__}: {e}")
+f = os.path.join(d, "obs_action.json")
+print("json 存在:", os.path.exists(f), "| 大小:", os.path.getsize(f))
+```
+
+实测输出：
+
+```
+抛异常: KeyError: 'action'
+json 存在: True | 大小: 0
+```
+
+### 24.3 预期 vs 实际
+
+| | 行为 |
+|---|---|
+| **预期** | 异常时不产出文件，或产出一个完整可解析的文件 |
+| **实际** | 抛出异常，**同时在磁盘留下一个 0 字节的 `obs_action.json`** |
+
+### 24.4 根因分析
+
+`recorder.py:79-91`：
+
+```python
+with open(os.path.join(save_path, "obs_action.json"), "w") as fp:   # ← "w" 立即创建并截断
+    save_dict = {"time": [], "obs": {"jq": []}, "act": []}
+    for obs in obs_lst:                    # ← 循环里才可能抛异常
+        save_dict["time"].append(obs['time'])
+        save_dict["obs"]["jq"].append(obs['jq'])
+        save_dict["act"].append(obs['action'])
+    json.dump(save_dict, fp)               # ← 抛异常就永远走不到
+```
+
+**文件在数据准备好之前就被创建了。** `open(..., "w")` 的语义是"打开并截断"，此时文件已存在且为空；循环中途抛异常 → `with` 退出 → 留下空文件。
+
+### 24.5 为什么危险：下游会误判为成功
+
+```python
+if os.path.exists(save_dir / "obs_action.json"):
+    # 判定"这条数据采集成功了" → 误判
+```
+
+**文件存在 ≠ 数据完整。** 真去 `json.load()` 才会炸 `JSONDecodeError`，而那时可能已经是训练流水线跑到一半。
+
+> 📌 又一次 §1.3 的模式：**声明了产物，实际是坏的，且失败时留下看似正常的痕迹。**
+
+### 24.6 连带发现：ndarray 序列化（健壮性隐患，非可达缺陷）
+
+```python
+obs_lst = [{"time": 0.0, "jq": np.zeros(7), "action": np.ones(7)}]
+recoder_single_arm(d, obs_lst)
+# TypeError: Object of type ndarray is not JSON serializable
+# 文件大小 31 字节（写了一半）
+```
+
+**但唯一调用方已做 `.tolist()`**（`universal_task_runtime.py:111-112`）：
+
+```python
+"jq"     : self.mj_data.sensordata[...].tolist(),
+"action" : self.action[:self.mujoco_ctrl_dim].tolist(),
+```
+
+| | 缺键 | ndarray |
+|---|---|---|
+| 当前可达 | ✅ | ❌ **不可达** |
+| 定级 | **真缺陷** | **健壮性隐患** |
+
+> 📌 **可达性分析决定定级** —— 与 §2.3 缺陷 H 从"高"降"低"是同一种分析。
+>
+> 但也不能一笔勾销：隐患的本质是**契约没写下来**。函数从未声明"只接受 list"，新增调用方漏掉 `.tolist()` 即会炸，**且同样留下半截文件**。
+
+### 24.7 修复方案
+
+| 方案 | 评价 |
+|---|---|
+| 循环内加 `try/except` | 治标，坏文件仍然留下 |
+| **先在内存 build 完 dict，再 `open()`** | ✅ 异常时文件根本不会被创建 |
+| **写临时文件 + `os.replace()`** | ✅✅ **原子写**，最稳 |
+
+推荐第三种：
+
+```python
+def recoder_single_arm(save_path, obs_lst):
+    os.makedirs(save_path, exist_ok=True)
+
+    # 先在内存里构建完整结构 —— 任何 KeyError 都在碰文件系统之前抛出
+    save_dict = {"time": [], "obs": {"jq": []}, "act": []}
+    for obs in obs_lst:
+        save_dict["time"].append(obs['time'])
+        save_dict["obs"]["jq"].append(obs['jq'])
+        save_dict["act"].append(obs['action'])
+
+    # 原子写：os.replace 在同一文件系统上是原子操作，
+    # 要么完全替换，要么完全没发生，不存在"半截文件"的中间状态。
+    final = os.path.join(save_path, "obs_action.json")
+    tmp = final + ".tmp"
+    with open(tmp, "w") as fp:
+        json.dump(save_dict, fp)
+    os.replace(tmp, final)
+```
+
+> **atomic write** 是工业界处理"要么完整、要么不存在"的标准做法。
+
+### 24.8 回归验证
+
+已实施，`tests/unit/test_recorder.py`：
+
+```python
+@pytest.mark.xfail(reason="缺陷 Y：...", strict=True)
+@pytest.mark.parametrize("missing", ["time", "jq", "action"])
+def test_partial_write_leaves_no_corrupt_file(tmp_path, missing):
+```
+
+**3 个 xfail(strict)** —— 缺陷修复后自动转 XPASS 报警。
+
+⚠️ 用**装饰器** `@pytest.mark.xfail` 而非命令式 `pytest.xfail()` —— 后者会立即中断测试，下面的断言根本不执行（见 [checkpoint-day06-07.md](checkpoint/checkpoint-day06-07.md) §4.3）。
+
+### 24.9 影响范围
+
+`recorder.py` 覆盖率从 **19% → 94%**，本条缺陷及其守护是该提升的一部分。
+
+实际触发条件：obs 字典缺键。当前 obs 由 `universal_task_runtime.py:108-115` 单点拼装，**短期内不易触发**；但该字典无 schema 校验，新增字段或改名即可能触发。
+
+---
+
+## 廿五、缺陷 Z｜`PyavImageEncoder` 未 close 则整段录像静默丢失
+
+**严重级别**：🟡 Medium ｜ **状态**：⏸ 未修（1 个 xfail 守护）｜【实测】
+
+### 25.1 影响模块
+
+- `discoverse/universal_manipulation/recorder.py:9-74`
+- `examples/universal_tasks/universal_task_runtime.py`（无 try/finally 保护）
+
+### 25.2 复现步骤
+
+```python
+import os, tempfile, numpy as np
+from discoverse.universal_manipulation.recorder import PyavImageEncoder
+
+d = tempfile.mkdtemp()
+enc = PyavImageEncoder(64, 48, d, 9)
+for i in range(3):
+    enc.encode(np.zeros((48, 64, 3), np.uint8), i * 0.1)
+print("close 前文件存在:", os.path.exists(enc.av_file_path))   # False
+enc.close()
+print("close 后大小:", os.path.getsize(enc.av_file_path))       # 1636
+```
+
+### 25.3 预期 vs 实际
+
+| | 行为 |
+|---|---|
+| **预期** | 已编码的帧至少部分落盘，进程崩溃时能抢救一部分 |
+| **实际** | **文件完全不存在** —— PyAV 从未把缓冲刷到磁盘 |
+
+### 25.4 根因分析
+
+PyAV 的 `container.mux(packet)` 写入的是内存缓冲。MP4 容器格式要求在文件末尾写 `moov` box（索引），因此 **`container.close()` 之前不会产生可用文件**。
+
+`close()` 做了两件必需的事（`recorder.py:64-69`）：
+
+```python
+def close(self):
+    if self.container is not None:
+        for packet in self.stream.encode():   # flush 编码器内部缓冲
+            self.container.mux(packet)
+        self.container.close()                # 写 moov box 并落盘
+    self.container = None
+```
+
+**调用方没有保护**：`universal_task_runtime.py` 中 `encoder.close()` 是普通语句，不在 `finally` 块里。仿真中途抛异常或进程被 kill → **close 永远不执行 → 整段录像消失**。
+
+### 25.5 ⭐ 与缺陷 Y 的对比：两种失败模式
+
+**同一个文件里的两个缺陷，失败方式恰好互补：**
+
+| | 缺陷 Y | 缺陷 Z |
+|---|---|---|
+| 触发 | obs 缺键 | 未调 `close()` |
+| 结果 | 留下 **0 字节**文件 | **文件完全不存在** |
+| 下游 `os.path.exists()` | **True → 误判成功** | False → 知道没产出 |
+| 危险程度 | ⚠️ **更危险** | 相对安全 |
+
+> 📌 **"什么都没有"比"半截坏东西"安全** —— 前者无法被误认为成功。
+>
+> 这个对比说明：**失败模式的设计和功能的设计同样重要**。同样是"数据丢了"，一种会污染下游判断，另一种不会。
+
+### 25.6 修复方案
+
+| 方案 | 评价 |
+|---|---|
+| 调用方加 `try/finally` | 有效，但每个调用点都要记得写 |
+| **实现 `__enter__`/`__exit__`** | ✅ 让它能用 `with`，语言层面保证清理 |
+
+推荐后者：
+
+```python
+class PyavImageEncoder:
+    def __enter__(self):
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        self.close()          # 无论是否异常都执行
+        return False          # 不吞异常
+```
+
+调用方改为：
+
+```python
+with PyavImageEncoder(w, h, save_dir, cam_id) as enc:
+    for frame, ts in frames:
+        enc.encode(frame, ts)
+# 离开 with 块自动 close，异常路径同样保证
+```
+
+⚠️ **`__exit__` 返回 `False`** 很重要 —— 返回 `True` 会吞掉异常，把一个崩溃变成静默失败，那就制造了新的同类缺陷。
+
+### 25.7 回归验证
+
+已实施：
+
+```python
+@pytest.mark.xfail(reason="缺陷 Z：...", strict=True)
+def test_frames_survive_without_explicit_close(tmp_path):
+```
+
+同时补齐了 5 条正向测试（编码往返、文件名约定、时间戳单调性、close 幂等、remove_av_file）。
+
+**其中往返验证值得单独说明**：
+
+```python
+with av.open(str(out)) as container:
+    frames = list(container.decode(video=0))
+assert len(frames) == 3
+assert (frames[0].width, frames[0].height) == (64, 48)
+```
+
+> **一个损坏的 MP4 同样非空。** 只断言"文件存在且大小 > 0"等于没验证。
+> 必须**解码回来**才证明编码链路真的走通。
+
+**未 mock `av`** 的理由：其 PyPI wheel 自带完整 ffmpeg（`av.libs` 约 72 MB），实测本机与容器内 `h264`/`libx264` 均可用。mock 掉就只是在测自己写的假对象，编码链路一行没走到。
+
+### 25.8 影响范围
+
+- **数据采集**：仿真崩溃/中断时该 episode 的视频全部丢失
+- **难以察觉**：不留任何痕迹，只有事后清点文件数才会发现
+- 当前 `universal_task_runtime.py` 是唯一调用方，修 `__exit__` 后需同步改调用点
+
+---
+
+## 廿六、缺陷 G｜`cv2` 依赖的系统库 `libglib2.0-0` 未记录
+
+**严重级别**：🟢 Low ｜ **状态**：✅ 已修（`Dockerfile.test` 已补）｜【实测】
+
+### 26.1 影响模块
+
+- `discoverse/envs/simulator.py:7`（`import cv2`）
+- 任何最小化 Linux 环境（slim 容器、CI runner、裸机新装）
+
+### 26.2 复现步骤
+
+在不含 glib 的干净镜像中：
+
+```bash
+docker run --rm python:3.10-slim bash -c '
+  pip install -q opencv-python && python -c "import cv2"'
+# ImportError: libgthread-2.0.so.0: cannot open shared object file
+```
+
+### 26.3 预期 vs 实际
+
+| | 行为 |
+|---|---|
+| **预期** | `pip install opencv-python` 后 `import cv2` 可用 |
+| **实际** | `ImportError: libgthread-2.0.so.0` —— **缺系统库，非 Python 包** |
+
+### 26.4 根因分析：依赖有三层，pip 只管中间那层
+
+```
+第 3 层  项目代码            ← git 管
+第 2 层  Python 包           ← pip 管
+第 1 层  系统库（.so）       ← apt 管   ← ⚠️ pip 管不到
+第 0 层  内核                ← 宿主机提供
+```
+
+```
+pip install opencv-python
+  └─ 装了 cv2 的 Python 封装 + 一个 .so
+        └─ 那个 .so 又动态链接系统的 libgthread-2.0.so.0（glib）
+              └─ pip 不管这层，它假设系统上有
+```
+
+wheel 会带一部分依赖库（`opencv_python.libs` 占 115 MB），但不会带全 —— glib 这类"任何 Linux 桌面都有"的库被假设存在。**在 slim 镜像里该假设不成立。**
+
+### 26.5 排查要点：失败方式与错误伪装
+
+**其一，它不是启动即崩，而是 7 个用例 ERROR：**
+
+```
+106 passed, 4 skipped, 45 deselected, 10 xfailed, 7 errors
+```
+
+因为 `cv2` 不在测试文件顶部 import，而是在 fixture 里才被拉进来：
+
+```
+test_determinism.py:47 → discoverse/envs/__init__.py:1 → simulator.py:7 → import cv2
+```
+
+只影响用到 `discoverse.envs` 的 7 个用例。
+
+> 📌 **这就是"容器内数字必须与本机完全一致"作为验收标准的意义。**
+> 只看"跑起来了没报错"，`106 passed` 看着挺正常。**106 + 7 = 113 才是信号。**
+
+**其二，同一次排查中出现过一个伪装成根因的下游症状：**
+
+```
+E: Unable to locate package libosmesa6-dev
+```
+
+看着像 Debian/Ubuntu 包名差异，实际是上游 `apt-get update` 因代理失败、索引没拉到。绕开代理验证，**三个包名全都存在**。
+
+> 📌 **构建日志要从上往下读。** 那三行 `Failed to fetch` 才是真因。
+
+### 26.6 快速定位手段
+
+```bash
+ldd /usr/local/lib/python3.10/site-packages/cv2/cv2*.so | grep "not found"
+```
+
+`ldd` 列出一个 `.so` 的全部动态依赖，`not found` 即缺失项。
+
+| 报错长相 | 是什么 | 去哪修 |
+|---|---|---|
+| `No module named 'X'` | Python 包 | `requirements.txt` / `pyproject.toml` |
+| `libXXX.so.N: cannot open shared object file` | **系统库** | `Dockerfile` 的 `apt-get install` |
+
+### 26.7 修复方案
+
+`Dockerfile.test` 已补：
+
+```dockerfile
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        libosmesa6-dev \
+        libgl1 \
+        libglx-mesa0 \
+        libglib2.0-0 \
+    && rm -rf /var/lib/apt/lists/*
+```
+
+⚠️ **`libosmesa6-dev` 是另一个陷阱**：名字带 `-dev` 看着像编译期依赖，**但 osmesa 软件渲染在运行期就要它**，不能因"瘦身"砍掉。
+
+**尚未做的**：README / 安装文档未记录系统级依赖。裸机新装的用户仍会撞上。
+
+### 26.8 与缺陷 L′ 的关系
+
+**两者是同一个问题的两层**：
+
+| | L′ | **G** |
+|---|---|---|
+| 缺什么 | Python 包 | **系统库** |
+| 谁该声明 | `pyproject.toml` | **Dockerfile / 安装文档** |
+| pip 能管吗 | ✅ 能 | ❌ **管不到** |
+| 本机为何不炸 | 被 optional 组顺带装了 | Ubuntu 桌面自带 glib |
+
+**共同点：本机环境的"脏"掩盖了声明的缺失，只有干净容器能暴露。**
+
+---
+
+## 廿七、验证与复现
+
+### 27.1 环境
+
+**方式一：本机**
 
 ```bash
 cd /path/to/DISCOVERSE
 source scripts/dev/env.sh      # 设置 MUJOCO_GL=osmesa、PYTHONPATH
 ```
 
-### 23.2 回归测试
+**方式二：容器（推荐 —— 干净环境，且是 §廿三/§廿六 的复现载体）**
+
+```bash
+docker build -f discoverse/docker/Dockerfile.test -t discoverse:test .
+docker run --rm discoverse:test pytest tests/ -q
+```
+
+⚠️ 两种方式必须跑出**完全相同**的数字。不一致即说明容器与本机环境不等价 —— §廿六 正是这样被发现的（容器 `106 passed`，本机 `113 passed`）。
+
+### 27.2 回归测试
 
 ```bash
 $PY -m pytest tests/ -q
-# 预期：113 passed, 4 skipped, 45 deselected, 10 xfailed
+# 预期：122 passed, 4 skipped, 45 deselected, 15 xfailed
 ```
 
-`45 deselected` 是 flake 采样实验，由 `-m 'not flake'` 默认排除。**那 10 个 xfail 即本报告中未修复的缺陷**——修好后自动转 XPASS 报警。
+`45 deselected` 是 flake 采样实验，由 `-m 'not flake'` 默认排除。**那 15 个 xfail 即本报告中未修复的缺陷**——修好后自动转 XPASS 报警。
 
-### 23.3 复现关键实验
+### 27.3 复现关键实验
 
 ```bash
 # 缺陷 #1：确定性（修复后）
@@ -1850,7 +2460,7 @@ grep -rn "target_qpos" --include=*.py . | grep -v /policies/
 
 ⚠️ 涉及临时修改 `place_block.yaml` 的实验**务必还原**，并 `grep -n "seed:"` 确认回到 `null`。
 
-### 23.4 flake 数据
+### 27.4 flake 数据
 
 - `docs/experiments/flake-2026-08-07.csv`（2250 行原始数据）
 - `docs/experiments/flake-2026-08-07.meta.yaml`（实验条件 + caveats）
@@ -1858,21 +2468,24 @@ grep -rn "target_qpos" --include=*.py . | grep -v /policies/
 
 ---
 
-## 廿四、结论
+## 廿八、结论
 
-### 24.1 数字
+### 28.1 数字
 
 | 指标 | 值 |
 |---|---|
-| 定位缺陷 | **20** |
-| 已修复并回归验证 | **5** |
-| 由 xfail 守护的未修缺陷 | **10**（共 15 条未修） |
+| 定位缺陷 | **24** |
+| 已修复并回归验证 | **6** |
+| 由 xfail 守护的未修缺陷 | **14**（共 18 条未修） |
 | 严重度调整（基于实测） | **2**（O 中→低，H 高→低） |
-| 被实测推翻的既有记录 | **3** |
-| 测试用例 | 113 passed + 10 xfail |
-| 核心模块覆盖率 | 62%（`mink_solver.py` 90%） |
+| 被实测推翻的既有记录 | **9**（Day 6-7 三条 + Day 8-9 六条） |
+| 测试用例 | 122 passed + 15 xfail |
+| 核心模块覆盖率 | 67%（`recorder.py` 94%、`mink_solver.py` 90%） |
 
-### 24.2 最值得带走的三条
+> **Day 8-9 新增 4 条（§廿三~§廿六）全部由同一件事暴露**：把测试放进一个干净的 Docker 容器里跑。
+> 其中 §廿三 证明 Day 6-7 修的缺陷 L **只修了症状** —— 同一文件、同一机制，还剩 4 个包没查。
+
+### 28.2 最值得带走的三条
 
 **其一，配置驱动系统的头号风险不是配置写错，而是配置写了没人读。**
 
@@ -1892,7 +2505,7 @@ grep -rn "target_qpos" --include=*.py . | grep -v /policies/
 
 **因此本报告每条结论都标注核实方式，而核实的方式是跑一遍。** §5.5 明确承认一条尚未定位到根因的问题——**"我不知道"是合法结论，"我猜是 X"写成"根因是 X"不是。**
 
-### 24.3 若继续投入，建议顺序
+### 28.3 若继续投入，建议顺序
 
 | 顺序 | 缺陷 | 成本 | 理由 |
 |---|---|---|---|
