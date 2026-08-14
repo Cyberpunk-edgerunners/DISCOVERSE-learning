@@ -1,0 +1,34 @@
+# ============================================================
+# ci.yml —— DISCOVERSE 测试流水线
+#
+# 设计原则：每个 job 是一台独立的干净虚拟机，
+#          job 之间不共享任何东西，各自从零备环境。
+# ============================================================
+name: CI
+
+on:
+  push:
+    branches: [feat/test-infra, main]
+  pull_request:
+  workflow_dispatch: # ⭐ 允许在网页上手动触发，调试期靠它省下大量 push
+
+jobs:
+  # ---- 第一个 job：只验证「代码能拉下来、python 能起来」----
+  # 故意什么都不测。先把管道打通，再往里灌东西。
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10" # 与 Dockerfile.test 锁的版本一致
+
+      - name: 环境自报家门
+        run: |
+          python --version
+          pwd
+          ls -la
+          echo "--- models 目录是否完整（防 LFS 指针）---"
+          ls models/meshes/airbot_play/ | head -3
+          head -c 60 models/meshes/airbot_play/arm_base_0.obj
