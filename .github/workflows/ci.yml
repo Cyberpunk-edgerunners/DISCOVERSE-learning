@@ -145,3 +145,27 @@ jobs:
           echo "=== discoverse/ 规范债现状（仅报告）==="
           ruff check discoverse/ --statistics || true
           black --check discoverse/ 2>&1 | tail -3 || true
+
+
+  # ---- flake 采样：目前只手动触发 ----
+  # 为什么不用 schedule 每天跑：--count=50 单次好几分钟，
+  # GitHub 免费额度每月 2000 分钟。当前代码变动频率低，
+  # 每天烧额度去跑一个没人天天看的报告不划算。
+  # 等代码开始高频变动，把下面的 if 条件改掉即可。
+  #
+  # ⚠️ 三个插件刻意不进 requirements-test.txt ——
+  #    只有 flake 实验用得到，不该让日常 build 背着它们。
+  nightly:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - run: docker build -f discoverse/docker/Dockerfile.test -t discoverse:test .
+
+      - name: flake 采样
+        run: |
+          docker run --rm discoverse:test sh -c '
+            pip install --no-cache-dir pytest-repeat pytest-xdist pytest-json-report &&
+            pytest tests/ -m flake --count=20 -n 4 -q
+          '
