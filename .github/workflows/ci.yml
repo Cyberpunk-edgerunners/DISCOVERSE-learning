@@ -82,3 +82,29 @@ jobs:
         # ⚠️ 别写 --cov=discoverse，分母会从 967 涨到 2584，
         #    覆盖率数字 41% → 28%，和你两周积累的记录对不上。
         run: pytest tests/ -q --cov --cov-report=term-missing
+
+  # ---- 集成测试：用 Day 8-9 的镜像跑 ----
+  # 与 unit job 的分工见教程 Step 5.1：
+  #   unit  验证 pyproject.toml 依赖声明完整性（pip install -e .）
+  #   这里  验证镜像可复现性（requirements-test.txt + --no-deps）
+  # 两者不是重复，各自覆盖对方的盲区。
+  integration:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 构建测试镜像
+        # ⚠️ 构建上下文必须是仓库根（最后那个 .），
+        #    .dockerignore 在这一层才生效。
+        run: docker build -f discoverse/docker/Dockerfile.test -t discoverse:test .
+
+      - name: 证明容器内确实没有显示器
+        # 这条别删。它是「无头」这个卖点的唯一证据。
+        # 预期输出 DISPLAY=[] （空）和 MUJOCO_GL=osmesa
+        run: |
+          docker run --rm discoverse:test sh -c 'echo "DISPLAY=[$DISPLAY]"; echo "MUJOCO_GL=$MUJOCO_GL"'
+
+      - name: 容器内跑全量测试
+        # ⚠️ 不要写 tests/kinematics —— 那是空目录，
+        #    会跑出「5 passed」的绿灯，和 122 的绿灯长得一样。
+        run: docker run --rm discoverse:test pytest tests/ -q
