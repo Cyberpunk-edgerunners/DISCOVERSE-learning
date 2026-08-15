@@ -43,12 +43,39 @@ dependencies = [
     "screeninfo",
     "mediapy",
     "tqdm",
-    # IK 求解链路的硬依赖，非可选：
-    #   universal_manipulation/__init__.py 会主动加载 mink_solver，
-    #   而 mink_solver.py:8 是模块级 `import mink` —— 缺失则整个包 import 即失败，
-    #   不只是运行脚本报错。quadprog 是 solver_type 的默认后端（mink_solver.py:45）。
+    # ------------------------------------------------------------
+    # 以下均为 eager import 链的硬依赖，非可选。
+    #
+    # universal_manipulation/__init__.py 第 4-16 行主动加载全部 7 个子模块，
+    # 任一子模块的模块级 import 缺失，整个包 `import` 即失败 ——
+    # 不是「运行某个脚本时才报错」，而是连 import 都过不去。
+    #
+    # ⚠️ 修改前请先读 docs/defect-report.md 的缺陷 L / L′：
+    #    Day 6-7 只补了 mink/quadprog（看见什么缺就补什么），
+    #    没有走完整条链，导致 Day 8-9 在干净容器里、
+    #    Day 10 在 CI runner 上又各炸一次。
+    #    增删本段前，先确认 __init__.py 的 eager import 链没变。
+    # ------------------------------------------------------------
+
+    # mink_solver.py:8 模块级 `import mink`；
+    # quadprog 是 solver_type 的默认后端（mink_solver.py:45）。
     "mink>=1.2.0",
     "quadprog>=0.1.13",
+
+    # 缺陷 L′（Day 10 由 CI 干净环境暴露）：以下 4 个包此前只声明在
+    # optional 组里，而 `pip install -e .` 只装核心组 —— 干净环境必炸。
+    #
+    # config_utils.py:2、robot_config.py:8、task_config.py:8
+    "pyyaml>=6.0",
+    # recorder.py:6-7 —— `import av` / `import av.video`
+    "av>=10.0.0",
+    # randomization.py:10 —— `import OpenGL.GL as gl`
+    # ⚠️ 此前是靠 mujoco 间接拽进来的，属于「幸运的间接依赖」：
+    #    mujoco 哪天不再依赖它，这里就崩。显式声明即不再靠运气。
+    "PyOpenGL>=3.1.0",
+    # randomization.py:11 —— `from PIL import Image`
+    # ⚠️ 同上，此前靠 matplotlib 间接拽进来。
+    "pillow>=8.0.0",
 ]
 
 [project.optional-dependencies]
