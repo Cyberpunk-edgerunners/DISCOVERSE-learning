@@ -13,6 +13,7 @@
     进程内重复调用会累积全局状态（Day 2-4 反复遇到的主题）。
     子进程保证每次运行完全隔离 —— 代价是 ~0.3s 的启动开销，值得。
 """
+
 import os
 import re
 import subprocess
@@ -22,16 +23,30 @@ import pytest
 
 pytestmark = pytest.mark.flake
 
-ROBOTS = ["airbot_play", "arx_l5", "arx_x5", "iiwa14", "panda",
-          "piper", "rm65", "ur5e", "xarm7"]
-TASKS = ["cover_cup", "place_block", "place_coffeecup",
-         "place_kiwi_fruit", "stack_block"]
+ROBOTS = [
+    "airbot_play",
+    "arx_l5",
+    "arx_x5",
+    "iiwa14",
+    "panda",
+    "piper",
+    "rm65",
+    "ur5e",
+    "xarm7",
+]
+TASKS = [
+    "cover_cup",
+    "place_block",
+    "place_coffeecup",
+    "place_kiwi_fruit",
+    "stack_block",
+]
 
-RUNTIME ="examples/universal_tasks/universal_task_runtime.py"
-TIMEOUT_S =120
+RUNTIME = "examples/universal_tasks/universal_task_runtime.py"
+TIMEOUT_S = 120
 
 
-def _classify(stdout: str,returncode: int)->dict:
+def _classify(stdout: str, returncode: int) -> dict:
     """把一次运行的输出分桶。
 
     四个桶（Day 5 实测，计划文档只列了前三个）：
@@ -52,8 +67,11 @@ def _classify(stdout: str,returncode: int)->dict:
     dist = float(m_dist.group(1)) if m_dist else None
 
     if "任务成功: ✅" in stdout:
-        return {"bucket": "SUCCESS", "state": m_state.group(0) if m_state else None,
-                "dist": dist}
+        return {
+            "bucket": "SUCCESS",
+            "state": m_state.group(0) if m_state else None,
+            "dist": dist,
+        }
 
     if m_state is None:
         # 没跑到统计阶段 —— 崩溃
@@ -61,12 +79,17 @@ def _classify(stdout: str,returncode: int)->dict:
 
     done, total = int(m_state.group(1)), int(m_state.group(2))
     if done < total:
-        return {"bucket": "BUCKET1_早期IK失败", "state": f"{done}/{total}", "dist": dist}
+        return {
+            "bucket": "BUCKET1_早期IK失败",
+            "state": f"{done}/{total}",
+            "dist": dist,
+        }
     return {"bucket": "BUCKET2_判据失败", "state": f"{done}/{total}", "dist": dist}
 
-@pytest.mark.parametrize("robot",ROBOTS)
-@pytest.mark.parametrize("task",TASKS)
-def test_task_combination(robot,task,repo_root,record_property):
+
+@pytest.mark.parametrize("robot", ROBOTS)
+@pytest.mark.parametrize("task", TASKS)
+def test_task_combination(robot, task, repo_root, record_property):
     """跑一次 robot × task，把分桶结果记进报告。
 
     ⚠️ 本用例【故意不断言成功】—— 它是采样器，不是质量门。
@@ -78,8 +101,12 @@ def test_task_combination(robot,task,repo_root,record_property):
     """
     proc = subprocess.run(
         [sys.executable, RUNTIME, "-r", robot, "-t", task, "-1", "--headless"],
-        cwd=str(repo_root), capture_output=True, text=True, timeout=TIMEOUT_S,
+        cwd=str(repo_root),
+        capture_output=True,
+        text=True,
+        timeout=TIMEOUT_S,
         env={**os.environ, "MUJOCO_GL": "osmesa"},
+        check=False,  # 本用例靠 returncode 分类，非零是预期输入而非异常
     )
     result = _classify(proc.stdout, proc.returncode)
 

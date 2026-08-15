@@ -12,6 +12,7 @@
     它是给人照抄的文档模板，所以新键名要认，旧键名也要认，
     否则照模板抄的人会掉进同一个坑。
 """
+
 import pytest
 
 from discoverse.universal_manipulation.randomization import SceneRandomizer
@@ -37,6 +38,7 @@ def radius_of():
 
 
 # ---------- 单值行为 ----------
+
 
 def test_reads_collision_radius(radius_of):
     """任务 YAML 用的键名，必须被读到。"""
@@ -72,18 +74,18 @@ def test_falls_back_to_default_when_absent(radius_of):
 # 写成脆断言：任何一个数字变了都要有人来看一眼，
 # 而不是让测试悄悄跟着配置漂移。
 DECLARED_RADII = [
-    ("cover_cup",        "coffeecup_white", 0.05),
-    ("cover_cup",        "plate_white",     0.10),
-    ("cover_cup",        "cup_lid",         0.05),
-    ("place_block",      "block_green",     0.05),
-    ("place_block",      "bowl_pink",       0.12),
-    ("place_coffeecup",  "coffeecup_white", 0.10),
-    ("place_coffeecup",  "plate_white",     0.12),
-    ("place_kiwi_fruit", "kiwi",            0.07),
-    ("place_kiwi_fruit", "flower_bowl",     0.09),
-    ("stack_block",      "block_green",     0.06),
-    ("stack_block",      "block_red",       0.06),
-    ("stack_block",      "block_blue",      0.06),
+    ("cover_cup", "coffeecup_white", 0.05),
+    ("cover_cup", "plate_white", 0.10),
+    ("cover_cup", "cup_lid", 0.05),
+    ("place_block", "block_green", 0.05),
+    ("place_block", "bowl_pink", 0.12),
+    ("place_coffeecup", "coffeecup_white", 0.10),
+    ("place_coffeecup", "plate_white", 0.12),
+    ("place_kiwi_fruit", "kiwi", 0.07),
+    ("place_kiwi_fruit", "flower_bowl", 0.09),
+    ("stack_block", "block_green", 0.06),
+    ("stack_block", "block_red", 0.06),
+    ("stack_block", "block_blue", 0.06),
 ]
 
 
@@ -96,7 +98,8 @@ def loaded_objects(task_config_dir):
     必须用加载器拿最终合并结果。
     """
     from discoverse.universal_manipulation.config_utils import (
-        load_and_resolve_config, replace_variables,
+        load_and_resolve_config,
+        replace_variables,
     )
     from discoverse.universal_manipulation.task_config import TaskConfigLoader
 
@@ -105,13 +108,15 @@ def loaded_objects(task_config_dir):
         cfg = TaskConfigLoader.from_dict(
             replace_variables(load_and_resolve_config(str(path)))
         )
-        for obj in ((cfg.randomization or {}).get("objects") or []):
+        for obj in (cfg.randomization or {}).get("objects") or []:
             out[(path.stem, obj["name"])] = obj
     return out
 
 
 @pytest.mark.parametrize("task,obj,declared", DECLARED_RADII)
-def test_effective_radius_equals_declared(radius_of, loaded_objects, task, obj, declared):
+def test_effective_radius_equals_declared(
+    radius_of, loaded_objects, task, obj, declared
+):
     """【核心】每个物体实际生效的半径，必须等于它在 YAML 里声明的值。
 
     修复前：9/12 会红（全部塌到 0.05）

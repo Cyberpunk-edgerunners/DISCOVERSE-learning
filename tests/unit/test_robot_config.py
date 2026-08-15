@@ -5,13 +5,21 @@
   2. 配置与 MJCF 的一致性（需编译 XML，integration）
   3. 已知缺陷的 xfail 记录（可执行的缺陷报告）
 """
+
 import pytest
 
 from discoverse.universal_manipulation.robot_config import RobotConfigLoader
 
 ROBOTS = [
-    "airbot_play", "arx_l5", "arx_x5", "iiwa14", "panda",
-    "piper", "rm65", "ur5e", "xarm7",
+    "airbot_play",
+    "arx_l5",
+    "arx_x5",
+    "iiwa14",
+    "panda",
+    "piper",
+    "rm65",
+    "ur5e",
+    "xarm7",
 ]
 
 # qpos_dim 与 MJCF 实际 nq 不符的机器人（实测 2026-07-30）
@@ -20,8 +28,8 @@ ROBOTS = [
 QPOS_DIM_MISMATCH = {
     "arx_x5": (7, 8),
     "iiwa14": (9, 15),
-    "piper":  (7, 8),
-    "rm65":   (12, 14),
+    "piper": (7, 8),
+    "rm65": (12, 14),
 }
 
 # 缺陷 H 的根因（Day 4 实测，逐个 MJCF 遍历 jnt_type 得出）。
@@ -46,7 +54,6 @@ QPOS_DIM_ROOT_CAUSE = {
 # 在语义有共识之前不改数字 —— 否则只是把一个错误换成另一个错误。
 
 
-
 @pytest.fixture(scope="session")
 def load_robot(robot_config_dir):
     """按名字加载机器人配置，会话级缓存（YAML 解析结果只读）。"""
@@ -63,6 +70,7 @@ def load_robot(robot_config_dir):
 # ============================================================
 # 第 1 层：配置自身（unit，无 MuJoCo）
 # ============================================================
+
 
 @pytest.mark.unit
 @pytest.mark.parametrize("robot_name", ROBOTS)
@@ -113,6 +121,7 @@ def test_end_effector_site_is_nonempty_string(load_robot, robot_name):
 # 维度错了就会静默取错关节。
 # ============================================================
 
+
 @pytest.mark.integration
 @pytest.mark.parametrize("robot_name", ROBOTS)
 def test_ctrl_dim_matches_mjcf_nu(load_robot, mj_model_factory, repo_root, robot_name):
@@ -127,9 +136,9 @@ def test_ctrl_dim_matches_mjcf_nu(load_robot, mj_model_factory, repo_root, robot
     xml = repo_root / "models" / "mjcf" / "manipulator" / f"robot_{robot_name}.xml"
     model = mj_model_factory(xml)
     declared = load_robot(robot_name).ctrl_dim
-    assert model.nu == declared, (
-        f"{robot_name}: YAML ctrl_dim={declared}, MJCF nu={model.nu}"
-    )
+    assert (
+        model.nu == declared
+    ), f"{robot_name}: YAML ctrl_dim={declared}, MJCF nu={model.nu}"
 
 
 @pytest.mark.integration
@@ -153,7 +162,6 @@ def test_qpos_dim_matches_mjcf_nq(load_robot, mj_model_factory, repo_root, robot
             f"根因（Day 4 实测）：{QPOS_DIM_ROOT_CAUSE[robot_name]}"
         )
 
-
     xml = repo_root / "models" / "mjcf" / "manipulator" / f"robot_{robot_name}.xml"
     model = mj_model_factory(xml)
     assert model.nq == load_robot(robot_name).qpos_dim
@@ -169,6 +177,7 @@ def test_qpos_dim_matches_mjcf_nq(load_robot, mj_model_factory, repo_root, robot
 # 而非功能缺陷。证据：计划文档 L350 的示例就被误导了。
 # ============================================================
 
+
 @pytest.mark.unit
 @pytest.mark.parametrize("robot_name", ROBOTS)
 def test_arm_joints_current_behavior_returns_names(load_robot, robot_name):
@@ -181,6 +190,7 @@ def test_arm_joints_current_behavior_returns_names(load_robot, robot_name):
 # ============================================================
 # 错误处理
 # ============================================================
+
 
 @pytest.mark.unit
 def test_missing_file_raises_filenotfound(robot_config_dir):
@@ -205,6 +215,7 @@ def test_missing_required_field_raises(tmp_path):
 # ============================================================
 # MMK2 占位（完整测试见 Day 15-17）
 # ============================================================
+
 
 @pytest.mark.integration
 def test_mmk2_mjcf_loads_with_expected_dof(mj_model_factory, repo_root):

@@ -4,12 +4,14 @@
 conftest.py 是 pytest 的隐式插件文件：同目录及所有子目录的测试
 自动可见这里定义的 fixture，无需 import。
 """
+
 import os
 from pathlib import Path
 
 import pytest
 
 # ---------- 路径类 fixture（session 级，纯常量） ----------
+
 
 @pytest.fixture(scope="session")
 def repo_root() -> Path:
@@ -32,6 +34,7 @@ def task_config_dir(repo_root) -> Path:
 
 
 # ---------- MuJoCo fixture（作用域选择是本日重点） ----------
+
 
 @pytest.fixture(scope="session")
 def mj_model_factory():

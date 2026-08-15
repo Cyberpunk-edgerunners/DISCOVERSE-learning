@@ -10,18 +10,19 @@
    在外面 seed 全局当然确定。但真实用户走的是配置文件那条路，
    而那条路是断的。从错误的入口进去，测的是 numpy 不是本项目。
 """
+
 import os
 
 import mujoco
 import numpy as np
 import pytest
 
-from discoverse.universal_manipulation.randomization import SceneRandomizer
-from discoverse.universal_manipulation.task_config import TaskConfigLoader
 from discoverse.universal_manipulation.config_utils import (
     load_and_resolve_config,
     replace_variables,
 )
+from discoverse.universal_manipulation.randomization import SceneRandomizer
+from discoverse.universal_manipulation.task_config import TaskConfigLoader
 
 pytestmark = [pytest.mark.determinism, pytest.mark.integration]
 
@@ -32,6 +33,7 @@ FREE_BODIES = ["block_green", "bowl_pink"]
 
 
 # ---------------------------------------------------------------- fixtures
+
 
 @pytest.fixture(scope="session")
 def task_xml(repo_root):
@@ -44,12 +46,10 @@ def task_xml(repo_root):
     session 级：make_env 要读多个 XML 并做树合并，不便宜；
     产出是磁盘上的文件，只读复用安全。
     """
-    from discoverse.envs.make_env import make_env
     from discoverse import DISCOVERSE_ASSETS_DIR
+    from discoverse.envs.make_env import make_env
 
-    xml_path = os.path.join(
-        DISCOVERSE_ASSETS_DIR, "mjcf", "tmp", f"{ROBOT}_{TASK}.xml"
-    )
+    xml_path = os.path.join(DISCOVERSE_ASSETS_DIR, "mjcf", "tmp", f"{ROBOT}_{TASK}.xml")
     make_env(ROBOT, TASK, xml_path)
     if not os.path.exists(xml_path):
         pytest.skip(f"make_env 未产出 MJCF: {xml_path}")
@@ -73,6 +73,7 @@ def base_randomization_config(task_config_dir):
 
 
 # ---------------------------------------------------------------- helpers
+
 
 def _randomize_once(xml_path, config, seed=None):
     """跑一次完整的场景随机化，返回所有自由体的位姿拼接结果。
@@ -99,9 +100,9 @@ def _randomize_once(xml_path, config, seed=None):
     randomizer = SceneRandomizer(model, data, seed=seed)
     randomizer.exec_randomization(config)
 
-    return np.concatenate([
-        np.asarray(randomizer._object_pose(name)).copy() for name in FREE_BODIES
-    ])
+    return np.concatenate(
+        [np.asarray(randomizer._object_pose(name)).copy() for name in FREE_BODIES]
+    )
 
 
 def _assert_identical(first, second, context):
@@ -118,6 +119,7 @@ def _assert_identical(first, second, context):
 
 # ---------------------------------------------------------------- 测试
 
+
 def test_config_seed_makes_randomization_reproducible(
     task_xml, base_randomization_config
 ):
@@ -133,14 +135,11 @@ def test_config_seed_makes_randomization_reproducible(
     second = _randomize_once(task_xml, base_randomization_config, seed=42)
 
     _assert_identical(
-        first, second,
-        "同一个 seed=42，两次随机化结果却不同 —— 随机流未被 seed 隔离"
+        first, second, "同一个 seed=42，两次随机化结果却不同 —— 随机流未被 seed 隔离"
     )
 
 
-def test_different_seeds_produce_different_scenes(
-    task_xml, base_randomization_config
-):
+def test_different_seeds_produce_different_scenes(task_xml, base_randomization_config):
     """【反向哨兵】不同 seed 应得到不同场景。
 
     为什么需要这条：上一条测试有个平凡解 —— 如果随机化
@@ -179,17 +178,18 @@ def test_randomization_actually_moves_objects(task_xml, base_randomization_confi
     mujoco.mj_forward(model, data)
     randomizer = SceneRandomizer(model, data, seed=42)
 
-    before = np.concatenate([
-        np.asarray(randomizer._object_pose(n)).copy() for n in FREE_BODIES
-    ])
-    randomizer.exec_randomization(base_randomization_config)
-    after = np.concatenate([
-        np.asarray(randomizer._object_pose(n)).copy() for n in FREE_BODIES
-    ])
-
-    assert not np.array_equal(before, after), (
-        "exec_randomization 执行前后物体位姿完全没变 —— 随机化是空操作"
+    before = np.concatenate(
+        [np.asarray(randomizer._object_pose(n)).copy() for n in FREE_BODIES]
     )
+    randomizer.exec_randomization(base_randomization_config)
+    after = np.concatenate(
+        [np.asarray(randomizer._object_pose(n)).copy() for n in FREE_BODIES]
+    )
+
+    assert not np.array_equal(
+        before, after
+    ), "exec_randomization 执行前后物体位姿完全没变 —— 随机化是空操作"
+
 
 def test_task_base_wires_yaml_seed_to_randomizer(task_xml, task_config_dir):
     """【接线测试】YAML 里的 seed 必须经 UniversalTaskBase 传到 SceneRandomizer。
@@ -210,7 +210,9 @@ def test_task_base_wires_yaml_seed_to_randomizer(task_xml, task_config_dir):
       是相对路径。放到 tmp_path 会解析失败。
     """
     import shutil
+
     import mujoco
+
     from discoverse.universal_manipulation.task_base import UniversalTaskBase
 
     src = task_config_dir / f"{TASK}.yaml"
@@ -230,10 +232,12 @@ def test_task_base_wires_yaml_seed_to_randomizer(task_xml, task_config_dir):
             mujoco.mj_forward(model, data)
             task = UniversalTaskBase(robot_cfg, str(tmp_cfg), model, data)
             task.randomize_scene()
-            return np.concatenate([
-                np.asarray(task.randomizer._object_pose(n)).copy()
-                for n in FREE_BODIES
-            ])
+            return np.concatenate(
+                [
+                    np.asarray(task.randomizer._object_pose(n)).copy()
+                    for n in FREE_BODIES
+                ]
+            )
 
         first = _run_via_task_base()
         second = _run_via_task_base()
@@ -243,19 +247,21 @@ def test_task_base_wires_yaml_seed_to_randomizer(task_xml, task_config_dir):
         tmp_cfg.unlink(missing_ok=True)
 
     _assert_identical(
-        first, second,
+        first,
+        second,
         "YAML 写了 seed: 42，经 UniversalTaskBase 两次运行结果却不同 —— "
-        "task_base 没把配置里的 seed 传给 SceneRandomizer"
+        "task_base 没把配置里的 seed 传给 SceneRandomizer",
     )
+
 
 @pytest.mark.xfail(
     strict=True,
     reason="已知缺陷：utils/get_random_texture() 的两个分支都用未受管控的"
-           "随机源 —— if 分支用 stdlib random.choice（当前 TEXTURE_1K_PATH "
-           "未配置故不可达），else 分支用 np.random 全局流（当前可达）。"
-           "二者都不受 SceneRandomizer.rng 管控，贴图选择因此不可复现。"
-           "未在 Step 4 修复：get_random_texture 是模块级函数，没有 rng 可用，"
-           "修它要改公共函数签名并牵连全部 4 个调用方。",
+    "随机源 —— if 分支用 stdlib random.choice（当前 TEXTURE_1K_PATH "
+    "未配置故不可达），else 分支用 np.random 全局流（当前可达）。"
+    "二者都不受 SceneRandomizer.rng 管控，贴图选择因此不可复现。"
+    "未在 Step 4 修复：get_random_texture 是模块级函数，没有 rng 可用，"
+    "修它要改公共函数签名并牵连全部 4 个调用方。",
 )
 def test_texture_randomization_respects_seed():
     """贴图随机化应受 seed 管控 —— 当前不成立。
@@ -281,6 +287,6 @@ def test_texture_randomization_respects_seed():
     first = np.asarray(get_random_texture())
     second = np.asarray(get_random_texture())
 
-    assert np.array_equal(first, second), (
-        "两次取贴图结果不同 —— get_random_texture 使用了不受 rng 管控的随机源"
-    )
+    assert np.array_equal(
+        first, second
+    ), "两次取贴图结果不同 —— get_random_texture 使用了不受 rng 管控的随机源"

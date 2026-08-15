@@ -6,17 +6,19 @@
    不要"顺手修正"——__init__.py 的导出和 universal_task_runtime.py:345
    的调用点都依赖这个名字。
 """
+
 import json
-import os
 
+import numpy as np
 import pytest
-import numpy as np 
 
-from discoverse.universal_manipulation.recorder import PyavImageEncoder
-from discoverse.universal_manipulation.recorder import recoder_single_arm
-
+from discoverse.universal_manipulation.recorder import (
+    PyavImageEncoder,
+    recoder_single_arm,
+)
 
 # ---------- happy path ----------
+
 
 @pytest.mark.unit
 def test_writes_expected_json_structure(tmp_path):
@@ -83,12 +85,13 @@ def test_extra_keys_in_obs_are_ignored(tmp_path):
 
 # ---------- 缺陷：部分写入 ----------
 
+
 @pytest.mark.unit
 @pytest.mark.xfail(
     reason="缺陷：open(...,'w') 在循环之前就截断了文件，循环中途抛 KeyError 时"
-           "留下一个 0 字节的 obs_action.json。下游用 os.path.exists() 判断"
-           "'本轮采集成功' 会误判为成功，真去 json.load() 才炸。"
-           "修复方案：先在内存 build 完 dict 再 open()，或写临时文件 + os.replace() 原子替换。",
+    "留下一个 0 字节的 obs_action.json。下游用 os.path.exists() 判断"
+    "'本轮采集成功' 会误判为成功，真去 json.load() 才炸。"
+    "修复方案：先在内存 build 完 dict 再 open()，或写临时文件 + os.replace() 原子替换。",
     strict=True,
 )
 @pytest.mark.parametrize("missing", ["time", "jq", "action"])
@@ -115,12 +118,13 @@ def test_partial_write_leaves_no_corrupt_file(tmp_path, missing):
 
 # ---------- 健壮性隐患：ndarray ----------
 
+
 @pytest.mark.unit
 @pytest.mark.xfail(
     reason="健壮性隐患（非当前可达缺陷）：json.dump 不接受 ndarray。"
-           "唯一调用方 universal_task_runtime.py:111-112 已做 .tolist()，"
-           "所以当前不可达。但函数从未声明'只接受 list'这一契约，"
-           "新增调用方漏掉 .tolist() 即会炸，且同样留下半截文件。",
+    "唯一调用方 universal_task_runtime.py:111-112 已做 .tolist()，"
+    "所以当前不可达。但函数从未声明'只接受 list'这一契约，"
+    "新增调用方漏掉 .tolist() 即会炸，且同样留下半截文件。",
     strict=True,
 )
 def test_accepts_numpy_arrays(tmp_path):
@@ -227,11 +231,11 @@ def test_remove_av_file_deletes_output(tmp_path):
 @pytest.mark.unit
 @pytest.mark.xfail(
     reason="健壮性隐患：未调用 close() 时，PyAV 从未把缓冲刷到磁盘 —— "
-           "文件完全不存在（实测：encode 3 帧后 os.path.exists() 为 False）。"
-           "采集进程中途崩溃/被 kill 时，整段录像静默丢失，且不留任何痕迹。"
-           "调用方 universal_task_runtime.py 没有 try/finally 保护。"
-           "修复方案：实现 __enter__/__exit__ 使其可用于 with 语句，"
-           "或在调用方加 finally: encoder.close()。",
+    "文件完全不存在（实测：encode 3 帧后 os.path.exists() 为 False）。"
+    "采集进程中途崩溃/被 kill 时，整段录像静默丢失，且不留任何痕迹。"
+    "调用方 universal_task_runtime.py 没有 try/finally 保护。"
+    "修复方案：实现 __enter__/__exit__ 使其可用于 with 语句，"
+    "或在调用方加 finally: encoder.close()。",
     strict=True,
 )
 def test_frames_survive_without_explicit_close(tmp_path):

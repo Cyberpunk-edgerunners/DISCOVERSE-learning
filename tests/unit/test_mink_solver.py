@@ -7,6 +7,7 @@
     self.configuration      -> 不泄漏（solve_ik:99 每次入口被 update 覆盖）
     self.posture_task target -> 【泄漏】（:120 只在给 reference 时更新，否则沿用）
 """
+
 import os
 
 import mujoco
@@ -26,8 +27,8 @@ def solver_env(task_config_dir):
     module 级：make_env + 模型编译不便宜，而本文件的用例
     都只【读】这些对象，真正可变的 solver 在每个用例里新建。
     """
-    from discoverse.envs.make_env import make_env
     from discoverse import DISCOVERSE_ASSETS_DIR
+    from discoverse.envs.make_env import make_env
     from discoverse.universal_manipulation.robot_config import RobotConfigLoader
 
     xml = os.path.join(DISCOVERSE_ASSETS_DIR, "mjcf", "tmp", f"{ROBOT}_{TASK}.xml")
@@ -90,7 +91,9 @@ def test_repeated_solve_is_deterministic(solver_env, make_solver):
     target = solver_env["ee_pos"] + np.array([0.08, 0.0, 0.0])
 
     first, _, _ = solver.solve_ik(target, solver_env["ee_mat"], solver_env["home_qpos"])
-    second, _, _ = solver.solve_ik(target, solver_env["ee_mat"], solver_env["home_qpos"])
+    second, _, _ = solver.solve_ik(
+        target, solver_env["ee_mat"], solver_env["home_qpos"]
+    )
 
     np.testing.assert_allclose(first, second, atol=0, rtol=0)
 
@@ -120,17 +123,21 @@ def test_posture_target_does_not_leak_across_calls(solver_env, make_solver):
     home = solver_env["home_qpos"]
 
     reference = home.copy()
-    reference[:6] += 0.3          # 一个明显不同的参考构型
+    reference[:6] += 0.3  # 一个明显不同的参考构型
 
     first, _, _ = solver.solve_ik(target, ori, home)
-    solver.solve_ik(target, ori, home, reference_qpos=reference)   # 污染源
+    solver.solve_ik(target, ori, home, reference_qpos=reference)  # 污染源
     third, _, _ = solver.solve_ik(target, ori, home)
 
     np.testing.assert_allclose(
-        third, first, atol=0, rtol=0,
+        third,
+        first,
+        atol=0,
+        rtol=0,
         err_msg="第 3 次调用与第 1 次输入完全相同，解却不同 —— "
-                "posture_task target 被第 2 次调用污染",
+        "posture_task target 被第 2 次调用污染",
     )
+
 
 def test_default_posture_target_is_home_not_qpos0(solver_env, make_solver):
     """不传 reference 时，posture 目标应是构造时的 home，而非模型 qpos0。
@@ -161,7 +168,10 @@ def test_default_posture_target_is_home_not_qpos0(solver_env, make_solver):
     n = len(solver.posture_task.target_q)
 
     np.testing.assert_allclose(
-        solver.posture_task.target_q, expected.q[:n], atol=0, rtol=0,
+        solver.posture_task.target_q,
+        expected.q[:n],
+        atol=0,
+        rtol=0,
         err_msg="不传 reference 时 posture 目标不是 home —— "
-                "可能退化成了 qpos0（else 分支缺失或失效）",
+        "可能退化成了 qpos0（else 分支缺失或失效）",
     )

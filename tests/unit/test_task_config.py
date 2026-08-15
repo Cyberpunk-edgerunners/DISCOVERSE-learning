@@ -11,13 +11,17 @@
 因此判断"配置有什么"必须用加载器加载后再看，
 直接读单个 YAML 文件会得到错误结论。
 """
+
 import pytest
 
 from discoverse.universal_manipulation.task_config import TaskConfigLoader
 
 TASKS = [
-    "cover_cup", "place_block", "place_coffeecup",
-    "place_kiwi_fruit", "stack_block",
+    "cover_cup",
+    "place_block",
+    "place_coffeecup",
+    "place_kiwi_fruit",
+    "stack_block",
 ]
 
 INHERITING_TASKS = ["place_block", "place_coffeecup", "place_kiwi_fruit"]
@@ -27,7 +31,12 @@ INHERITING_TASKS = ["place_block", "place_coffeecup", "place_kiwi_fruit"]
 #     templates/place_object.yaml 缺 observation 段 -> 3 个继承者受害
 #     stack_block 自己漏写
 #   修复：改 1 个模板 + 1 个任务文件，而非 4 个任务各补一遍
-MISSING_OBSERVATION = ["place_block", "place_coffeecup", "place_kiwi_fruit", "stack_block"]
+MISSING_OBSERVATION = [
+    "place_block",
+    "place_coffeecup",
+    "place_kiwi_fruit",
+    "stack_block",
+]
 
 
 def _minimal_config(**overrides):
@@ -110,6 +119,7 @@ def test_extends_actually_merged_template(load_task, task_name):
 # 具身智能项目里数据集就是产品，故严重度【高】。
 # ============================================================
 
+
 @pytest.mark.unit
 @pytest.mark.parametrize("task_name", TASKS)
 def test_camera_configs_nonempty(load_task, task_name):
@@ -141,6 +151,7 @@ def test_camera_config_fields_wellformed(load_task, task_name):
 #                                          ^^^^^^^^^^^^        ^^
 # ============================================================
 
+
 @pytest.mark.unit
 def test_record_fps_reads_real_value():
     """有 fps 配置时必须读真值，不能被默认值覆盖。"""
@@ -149,10 +160,13 @@ def test_record_fps_reads_real_value():
 
 
 @pytest.mark.unit
-@pytest.mark.parametrize("bad_config,label", [
-    (_minimal_config(), "无 observation 键"),
-    (_minimal_config(observation={}), "observation 为空 dict"),
-])
+@pytest.mark.parametrize(
+    "bad_config,label",
+    [
+        (_minimal_config(), "无 observation 键"),
+        (_minimal_config(observation={}), "observation 为空 dict"),
+    ],
+)
 def test_record_fps_silently_defaults_to_30(bad_config, label):
     """钉死【当前】行为：配置缺失时静默返回 30。
 
@@ -195,42 +209,6 @@ def test_camera_configs_crashes_on_null_observation():
 #   这是缺陷 B 能存在于 4/5 任务的直接原因。
 # ============================================================
 
-@pytest.mark.unit
-def test_validate_config_rejects_missing_required_fields():
-    """钉死【当前】校验行为：task_name / description / states 缺一即报错。"""
-    for missing in ("task_name", "description", "states"):
-        cfg = _minimal_config()
-        del cfg[missing]
-        with pytest.raises(ValueError, match="Missing required field|states|state"):
-            TaskConfigLoader.from_dict(cfg)
-
-
-@pytest.mark.unit
-@pytest.mark.xfail(
-    strict=True,
-    reason="缺陷 I：_validate_config 未把 observation 列为必填，"
-           "导致 4/5 任务缺相机配置却能通过校验",
-)
-def test_validate_config_should_require_observation():
-    """记录【期望】行为：缺 observation 应在加载期报错。
-
-    理由：observation 决定数据采集录什么。缺失时 camera_configs
-    返回空列表，采集流程正常跑完却零张图像 —— 影响产出正确性的
-    配置，缺失必须快速失败，而非静默兜默认值。
-
-    修复后去掉本 xfail 标记即变绿。
-    """
-    with pytest.raises(ValueError):
-        TaskConfigLoader.from_dict(_minimal_config())
-
-
-# ============================================================
-# 缺陷 I：_validate_config 未覆盖 observation
-#   task_config.py:_validate_config 的 required_fields 只有
-#   ['task_name', 'description']。observation 影响数据采集产出，
-#   缺失时 camera_configs 静默返回 []，但校验放行。
-#   这是缺陷 B 能存在于 4/5 任务的直接原因。
-# ============================================================
 
 @pytest.mark.unit
 def test_validate_config_rejects_missing_required_fields():
@@ -246,7 +224,7 @@ def test_validate_config_rejects_missing_required_fields():
 @pytest.mark.xfail(
     strict=True,
     reason="缺陷 I：_validate_config 未把 observation 列为必填，"
-           "导致 4/5 任务缺相机配置却能通过校验",
+    "导致 4/5 任务缺相机配置却能通过校验",
 )
 def test_validate_config_should_require_observation():
     """记录【期望】行为：缺 observation 应在加载期报错。
