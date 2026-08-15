@@ -32,3 +32,53 @@ jobs:
           echo "--- models 目录是否完整（防 LFS 指针）---"
           ls models/meshes/airbot_play/ | head -3
           head -c 60 models/meshes/airbot_play/arm_base_0.obj
+
+  # ---- 单元测试：不依赖 Docker，直接在 runner 上装环境 ----
+  # 为什么不直接用 Day 8-9 的镜像？见 Step 5 的对比 ——
+  # 这个 job 的额外价值是：它验证「pyproject.toml 声明的依赖是否完整」，
+  # 而镜像用 requirements-test.txt + --no-deps，恰好绕过了这个验证。
+  unit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+          cache: pip # ⭐ 缓存 pip 下载，第二次起能省几分钟
+
+      - name: 系统依赖
+        # libosmesa6-dev: osmesa 软件渲染核心库（运行期就要，不是编译期）
+        # libgl1 / libglx-mesa0: OpenGL 运行时，mujoco 链接需要
+        # libglib2.0-0: cv2 的运行时依赖。⚠️ 漏了会变成 7 个 ERROR
+        #               而不是崩溃 —— 看着像「106 passed」，很正常的样子
+        # 不装 xvfb：osmesa 是离屏渲染，不需要虚拟显示器
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            libosmesa6-dev libgl1 libglx-mesa0 libglib2.0-0
+
+      - name: 安装 discoverse
+        # ⚠️ 这里刻意用 pip install -e .（不加 --no-deps）——
+        #    就是要让它去解 pyproject.toml，从而验证依赖声明的完整性。
+        #    这是缺陷 L′ 的守护测试。
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .
+          pip install pytest pytest-cov pytest-timeout
+
+      - name: ⭐ 干净环境 import 自检
+        # checkpoint-day06-07 §2.2 要求的那道守护。
+        # 放在跑测试之前 —— 失败越早越便宜，
+        # 而且失败信息比一堆 collection error 清楚得多。
+        run: |
+          python -c "import mujoco; print('MuJoCo', mujoco.__version__)"
+          python -c "import discoverse.universal_manipulation; print('discoverse OK')"
+
+      - name: 跑测试
+        env:
+          MUJOCO_GL: osmesa
+        # --cov 不带参数：读 pyproject.toml 的 source 配置。
+        # ⚠️ 别写 --cov=discoverse，分母会从 967 涨到 2584，
+        #    覆盖率数字 41% → 28%，和你两周积累的记录对不上。
+        run: pytest tests/ -q --cov --cov-report=term-missing

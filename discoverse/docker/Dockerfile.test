@@ -31,6 +31,12 @@ ENV DEBIAN_FRONTEND=noninteractive
 # libosmesa6-dev: osmesa 软件渲染的核心库。
 #   ⚠️ 名字带 -dev 看着像编译期依赖，但 osmesa 运行期就要它，砍不得。
 # libgl1 / libglx-mesa0: OpenGL 运行时，mujoco 链接时需要。
+# libglib2.0-0: 提供 libgthread-2.0.so.0，opencv-python(cv2) 的运行时依赖。
+#   ⚠️ 别删。pip 装的 opencv 只含 Python 层与自带的一部分 .so，
+#      底层 glib 要系统提供 —— pip 管不到这一层。
+#      缺它的症状很隐蔽：不是启动即崩，而是 7 个用例 ERROR
+#      （106 passed 而非 113），因为 cv2 是在 fixture 里才被 import 的
+#      （discoverse/envs/simulator.py:7）。见缺陷报告 §廿六。
 # --no-install-recommends: 不装「推荐」的附带包，能省不少体积。
 # rm -rf /var/lib/apt/lists/*: 清 apt 索引缓存。
 #   ⚠️ 必须和 apt-get install 在同一个 RUN 里 ——

@@ -461,6 +461,57 @@ pytest==9.1.1     # 钉死：可复现，但要手工升级
 5. `COPY . /workspace` → `pip install -e .`
 6. `CMD` 跑 pytest
 
+⚠️ **第 2 条会让你少装一个包**，而且症状很隐蔽 —— 见下面的 5.1.1。**照抄现有 Dockerfile 是不够的**，因为那个镜像基于 `nvidia/cuda:...-ubuntu22.04`（带桌面图形栈），而 `python:3.10-slim` 是精简 Debian。
+
+#### 5.1.1 ⚠️ 一个不在计划文档里的坑：`cv2` 要 glib
+
+装完你以为的依赖后跑测试，很可能看到：
+
+```
+106 passed, 4 skipped, 45 deselected, 10 xfailed, 7 errors
+```
+
+**106 + 7 = 113** —— 数量对得上，是这 7 个跑不起来。7 个 ERROR 的最后一行完全相同：
+
+```
+discoverse/envs/simulator.py:7: import cv2
+E   ImportError: libgthread-2.0.so.0: cannot open shared object file
+```
+
+**怎么认出这是什么类型的错**：
+
+| 报错长相 | 是什么 | 谁负责装 |
+|---|---|---|
+| `No module named 'yaml'` | **Python 包** | pip |
+| `libXXX.so.N: cannot open shared object file` | **系统库** | apt |
+
+**看到 `.so` 就知道是 apt 的事，不是 pip 的事。**
+
+```
+pip install opencv-python
+  └─ 装了 cv2 的 Python 封装 + 一个 .so
+        └─ 那个 .so 又链接了系统的 libgthread-2.0.so.0（glib）
+              └─ ⚠️ pip 不管这层，它假设系统上有
+```
+
+本机有是因为 Ubuntu 桌面早就装了 glib。**slim 镜像里这个假设不成立。**
+
+补 `libglib2.0-0` 即可。查一个 `.so` 缺什么的通用手段：
+
+```bash
+docker run --rm -it discoverse:test bash
+ldd /usr/local/lib/python3.10/site-packages/cv2/cv2*.so | grep "not found"
+```
+
+> 📌 **这个坑比 Step 5.4 那 4 个包更深一层**：
+> ```
+> Python 包未声明  → pip 装不全
+> 系统库未声明     → pip 根本管不到
+> ```
+> 两者都只有干净容器能暴露。
+>
+> **另注意失败方式**：不是启动就崩，而是 7 个 ERROR —— 因为 `cv2` 不在测试文件顶部 import，是在 fixture 里才被拉进来。**只看「跑起来了没报错」，106 passed 看着挺正常。**
+
 ⚠️ **分层顺序很重要**：**先** COPY 依赖清单装依赖，**再** COPY 源码。
 
 **为什么**：Docker 按层缓存，某层没变就直接复用。源码天天改、依赖很少变 —— 依赖放前面，改源码时重建从几分钟变几秒。反过来放，每次改一行代码都要重装全部依赖。
@@ -612,6 +663,10 @@ docker run --rm discoverse:test pytest tests/ -q
 ```
 
 ⚠️ **skip 数变多了别放过** —— 那是你的 `.dockerignore` 把 MJCF 挡在外面了（Step 3.4 讲的陷阱）。
+
+> 📌 **验收标准是「与你自己的 Step 0.1 一致」，不是「等于 113」。**
+> Day 9 写完 `test_recorder.py` 后基线会变成 `122 passed / 15 xfailed`；
+> 上游代码变动也会改变这个数字。**要比的是两个环境是否等价，不是某个固定值。**
 
 ---
 
@@ -1011,9 +1066,14 @@ docker run --rm discoverse:test pytest tests/ -q
 | 3 | `grep` 命中 ≠ 在核心依赖 | 4 个包全命中，其实都在 optional 组 | grep 判断不了**语义块**，要看结构 |
 | 4 | Docker 29 改了 `docker images` 列名 | 拿不到体积数字 | 工具会变，命令要现验 |
 | 5 | 命令式 `pytest.xfail()` | 测试**立即中断**，上游修好也不报警 | 用装饰器 |
-| 6 | 本机有 libx264、容器未必有 | 本机绿、CI 红 | **进容器验证才算数** |
+| 6 | 本机有 libx264、容器未必有 | 本机绿、CI 红 | **进容器验证才算数**（实测两边都有，因 av wheel 自带 ffmpeg） |
+| **7** | **`cv2` 要 `libglib2.0-0`** | **7 个 ERROR，106 passed 看着挺正常** | **`.so` 缺失是 apt 的事，pip 管不到** |
+| **8** | **两处 docker 代理配置指向已停的代理** | `connection refused`；apt 报"找不到包" | **下游症状会伪装成根因，日志要从上往下读** |
+| **9** | **compose 的 `:ro` 挂载杀死一个合法测试** | `docker run` 绿、`compose` 红 | **镜像只定义了一半环境，另一半在运行时配置里** |
 
 另外两条**开课前就核实掉**的（所以你不会撞上）：`requirements-test.txt` 不存在、eager import 拽进 4 个未声明依赖。
+
+⚠️ **坑 7-9 是实做时才撞出来的，不在原计划里。** 尤其坑 8：那个代理配置写于两个月前，代理软件早已不跑，**雷一直埋着只是没人触发**。没有任何人做错什么 —— 环境会随时间漂移，而配置不会告诉你它已经失效了。
 
 还有一条**中途变了的**：开课时本机没装 nvidia-container-toolkit，所以「走 CPU 路线」的理由是「GPU 用不了」。装完之后 GPU 能用了，**结论没变但理由换了** —— 变成「CI runner 无 GPU，所以主动不用」。
 
