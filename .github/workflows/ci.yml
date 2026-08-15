@@ -108,3 +108,40 @@ jobs:
         # ⚠️ 不要写 tests/kinematics —— 那是空目录，
         #    会跑出「5 passed」的绿灯，和 122 的绿灯长得一样。
         run: docker run --rm discoverse:test pytest tests/ -q
+
+
+  # ---- 代码规范：范围刻意收窄 ----
+  # 为什么不 lint discoverse/：实测 ruff 277 errors、black 59 files。
+  # 那是上游代码，一次性重排会制造巨大 diff 和 merge 冲突，
+  # 且与「补测试」这个目标无关。一个 PR 只做一件事。
+  # tests/ 是我们自己的地盘，已在 053a272 清零。
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+          cache: pip
+
+      # ⚠️ 版本必须钉死：本机清债时用的就是这两个版本。
+      #    不钉的话 CI 装最新版，新增规则会让刚清干净的 tests/ 又变红 ——
+      #    而那不是代码变差了，是尺子换了。
+      - run: pip install ruff==0.16.2 black==26.5.1
+
+      - name: ruff（只查 tests/）
+        run: ruff check tests/
+
+      - name: black（只查 tests/）
+        run: black --check tests/
+
+      - name: discoverse/ 现状报告（不拦截）
+        # continue-on-error: 这一步红了也不影响 job 整体结果。
+        # 意图：把上游代码的规范债「可见化」，但不阻塞。
+        # 等哪天真要还债了，把 continue-on-error 删掉即可。
+        continue-on-error: true
+        run: |
+          echo "=== discoverse/ 规范债现状（仅报告）==="
+          ruff check discoverse/ --statistics || true
+          black --check discoverse/ 2>&1 | tail -3 || true
