@@ -438,6 +438,104 @@ Day 8-9 已经实测过了（checkpoint §3.1）：
 
 **这是好事。** 这正是 CI 的价值 —— 它把「本机脏所以看不见的问题」变成一个红叉。
 
+### ⭐ 实录：CI 上真的炸了，日志长这样
+
+这不是预测，是 Day 10 实跑的结果。unit job **`failed in 56s`**。
+
+⚠️ **注意炸之前，一切看着都很顺利** —— pip 报了两次 `Successfully installed`：
+
+```
+Successfully installed absl-py-2.5.0 asttokens-3.0.2 ... discoverse-1.9.0 ... zipp-4.1.0
+Successfully installed coverage-7.15.4 iniconfig-2.3.0 pluggy-1.6.0 pytest-9.1.1 ...
+```
+
+**然后自检的第一条也过了**：
+
+```
+Run python -c "import mujoco; print('MuJoCo', mujoco.__version__)"
+MuJoCo 3.11.0
+```
+
+**第二条炸了**：
+
+```
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File ".../discoverse/universal_manipulation/__init__.py", line 4, in <module>
+    from .config_utils import (
+  File ".../discoverse/universal_manipulation/config_utils.py", line 2, in <module>
+    import yaml
+ModuleNotFoundError: No module named 'yaml'
+Error: Process completed with exit code 1.
+```
+
+**⚠️ traceback 要从下往上读** —— 最下面是真因，上面是怎么走到那儿的：
+
+| 行 | 含义 |
+|---|---|
+| `File "<string>", line 1` | 起点：`-c` 传的那行命令（不是文件，所以叫 `<string>`） |
+| `__init__.py", line 4` | 第 1 跳：导入包触发了它第 4 行 |
+| `config_utils.py", line 2` | 第 2 跳：那行又去 `import yaml` |
+| **`ModuleNotFoundError`** | ⭐ **真因：`yaml` 没装** |
+
+📌 **`in <module>` 表示「在模块顶层」**，不在任何函数里 —— 这就是 eager import：你只是 `import discoverse.universal_manipulation`，整条链被拉起，**一个缺失就整包崩**。
+
+`exit code 1` = 失败（0 才是成功）。**后续步骤全部跳过**，日志里那几个 `0s` 就是它们，连试都没试。
+
+### ⭐ 日志里还藏着一条更值得看的东西
+
+往上翻到 pip 解依赖那段，`(from discoverse==1.9.0)` 表示**直接依赖**，也就是 `pyproject.toml` 声明的：
+
+```
+Collecting numpy>=1.20.0 (from discoverse==1.9.0)
+Collecting scipy>=1.7.0 (from discoverse==1.9.0)
+Collecting opencv-python>=4.6.0 (from discoverse==1.9.0)
+Collecting mujoco>=3.2.0 (from discoverse==1.9.0)
+Collecting psutil>=5.8.0 (from discoverse==1.9.0)
+Collecting matplotlib>=3.5.0 (from discoverse==1.9.0)
+Collecting screeninfo (from discoverse==1.9.0)
+Collecting mediapy (from discoverse==1.9.0)
+Collecting tqdm (from discoverse==1.9.0)
+Collecting mink>=1.2.0 (from discoverse==1.9.0)
+Collecting quadprog>=0.1.13 (from discoverse==1.9.0)
+```
+
+**数一数：11 项，没有 `pyyaml`。** 这就是缺陷 L′ 的现场。
+
+**但再往下看，箭头 `->` 表示间接依赖**（被别人拽进来的）：
+
+```
+Collecting pillow>=8 (from matplotlib>=3.5.0->discoverse==1.9.0)
+Collecting pyopengl (from mujoco>=3.2.0->discoverse==1.9.0)
+```
+
+⚠️ **`pillow` 和 `PyOpenGL` 居然装上了** —— 不是因为你声明了，是**蹭 matplotlib 和 mujoco 进来的**。
+
+📌 **这叫「幸运的间接依赖」，是一颗定时炸弹**：
+
+| | 现在 | 哪天 matplotlib 不再依赖 pillow |
+|---|---|---|
+| `pillow` 在不在 | 在（蹭的） | **不在 → `randomization.py:11` 直接崩** |
+| 你改过任何代码吗 | —— | **没有。是别人的依赖变了** |
+
+**所以这次不只修 `pyyaml`**：4 个包全部显式声明，**不靠运气**。
+
+> 📌 **这条是 Day 8-9 没看出来的**，因为容器用 `--no-deps` 跳过了依赖解析，**根本不会打印这些 `Collecting` 行**。
+>
+> **同一个 bug，换个环境就多暴露一层。**
+
+### 顺带：一个版本上的观察
+
+```
+MuJoCo 3.11.0
+```
+
+⚠️ 你 `requirements-test.txt` 里钉的是 `mujoco==3.10.0`，CI 上装的是 **3.11.0**。
+
+**因为 `pyproject.toml` 写的是 `mujoco>=3.2.0`（范围），pip 就拿了最新的。**
+
+📌 **两条路径用了两套版本策略**：镜像钉死（可复现），`pip install -e .` 用范围（跟随上游）。**这不是 bug，但你要知道它存在** —— 哪天 CI 绿而容器红，这可能就是原因。
+
 **怎么处理**，你有两条路：
 
 | 方案 | 做法 | 评价 |
@@ -452,16 +550,82 @@ Day 8-9 已经实测过了（checkpoint §3.1）：
 grep -n -A25 "^dependencies" pyproject.toml
 ```
 
-改完后**必须在本机验证**（别等 CI 告诉你）：
+**改之前先核实一遍谁在 import** —— 别照抄我给的清单，自己验：
+
+```bash
+grep -rn "^import yaml" discoverse/universal_manipulation/
+grep -rn "^import av" discoverse/universal_manipulation/
+grep -rn "import OpenGL" discoverse/universal_manipulation/
+grep -rn "from PIL" discoverse/universal_manipulation/
+```
+
+实测结果（4 个包，7 处 import）：
+
+| 包 | 谁 import |
+|---|---|
+| `pyyaml` | `config_utils.py:2`、`robot_config.py:8`、`task_config.py:8` |
+| `av` | `recorder.py:6-7` |
+| `PyOpenGL` | `randomization.py:10` |
+| `pillow` | `randomization.py:11` |
+
+⚠️ **再确认一遍这些确实在 eager import 链上**：
+
+```bash
+cat -n discoverse/universal_manipulation/__init__.py | head -17
+```
+
+第 4-16 行把 7 个子模块全 import 了 —— **所以上面每一个都是硬依赖，不是可选的。**
+
+📌 **这一步别跳。** Day 6-7 修缺陷 L 时就是「看见 `mink` 缺就补 `mink`」，没走完整条链，**结果 Day 8-9 和 Day 10 各炸一次**。
+
+### 改完后的三层验证
+
+**第 1 层｜TOML 语法**（改配置文件先验语法，最便宜）：
+
+```bash
+source scripts/dev/env.sh
+$PY -c "
+import tomli
+d = tomli.load(open('pyproject.toml','rb'))
+deps = d['project']['dependencies']
+print('核心依赖', len(deps), '项:')
+for x in deps: print('  ', x)
+"
+# 预期：15 项（原来 11 + 新增 4）
+```
+
+⚠️ **别用 `tomllib`** —— 那是 Python 3.11+ 才有的，你的环境是 3.10，会报 `ModuleNotFoundError`。用 `tomli`（pytest 刚好依赖它，已经装了）。
+
+**第 2 层｜本机回归**：
 
 ```bash
 source scripts/dev/env.sh && $PY -m pytest tests/ -q
 # 预期：122 passed, 4 skipped, 45 deselected, 15 xfailed —— 一个都不能少
 ```
 
-⚠️ 但本机验证有个盲区：**你本机已经装了那 4 个包，所以改不改 `pyproject.toml` 你都是绿的。** 真正的验证只能在干净环境做 —— 也就是 Day 8-9 那个镜像，或者今天这条 CI。
+⚠️ **但这个绿灯证明不了修复有效**：你本机本来就装着那 4 个包，**改不改 `pyproject.toml` 都是绿的**。它只能证明「没改坏」。
+
+**第 3 层｜⭐ 干净环境**（唯一能证明修复有效的）：
+
+```bash
+docker run --rm -v "$PWD":/src:ro python:3.10-slim sh -c '
+  mkdir -p /tmp/proj && cp -r /src/pyproject.toml /src/discoverse /tmp/proj/
+  cd /tmp/proj
+  pip install -e . 2>&1 | grep -E "^(Collecting|Successfully installed|ERROR)"
+  python -c "import discoverse.universal_manipulation; print(\"discoverse OK\")"
+'
+```
+
+⚠️ **这条要跑几分钟**（干净容器要下载约 150 MB 依赖，opencv 一个就 73 MB）。**别用 `timeout` 掐它**，我第一次就是这么把自己掐断的。
+
+**看两件事**：
+
+1. `Collecting` 里**出现 `pyyaml` / `av`** —— 说明声明生效了
+2. 最后打印 **`discoverse OK`** —— 说明 import 链通了
 
 > 📌 **这就是这两周反复出现的主题**：**你需要一个你控制不了的环境来告诉你真相。**
+>
+> 本机是脏的，绿了不算数。**三层验证里只有第 3 层有说服力**，前两层只是「便宜的排除法」。
 
 ### 3.3 ⚠️ 问题二：`--cov=discoverse` 会让覆盖率数字对不上
 
