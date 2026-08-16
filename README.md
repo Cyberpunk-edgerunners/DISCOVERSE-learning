@@ -7,6 +7,8 @@
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
 [![Docker](https://img.shields.io/badge/Docker-Available-blue.svg)](#docker-quick-start)
+[![CI](https://github.com/Cyberpunk-edgerunners/DISCOVERSE-learning/actions/workflows/ci.yml/badge.svg?branch=feat/test-infra)](https://github.com/Cyberpunk-edgerunners/DISCOVERSE-learning/actions/workflows/ci.yml)
+
 
 https://github.com/user-attachments/assets/78893813-d3fd-48a1-8bb4-5b0d87bf900f
 

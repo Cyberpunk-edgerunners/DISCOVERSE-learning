@@ -9,8 +9,21 @@ name: CI
 on:
   push:
     branches: [feat/test-infra, main]
+    # 改文档不该触发全量 CI（尤其 integration 要 build 镜像，好几分钟）。
+    # ⚠️ 将来配了 branch protection 要回来重想 ——
+    #    被跳过的 job 状态是 skipped 而非 success，PR 会一直卡在等待检查。
+    paths-ignore:
+      - "docs/**"
+      - "source-notes/**"
+      - "**.md"
   pull_request:
   workflow_dispatch: # ⭐ 允许在网页上手动触发，调试期靠它省下大量 push
+
+# 同一分支连续 push 时，取消还在跑的旧 run。
+# 连推 3 个 commit 默认会并行跑 3 条流水线，前两条的结果你根本不会看，纯烧额度。
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   # ---- 第一个 job：只验证「代码能拉下来、python 能起来」----
