@@ -1,0 +1,38 @@
+# ============================================================
+# Dockerfile.test.gpu —— 在 Dockerfile.test 基础上加 EGL（GPU 无头渲染）
+#
+# 为什么单独一个文件而不是改原来的：
+#   原镜像的目标运行环境是 GitHub Actions 免费 runner（无 GPU），
+#   那里装 EGL 是纯浪费。两个用途，两个镜像。
+#
+# 构建：docker build -f discoverse/docker/Dockerfile.test.gpu -t discoverse:test-gpu .
+# 运行：docker run --rm --gpus all -e MUJOCO_GL=egl discoverse:test-gpu pytest tests/ -q
+# ============================================================
+FROM discoverse:test
+
+# ---- EGL 运行时库 ----
+# libegl1 / libgles2: EGL 与 GLES 的 GLVND 派发库
+# libglvnd0:          OpenGL Vendor Neutral Dispatch，负责在 Mesa/NVIDIA 之间选
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libegl1 \
+    libgles2 \
+    libglvnd0 \
+    && rm -rf /var/lib/apt/lists/*
+
+# ---- ⭐ 关键的一步：注册 NVIDIA 为 EGL vendor ----
+# nvidia-container-toolkit 会把 libEGL_nvidia.so 注入容器，
+# 但【不会】注入 GLVND 的 vendor 配置文件。
+# 缺了它，libEGL 只认得镜像自带的 50_mesa.json，于是走软件渲染或直接失败。
+# 这个 JSON 就是告诉 GLVND：「还有个叫 nvidia 的厂商，库名是这个」。
+RUN mkdir -p /usr/share/glvnd/egl_vendor.d && \
+    printf '{\n    "file_format_version" : "1.0.0",\n    "ICD" : {\n        "library_path" : "libEGL_nvidia.so.0"\n    }\n}\n' \
+    > /usr/share/glvnd/egl_vendor.d/10_nvidia.json
+
+# ---- 声明需要哪些驱动能力 ----
+# 默认只给 compute,utility（够跑 CUDA，但不够渲染）。
+# graphics 这一项就是 OpenGL/EGL 渲染所必需的。
+ENV NVIDIA_DRIVER_CAPABILITIES=compute,utility,graphics
+
+# ⚠️ 故意【不】改 MUJOCO_GL 的默认值 —— 仍然继承 osmesa。
+#   理由：默认必须是「哪儿都能跑」的那个。
+#   要 GPU 就显式 -e MUJOCO_GL=egl，让意图出现在命令行里。
