@@ -1,6 +1,8 @@
 import os
+import sys
 import time
 import shutil
+from datetime import datetime
 import argparse
 import traceback
 
@@ -18,6 +20,7 @@ from discoverse.universal_manipulation import UniversalTaskBase, PyavImageEncode
 from discoverse.utils import (
     SimpleStateMachine, step_func, get_body_tmat
 )
+from discoverse.testing import TaskResult, FailureMode, ExitCode
 
 class UniversalRuntimeTaskExecutor:
     """通用运行时任务执行器
@@ -220,16 +223,25 @@ class UniversalRuntimeTaskExecutor:
                     
                     if not self.set_target_from_primitive(state_config):
                         print(f"   ❌ 状态 {self.stm.state_idx} 设置失败")
+                        # 记录失败模式：状态机中途 IK 求解不收敛
+                        self.failure_mode = FailureMode.IK_EARLY
+                        self.running = False
                         return False
                         
                     if self.current_delay > 0:
                         self.delay_start_sim_time = self.mj_data.time
                 else:
                     self.success = self.check_task_success()
+                    # 状态全部走完，成败取决于最终判据
+                    if not self.success:
+                        self.failure_mode = FailureMode.FINAL_CHECK
                     self.running = False
                     return True
                     
             elif self.mj_data.time > self.max_time:
+                # 仿真时间超过 max_time：状态机没能在预算内走完
+                print(f"   ⏱️  超过最大仿真时间 {self.max_time}s，终止")
+                self.failure_mode = FailureMode.TIMEOUT
                 self.running = False
                 return False
 
@@ -258,6 +270,8 @@ class UniversalRuntimeTaskExecutor:
 
         except Exception as e:
             print(f"❌ 步进失败: {e}")
+            self.failure_mode = FailureMode.CRASH
+            self.error_message = f"步进异常: {e}"
             self.running = False
             return False
     
@@ -347,6 +361,37 @@ class UniversalRuntimeTaskExecutor:
 
         return self.success
     
+    def _current_seed(self):
+        """读取本次运行的随机种子，用于复现。
+
+        读法与 task_base.py 中构造 SceneRandomizer 时保持一致：
+        randomization 段可能不存在，settings 可能不存在，seed 可能是 null。
+        """
+        rand_cfg = self.task.task_config.randomization or {}
+        return (rand_cfg.get("settings") or {}).get("seed")
+
+    def build_result(self) -> TaskResult:
+        """把本轮运行的内部状态固化成结构化结果。
+
+        这是"结果契约"的产出点：从此刻起，成败不再靠打印文案表达。
+        """
+        wall_time = time.time() - self.start_time
+        success = bool(self.success)
+        return TaskResult(
+            robot=self.robot_name,
+            task=self.task.task_config.task_name,
+            success=success,
+            completed_states=self.stm.state_idx,
+            total_states=self.total_states,
+            sim_time=float(self.mj_data.time),
+            wall_time=wall_time,
+            exit_code=ExitCode.SUCCESS if success else ExitCode.FAILED,
+            failure_mode=None if success else (self.failure_mode or FailureMode.FINAL_CHECK),
+            error_message=self.error_message,
+            seed=self._current_seed(),
+            timestamp=datetime.now().isoformat(),
+        )
+
     def reset(self, random=True):
         """重置环境和执行器状态"""
         # 重置到home位置
@@ -374,6 +419,9 @@ class UniversalRuntimeTaskExecutor:
         self.start_time = time.time()
         self.success = False
         self.viewer_closed = False  # 重置viewer关闭标志
+        # 失败模式与错误信息：让"红灯"自带排查方向，而不只是一个布尔值
+        self.failure_mode = FailureMode.NONE
+        self.error_message = None
         
         # 重置延时状态
         self.current_delay = 0.0
@@ -416,15 +464,23 @@ def create_simple_visualizer(mj_model, mj_data):
         viewer.cam.type = mujoco.mjtCamera.mjCAMERA_FIXED
     return viewer
 
-def main(robot_name="airbot_play", task_name="place_block", sync=False, once=False, headless=False):
-    """
+def main(robot_name="airbot_play", task_name="place_block", sync=False, once=False,
+         headless=False, result_json=None):
+    """运行一次（或多次）任务。
+
     Args:
         robot_name: 机械臂名称
         task_name: 任务名称
         sync: 实时同步
         once: 单次执行
         headless: 无头模式
+        result_json: 结构化结果的落盘路径；父进程据此读取结果
+
+    Returns:
+        TaskResult: 最后一轮任务的结构化结果。**调用方必须据此设置退出码**，
+        否则成败信息会在进程边界蒸发（缺陷 #2）。
     """
+    result = None
 
     print(discoverse.__logo__)
 
@@ -462,6 +518,8 @@ def main(robot_name="airbot_play", task_name="place_block", sync=False, once=Fal
             
             # 运行任务
             success = executor.run()
+            # 每轮结束立刻固化结果，避免后续异常导致结果丢失
+            result = executor.build_result()
             
             if success:
                 print(f"\n🎉 第 {task_count} 轮任务成功完成!")
@@ -483,6 +541,14 @@ def main(robot_name="airbot_play", task_name="place_block", sync=False, once=Fal
     except Exception as e:
         print(f"❌ 运行时执行失败: {e}")
         traceback.print_exc()
+        # 异常同样要产出结果，否则父进程只能靠猜
+        result = TaskResult(
+            robot=robot_name, task=task_name, success=False,
+            exit_code=ExitCode.CONFIG_ERROR,
+            failure_mode=FailureMode.CONFIG,
+            error_message=f"{type(e).__name__}: {e}",
+            timestamp=datetime.now().isoformat(),
+        )
 
     finally:
         # 关闭查看器
@@ -492,6 +558,23 @@ def main(robot_name="airbot_play", task_name="place_block", sync=False, once=Fal
                 print("🎬 查看器已关闭")
             except:
                 pass
+
+    # 兜底：连 executor 都没构造出来（如模型加载失败）
+    if result is None:
+        result = TaskResult(
+            robot=robot_name, task=task_name, success=False,
+            exit_code=ExitCode.CONFIG_ERROR,
+            failure_mode=FailureMode.CONFIG,
+            error_message="任务未产生任何结果（执行器未成功初始化）",
+            timestamp=datetime.now().isoformat(),
+        )
+
+    if result_json:
+        result.to_json(result_json)
+        print(f"📄 结构化结果已写入: {result_json}")
+
+    return result
+
 
 if __name__ == "__main__":
     import argparse
@@ -503,6 +586,13 @@ if __name__ == "__main__":
     parser.add_argument("-s", "--sync", action="store_true", help="启用实时同步模式（仿真时间与真实时间一致）")
     parser.add_argument("-1", "--once", action="store_true", help="单次执行模式（默认为循环执行）")
     parser.add_argument("--headless", action="store_true", help="无头模式运行（CICD测试用）")
+    parser.add_argument("--result-json", type=str, default=None,
+                        help="把结构化结果写入指定 JSON 文件（CICD 用）")
     args = parser.parse_args()
 
-    main(args.robot, args.task, sync=args.sync, once=args.once, headless=args.headless)
+    _result = main(args.robot, args.task, sync=args.sync, once=args.once,
+                   headless=args.headless, result_json=args.result_json)
+
+    # 缺陷 #2 修复：把成败送出进程边界。
+    # 没有这一行，main() 正常返回 -> 解释器默认退出码 0 -> CI 永远绿灯。
+    sys.exit(int(_result.exit_code))
