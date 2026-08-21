@@ -105,13 +105,26 @@ DISCOVERSE/
 ```python
 # 19 自由度控制
 action = np.zeros(19)
-action[0:2]   # 左右轮速度（差速驱动）
-action[2]     # 升降高度（0-0.87m）
-action[3:5]   # 头部云台（俯仰+偏航）
-action[5:11]  # 左臂6轴
-action[11:17] # 右臂6轴
-action[17:19] # 左右夹爪
+action[0:2]   # 左右轮【力矩】N·m（<motor> 执行器，ctrlrange ±35）
+action[2]     # 升降位置 [-0.04, 0.87]m ⚠️ 数值越大躯干越【低】
+action[3]     # 头部 yaw   [-0.5, 0.5]
+action[4]     # 头部 pitch [-1.18, 0.16]
+action[5:11]  # 左臂 6 轴
+action[11]    # 左夹爪（1 个 tendon 执行器带动两指，0=闭 1=开）
+action[12:18] # 右臂 6 轴
+action[18]    # 右夹爪
 ```
+
+> ⚠️ **以上布局由 `tests/mobile_manipulation/test_dual_arm_collision.py::test_actuator_layout_is_pinned`
+> 钉死**（实测自 `mj_id2name`，交叉验证 `mmk2_base.py:178-184`）。
+> 旧版本文档曾把右臂写成 `[11:17]`、夹爪写成 `[17:19]` —— 从第 11 位起整体错位一格。
+>
+> ⚠️ **轮子是力矩控制不是速度控制**：恒定力矩下轮速持续增长，
+> 不能假设「等速度 → 匀速直线」。里程计须从轮子编码器 `qpos[7:9]` 推算。
+>
+> ⚠️ **`MMK2Base.wheel_distance = 0.189` 是错的**，MJCF 实测轮距为 **0.3265**
+> （缺陷 Y，已由 `test_differential_drive.py` 的 xfail 钉住）。
+> 转弯里程计推算受此影响，偏航误差可达 1.94 rad。
 
 ### 4. 数据采集（`discoverse/universal_manipulation/recorder.py`）
 **功能**：
