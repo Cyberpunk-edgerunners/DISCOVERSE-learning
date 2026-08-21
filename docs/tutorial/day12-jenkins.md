@@ -921,7 +921,7 @@ environment {
 
 **那为什么还值得做？** 因为投入产出比变了：
 
-- **成本**：一个 15 行的 Dockerfile，体积几乎不增，**测试结果零变化**
+- **成本**：一个 37 行的 Dockerfile（10 行有效指令），体积几乎不增，**测试结果零变化**
 - **收益**：`egl` 这条路**被验证可用了**，而且验证过程本身挖出了 `10_nvidia.json` 这个隐藏依赖
 
 > **基础设施可以先于需求存在，前提是成本足够低且被验证过。**
@@ -935,7 +935,7 @@ environment {
 >
 > *「我把渲染后端从写死改成了运行时可选的三档（osmesa / egl / glfw），做了个加 EGL 的 GPU 镜像。**最坑的是 nvidia-container-toolkit 会注入 libEGL_nvidia.so，但不注入 GLVND 的 vendor JSON** —— 缺了那个文件，EGL 会静默退化到 Mesa 软渲染，你以为在用 GPU 其实没有。所以我在 pipeline 里加了断言，直接查 eglQueryString 的 vendor 必须是 NVIDIA。实测 EGL 比 osmesa 快 27 倍（1561 vs 57 FPS），而画面均值一致，说明是等价变换。」*
 >
-> *「**但我不会说 Jenkins 在跑 GPU 测试** —— 我当前 122 个用例没一个真的需要 GPU，两个后端跑完都是 2.7 秒。这是能力储备，成本是 15 行 Dockerfile，收益是这条路被验证过了。**基础设施可以先于需求，但不能反过来为了用显卡去编需求。**」*
+> *「**但我不会说 Jenkins 在跑 GPU 测试** —— 我当前 122 个用例没一个真的需要 GPU，两个后端跑完都是 2.7 秒。这是能力储备，成本是 37 行 Dockerfile（10 行有效指令），收益是这条路被验证过了。**基础设施可以先于需求，但不能反过来为了用显卡去编需求。**」*
 >
 > 📌 **第三段最值钱** —— 它证明你不会被自己刚做完的东西推着走。
 
@@ -1569,7 +1569,7 @@ Jenkins 的 cron 比标准 cron 多一个 **`H`（hash）**：
    ✅ 宿主机有 GPU
    ✅ nvidia-container-toolkit 装了
    ✅ GPU 透进容器（nvidia-smi 有输出）
-   ✅ 镜像里有 EGL 库          ← 今天打通（15 行 Dockerfile）
+   ✅ 镜像里有 EGL 库          ← 今天打通（37 行 Dockerfile）
    ✅ 测试能用 GPU 渲染        ← 今天打通（实测 27×）
    ❌ 有测试真的需要 GPU        ← 仍然没有，而这一层才是根本
    ```
@@ -1633,7 +1633,7 @@ Jenkins 的 cron 比标准 cron 多一个 **`H`（hash）**：
 
 ## 下一步
 
-- **Day 13-14**：重构 `cicd_testing.py` 为结构化结果契约（替换 emoji 字符串匹配）。⚠️ 今天的 JUnit XML 正好是**热身** —— 你已经见过「机器可读的结果格式」长什么样，以及**格式转换会损失信息**（141 vs 122）。
+- **Day 13-14**（[day13-14-result-contract.md](day13-14-result-contract.md)）：重构 `cicd_testing.py` 为结构化结果契约（替换 emoji 字符串匹配）。⚠️ 今天的 JUnit XML 正好是**热身** —— 你已经见过「机器可读的结果格式」长什么样，以及**格式转换会损失信息**（141 vs 122）。
 
 - **今天新增的欠账**：
   - [ ] 缺陷线索：测试往 `models/mjcf/tmp/` 写文件，导致 `:ro` 挂载不可用（7 errors）
